@@ -119,17 +119,30 @@ export default function Navbar() {
             >
                 <div className="max-w-7xl mx-auto flex items-center justify-between">
                     {/* Logo */}
-                    <Link href="/" className="flex items-center gap-3 group">
-                        <div className="relative w-10 h-10 transition-all duration-300 group-hover:scale-110">
-                            <img
-                                src="/fitbinary.png"
-                                alt="Fitbinary Logo"
-                                className="w-full h-full object-contain rounded-lg"
-                            />
-                        </div>
-                        <span className="text-xl font-bold tracking-tight text-gray-900">
-                            Fitbinary
-                        </span>
+                    <Link href="/" className="flex items-center group">
+                        <motion.div
+                            className="flex items-center gap-1"
+                            whileHover={{ scale: 1.02 }}
+                            transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                        >
+                            <div className="flex items-baseline">
+                                <span className="text-2xl font-black tracking-[-0.05em] text-gray-900 lowercase">
+                                    fitbinary
+                                </span>
+                            </div>
+
+                            {/* Premium Tech Accent: Slanted bars representing 'binary' data or movement */}
+                            <div className="flex items-center ml-1 h-6">
+                                <motion.div
+                                    className="w-[3px] h-4 bg-blue-600 rounded-full skew-x-[-12deg]"
+                                    whileHover={{ height: 20 }}
+                                />
+                                <motion.div
+                                    className="w-[3px] h-2 bg-red-600 rounded-full skew-x-[-12deg] -ml-[1px]"
+                                    whileHover={{ height: 16 }}
+                                />
+                            </div>
+                        </motion.div>
                     </Link>
 
                     {/* Desktop Navigation */}

@@ -35,15 +35,24 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                         className="fixed inset-y-0 right-0 w-full sm:w-[380px] bg-white z-[70] shadow-2xl lg:hidden flex flex-col"
                     >
                         <div className="flex items-center justify-between p-6 border-b border-gray-100">
-                            <div className="flex items-center gap-3">
-                                <div className="w-8 h-8">
-                                    <img
-                                        src="/fitbinary.png"
-                                        alt="Fitbinary Logo"
-                                        className="w-full h-full object-contain rounded-lg"
-                                    />
-                                </div>
-                                <span className="font-bold text-xl tracking-tight">Fitbinary</span>
+                            <div className="flex items-center group">
+                                <motion.div
+                                    className="flex items-center gap-1"
+                                    whileHover={{ scale: 1.02 }}
+                                    transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                                >
+                                    <div className="flex items-baseline">
+                                        <span className="text-xl font-black tracking-[-0.05em] text-gray-900 lowercase">
+                                            fitbinary
+                                        </span>
+                                    </div>
+
+                                    {/* Tech Accent Bars */}
+                                    <div className="flex items-center ml-1 h-5">
+                                        <div className="w-[2.5px] h-3.5 bg-blue-600 rounded-full skew-x-[-12deg]" />
+                                        <div className="w-[2.5px] h-2 bg-red-600 rounded-full skew-x-[-12deg] -ml-[1px]" />
+                                    </div>
+                                </motion.div>
                             </div>
                             <button
                                 onClick={onClose}
