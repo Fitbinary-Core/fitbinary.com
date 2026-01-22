@@ -10,6 +10,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
             changeFrequency: 'yearly',
             priority: 1,
         },
+        {
+            url: 'https://fitstock.fitbinary.com',
+            lastModified: new Date(),
+            changeFrequency: 'monthly',
+            priority: 0.9,
+        },
+        {
+            url: 'https://fitcloud.fitbinary.com',
+            lastModified: new Date(),
+            changeFrequency: 'monthly',
+            priority: 0.9,
+        },
+        {
+            url: 'https://accounts.fitbinary.com',
+            lastModified: new Date(),
+            changeFrequency: 'monthly',
+            priority: 0.8,
+        },
         // Add other static routes as they are created
         // {
         //   url: `${baseUrl}/about`,
