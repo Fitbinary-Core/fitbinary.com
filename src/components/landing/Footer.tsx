@@ -22,12 +22,16 @@ const FooterColumn = ({ title, links }: { title: string, links: { name: string, 
 export const Footer = () => {
     return (
         <footer className="bg-zinc-50 pt-32 pb-20 border-t border-gray-100 px-6">
-            <div className="max-w-7xl mx-auto">
+            <div className="max-w-6xl mx-auto">
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-12 mb-32">
                     <div className="col-span-2 lg:col-span-1">
-                        <div className="flex items-center gap-2 mb-8">
-                            <div className="w-10 h-10 bg-black rounded-lg flex items-center justify-center">
-                                <span className="text-white font-bold text-lg">FB</span>
+                        <div className="flex items-center gap-3 mb-8">
+                            <div className="w-10 h-10">
+                                <img
+                                    src="/fitbinary.png"
+                                    alt="Fitbinary Logo"
+                                    className="w-full h-full object-contain rounded-lg"
+                                />
                             </div>
                             <span className="text-xl font-black tracking-tighter">Fitbinary</span>
                         </div>

@@ -11,7 +11,7 @@ export const Hero = () => {
         <section className="relative pt-24 pb-24 lg:pb-40 overflow-hidden min-h-[90vh] flex items-center">
             <HeroBackground />
 
-            <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-[1fr_1.1fr] gap-16 items-center">
+            <div className="max-w-6xl mx-auto px-6 grid lg:grid-cols-[1fr_1.1fr] gap-16 items-center">
                 <motion.div
                     initial={{ opacity: 0, x: -30 }}
                     animate={{ opacity: 1, x: 0 }}

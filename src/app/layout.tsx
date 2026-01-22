@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     siteName: "Fitbinary",
     images: [
       {
-        url: "/og-image.png", // Recommended: Create and place this in public folder
+        url: "/fitbinary.png",
         width: 1200,
         height: 630,
         alt: "Fitbinary Platform Preview",
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
     title: "Fitbinary | Future of Fitness Enterprise",
     description: "Scale your fitness business with an API-first platform built for multi-tenant gym franchises.",
     creator: "@fitbinary",
-    images: ["/og-image.png"],
+    images: ["/fitbinary.png"],
   },
   robots: {
     index: true,

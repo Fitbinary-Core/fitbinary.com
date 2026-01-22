@@ -28,7 +28,7 @@ const Feature = ({ icon: Icon, title, description, color }: { icon: any, title: 
 export const Features = () => {
     return (
         <section className="py-40 bg-white px-6">
-            <div className="max-w-7xl mx-auto">
+            <div className="max-w-6xl mx-auto">
                 <div className="text-center max-w-3xl mx-auto mb-20">
                     <h2 className="text-4xl lg:text-5xl font-black tracking-tight mb-8">Platform capabilities.</h2>
                     <p className="text-lg text-gray-500 font-medium">Standard features that define high-performance systems.</p>

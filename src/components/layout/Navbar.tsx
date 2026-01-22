@@ -119,10 +119,13 @@ export default function Navbar() {
             >
                 <div className="max-w-7xl mx-auto flex items-center justify-between">
                     {/* Logo */}
-                    <Link href="/" className="flex items-center gap-2 group">
-                        <div className="relative w-10 h-10 bg-black rounded-xl flex items-center justify-center transition-all duration-300 group-hover:rotate-3 group-hover:scale-105 shadow-black/10 shadow-lg">
-                            <span className="text-white font-bold text-xl relative z-10">FB</span>
-                            <div className="absolute inset-0 bg-red-600 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity translate-x-1 translate-y-1 -z-10" />
+                    <Link href="/" className="flex items-center gap-3 group">
+                        <div className="relative w-10 h-10 transition-all duration-300 group-hover:scale-110">
+                            <img
+                                src="/fitbinary.png"
+                                alt="Fitbinary Logo"
+                                className="w-full h-full object-contain rounded-lg"
+                            />
                         </div>
                         <span className="text-xl font-bold tracking-tight text-gray-900">
                             Fitbinary
@@ -176,7 +179,7 @@ export default function Navbar() {
                     {/* Right side buttons */}
                     <div className="hidden lg:flex items-center gap-6">
                         <Link
-                            href="https://fitcloud.fitbinary.com/login"
+                            href="https://accounts.fitbinary.com/signin"
                             className="text-[14px] font-bold text-gray-600 hover:text-gray-900 transition-colors"
                         >
                             Sign in

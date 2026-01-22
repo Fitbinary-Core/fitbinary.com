@@ -35,9 +35,13 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                         className="fixed inset-y-0 right-0 w-full sm:w-[380px] bg-white z-[70] shadow-2xl lg:hidden flex flex-col"
                     >
                         <div className="flex items-center justify-between p-6 border-b border-gray-100">
-                            <div className="flex items-center gap-2">
-                                <div className="w-8 h-8 bg-black rounded-lg flex items-center justify-center">
-                                    <span className="text-white font-bold text-sm">FB</span>
+                            <div className="flex items-center gap-3">
+                                <div className="w-8 h-8">
+                                    <img
+                                        src="/fitbinary.png"
+                                        alt="Fitbinary Logo"
+                                        className="w-full h-full object-contain rounded-lg"
+                                    />
                                 </div>
                                 <span className="font-bold text-xl tracking-tight">Fitbinary</span>
                             </div>
