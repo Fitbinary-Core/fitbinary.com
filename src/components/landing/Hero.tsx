@@ -1,12 +1,164 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
-import { ArrowRight, Terminal, BarChart, Users } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ArrowRight, Terminal, BarChart, Users, Package, Code } from "lucide-react";
 import { HeroBackground } from "@/components/ui/HeroBackground";
 
+interface HeroSlide {
+    badge: string;
+    headline: {
+        before: string;
+        highlight: string;
+        after: string;
+    };
+    description: string;
+    primaryCTA: {
+        text: string;
+        href: string;
+    };
+    secondaryCTA: {
+        text: string;
+        href: string;
+    };
+    theme: {
+        badgeBg: string;
+        badgeBorder: string;
+        badgeText: string;
+        highlightText: string;
+        buttonBg: string;
+        buttonHoverBg: string;
+    };
+}
+
+const heroSlides: HeroSlide[] = [
+    {
+        badge: "Platform v2.0 Live",
+        headline: {
+            before: "Future of",
+            highlight: "Fitness",
+            after: "Enterprise."
+        },
+        description: "Scale your fitness business with an API-first platform. Built for multi-tenant gym franchises, smart inventory, and real-time operational excellence.",
+        primaryCTA: {
+            text: "Launch Platform",
+            href: "/get-started"
+        },
+        secondaryCTA: {
+            text: "Request Demo",
+            href: "/demo"
+        },
+        theme: {
+            badgeBg: "bg-blue-50",
+            badgeBorder: "border-blue-100",
+            badgeText: "text-blue-600",
+            highlightText: "text-blue-600",
+            buttonBg: "bg-blue-600",
+            buttonHoverBg: "bg-blue-700"
+        }
+    },
+    {
+        badge: "Smart Inventory Live",
+        headline: {
+            before: "Intelligent",
+            highlight: "Inventory",
+            after: "Management."
+        },
+        description: "Streamline your supply chain with real-time stock tracking, automated reordering, and predictive analytics. Built for multi-location fitness operations.",
+        primaryCTA: {
+            text: "Explore Inventory",
+            href: "/features/inventory"
+        },
+        secondaryCTA: {
+            text: "See Demo",
+            href: "/demo"
+        },
+        theme: {
+            badgeBg: "bg-red-50",
+            badgeBorder: "border-red-100",
+            badgeText: "text-red-600",
+            highlightText: "text-red-600",
+            buttonBg: "bg-black",
+            buttonHoverBg: "bg-red-600"
+        }
+    },
+    {
+        badge: "Trusted by 500+ Gyms",
+        headline: {
+            before: "The",
+            highlight: "Fitbinary",
+            after: "Platform."
+        },
+        description: "One unified platform for gym management, member engagement, inventory control, and business intelligence. Everything you need to run a modern fitness enterprise.",
+        primaryCTA: {
+            text: "Get Started",
+            href: "/get-started"
+        },
+        secondaryCTA: {
+            text: "View Pricing",
+            href: "/pricing"
+        },
+        theme: {
+            badgeBg: "bg-red-50",
+            badgeBorder: "border-red-100",
+            badgeText: "text-red-600",
+            highlightText: "text-red-600",
+            buttonBg: "bg-black",
+            buttonHoverBg: "bg-red-600"
+        }
+    },
+    {
+        badge: "API-First Architecture",
+        headline: {
+            before: "Built for",
+            highlight: "Developers",
+            after: "& Scale."
+        },
+        description: "RESTful APIs, webhooks, and SDKs for seamless integrations. Build custom solutions on top of our enterprise-grade infrastructure.",
+        primaryCTA: {
+            text: "API Docs",
+            href: "/developers"
+        },
+        secondaryCTA: {
+            text: "Start Building",
+            href: "/get-started"
+        },
+        theme: {
+            badgeBg: "bg-red-50",
+            badgeBorder: "border-red-100",
+            badgeText: "text-red-600",
+            highlightText: "text-red-600",
+            buttonBg: "bg-black",
+            buttonHoverBg: "bg-red-600"
+        }
+    }
+];
+
 export const Hero = () => {
+    const [currentSlide, setCurrentSlide] = useState(0);
+    const [dragStart, setDragStart] = useState(0);
+
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
+        }, 5000);
+
+        return () => clearInterval(timer);
+    }, []);
+
+    const handleDragEnd = (_: any, info: { offset: { x: number } }) => {
+        const swipeThreshold = 50;
+
+        if (info.offset.x > swipeThreshold) {
+            setCurrentSlide((prev) => (prev - 1 + heroSlides.length) % heroSlides.length);
+        } else if (info.offset.x < -swipeThreshold) {
+            setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
+        }
+    };
+
+    const slide = heroSlides[currentSlide];
+
     return (
         <section className="relative pt-24 pb-24 lg:pb-40 overflow-hidden min-h-[90vh] flex items-center">
             <HeroBackground />
@@ -17,38 +169,95 @@ export const Hero = () => {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.8 }}
                     className="flex flex-col items-start"
+                    drag="x"
+                    dragConstraints={{ left: 0, right: 0 }}
+                    dragElastic={0.2}
+                    onDragEnd={handleDragEnd}
                 >
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-50 border border-red-100 text-red-600 mb-8">
-                        <span className="flex w-2 h-2 rounded-full bg-red-600 animate-pulse" />
-                        <span className="text-[12px] font-bold tracking-tight uppercase">Platform v2.0 Live</span>
-                    </div>
-
-                    <h1 className="text-5xl lg:text-7xl font-extrabold tracking-tight mb-8 leading-[1.05]">
-                        Future of <span className="text-red-600">Fitness</span> <br />
-                        Enterprise.
-                    </h1>
-                    <p className="text-xl text-gray-600 mb-12 leading-relaxed max-w-lg font-medium">
-                        Scale your fitness business with an API-first platform. Built for multi-tenant gym franchises, smart inventory, and real-time operational excellence.
-                    </p>
-
-                    <div className="flex flex-wrap items-center gap-6">
-                        <Link
-                            href="/get-started"
-                            className="group relative px-10 py-5 rounded-full overflow-hidden bg-black text-white hover:scale-105 transition-transform active:scale-95 shadow-2xl shadow-black/10"
+                    <AnimatePresence mode="wait">
+                        <motion.div
+                            key={`badge-${currentSlide}`}
+                            initial={{ opacity: 0, y: -10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: 10 }}
+                            transition={{ duration: 0.3 }}
+                            className={`inline-flex items-center gap-2 px-3 py-1 rounded-full ${slide.theme.badgeBg} border ${slide.theme.badgeBorder} ${slide.theme.badgeText} mb-8`}
                         >
-                            <div className="absolute inset-0 bg-red-600 translate-x-[-100%] transition-transform duration-300 group-hover:translate-x-0" />
-                            <span className="relative z-10 font-bold text-lg flex items-center gap-2">
-                                Launch Platform
-                                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                            </span>
-                        </Link>
-                        <Link
-                            href="/demo"
-                            className="text-lg font-bold text-gray-900 border-2 border-transparent hover:border-gray-900 px-8 py-5 rounded-full transition-all flex items-center gap-2 group"
+                            <span className={`flex w-2 h-2 rounded-full ${slide.theme.badgeText.replace('text-', 'bg-')} animate-pulse`} />
+                            <span className="text-[12px] font-bold tracking-tight uppercase">{slide.badge}</span>
+                        </motion.div>
+                    </AnimatePresence>
+
+                    <AnimatePresence mode="wait">
+                        <motion.h1
+                            key={`headline-${currentSlide}`}
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -20 }}
+                            transition={{ duration: 0.4 }}
+                            className="text-5xl lg:text-7xl font-extrabold tracking-tight mb-8 leading-[1.05]"
                         >
-                            Request Demo
-                            <ArrowRight className="w-5 h-5 opacity-0 group-hover:opacity-100 transition-opacity" />
-                        </Link>
+                            {slide.headline.before} <span className={slide.theme.highlightText}>{slide.headline.highlight}</span>{" "}
+                            <br />
+                            {slide.headline.after}
+                        </motion.h1>
+                    </AnimatePresence>
+
+                    <AnimatePresence mode="wait">
+                        <motion.p
+                            key={`description-${currentSlide}`}
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -20 }}
+                            transition={{ duration: 0.4, delay: 0.1 }}
+                            className="text-xl text-gray-600 mb-12 leading-relaxed max-w-lg font-medium"
+                        >
+                            {slide.description}
+                        </motion.p>
+                    </AnimatePresence>
+
+                    <AnimatePresence mode="wait">
+                        <motion.div
+                            key={`cta-${currentSlide}`}
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -20 }}
+                            transition={{ duration: 0.4, delay: 0.2 }}
+                            className="flex flex-wrap items-center gap-6"
+                        >
+                            <Link
+                                href={slide.primaryCTA.href}
+                                className={`group relative px-10 py-5 rounded-full overflow-hidden ${slide.theme.buttonBg} text-white hover:scale-105 transition-transform active:scale-95 shadow-2xl shadow-black/10`}
+                            >
+                                <div className={`absolute inset-0 ${slide.theme.buttonHoverBg} translate-x-[-100%] transition-transform duration-300 group-hover:translate-x-0`} />
+                                <span className="relative z-10 font-bold text-lg flex items-center gap-2">
+                                    {slide.primaryCTA.text}
+                                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                                </span>
+                            </Link>
+                            <Link
+                                href={slide.secondaryCTA.href}
+                                className="text-lg font-bold text-gray-900 border-2 border-transparent hover:border-gray-900 px-8 py-5 rounded-full transition-all flex items-center gap-2 group"
+                            >
+                                {slide.secondaryCTA.text}
+                                <ArrowRight className="w-5 h-5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                            </Link>
+                        </motion.div>
+                    </AnimatePresence>
+
+                    {/* Slide indicators */}
+                    <div className="flex gap-2 mt-8">
+                        {heroSlides.map((_, index) => (
+                            <button
+                                key={index}
+                                onClick={() => setCurrentSlide(index)}
+                                className={`h-1.5 rounded-full transition-all ${index === currentSlide
+                                    ? `w-8 ${slide.theme.highlightText.replace('text-', 'bg-')}`
+                                    : "w-1.5 bg-gray-300"
+                                    }`}
+                                aria-label={`Go to slide ${index + 1}`}
+                            />
+                        ))}
                     </div>
                 </motion.div>
 

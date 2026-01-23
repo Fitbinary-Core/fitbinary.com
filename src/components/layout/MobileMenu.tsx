@@ -111,7 +111,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
 
                         <div className="p-6 border-t border-gray-100 bg-gray-50/50 flex flex-col gap-4">
                             <Link
-                                href="https://fitcloud.fitbinary.com/login"
+                                href="https://accounts.fitbinary.com/signin"
                                 className="w-full py-4 text-center text-[14px] font-bold text-gray-900 border border-gray-200 bg-white rounded-2xl hover:bg-gray-50 transition-all active:scale-95"
                             >
                                 Sign in
