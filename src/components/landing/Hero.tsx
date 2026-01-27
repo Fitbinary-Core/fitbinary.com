@@ -34,13 +34,14 @@ interface HeroSlide {
 
 const heroSlides: HeroSlide[] = [
     {
-        badge: "Platform v2.0 Live",
+        badge: "Platform v2.0",
         headline: {
-            before: "Future of",
+            before: "Modern Software for",
             highlight: "Fitness",
-            after: "Enterprise."
+            after: "Operations."
         },
-        description: "Scale your fitness business with an API-first platform. Built for multi-tenant gym franchises, smart inventory, and real-time operational excellence.",
+        description:
+            "Run memberships, billing, and daily gym operations on a unified platform built for reliability and long-term scale.",
         primaryCTA: {
             text: "Launch Platform",
             href: "/get-started"
@@ -59,13 +60,14 @@ const heroSlides: HeroSlide[] = [
         }
     },
     {
-        badge: "Smart Inventory Live",
+        badge: "Inventory Module",
         headline: {
-            before: "Intelligent",
+            before: "Unified",
             highlight: "Inventory",
-            after: "Management."
+            after: "Control."
         },
-        description: "Streamline your supply chain with real-time stock tracking, automated reordering, and predictive analytics. Built for multi-location fitness operations.",
+        description:
+            "Track stock, monitor usage, and manage inventory across locations with clear visibility and consistent data.",
         primaryCTA: {
             text: "Explore Inventory",
             href: "/features/inventory"
@@ -84,13 +86,14 @@ const heroSlides: HeroSlide[] = [
         }
     },
     {
-        badge: "Trusted by 500+ Gyms",
+        badge: "Built for Growing Teams",
         headline: {
             before: "The",
             highlight: "Fitbinary",
             after: "Platform."
         },
-        description: "One unified platform for gym management, member engagement, inventory control, and business intelligence. Everything you need to run a modern fitness enterprise.",
+        description:
+            "A centralized system for gym management, member records, billing, and operational insights — designed to scale with your business.",
         primaryCTA: {
             text: "Get Started",
             href: "/get-started"
@@ -109,13 +112,14 @@ const heroSlides: HeroSlide[] = [
         }
     },
     {
-        badge: "API-First Architecture",
+        badge: "Developer-Focused",
         headline: {
-            before: "Built for",
-            highlight: "Developers",
-            after: "& Scale."
+            before: "Built with",
+            highlight: "APIs",
+            after: "at the Core."
         },
-        description: "RESTful APIs, webhooks, and SDKs for seamless integrations. Build custom solutions on top of our enterprise-grade infrastructure.",
+        description:
+            "Structured APIs and webhooks that support integrations with websites, mobile apps, and internal systems.",
         primaryCTA: {
             text: "API Docs",
             href: "/developers"

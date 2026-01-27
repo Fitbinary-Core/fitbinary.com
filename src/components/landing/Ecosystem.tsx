@@ -18,16 +18,22 @@ export const Ecosystem = () => {
                             FitCloud Platform
                         </div>
                         <h2 className="text-4xl lg:text-6xl font-black tracking-tight mb-8">
-                            Enterprise management <br />
-                            <span className="text-blue-600">at any scale.</span>
+                            Operations management <br />
+                            <span className="text-blue-600">for growing gyms.</span>
                         </h2>
                         <p className="text-lg text-gray-600 leading-relaxed mb-10 font-medium">
-                            Unified multi-tenant architecture designed to handle billions of request permutations. Manage membership cycles, branch-specific access controls, and automated financial reconciliation from a single source of truth.
+                            A centralized platform to manage memberships, billing, and daily operations across one or multiple locations. Built to stay reliable as your business grows.
                         </p>
                         <div className="grid sm:grid-cols-2 gap-8">
                             {[
-                                { title: "Multi-branch Sync", description: "Real-time state management across all your locations." },
-                                { title: "Advanced Billing", description: "Automated recurring payments with smart retry logic." }
+                                {
+                                    title: "Multi-location Control",
+                                    description: "Manage members and settings across locations with consistent data."
+                                },
+                                {
+                                    title: "Billing & Subscriptions",
+                                    description: "Recurring payments with clear visibility into renewals and failures."
+                                }
                             ].map(f => (
                                 <div key={f.title} className="flex gap-4">
                                     <CheckCircle2 className="w-6 h-6 text-blue-600 shrink-0" />
@@ -38,7 +44,10 @@ export const Ecosystem = () => {
                                 </div>
                             ))}
                         </div>
-                        <Link href="https://fitcloud.fitbinary.com" className="inline-flex items-center gap-2 mt-12 text-blue-600 font-black text-lg hover:underline underline-offset-8">
+                        <Link
+                            href="https://fitcloud.fitbinary.com"
+                            className="inline-flex items-center gap-2 mt-12 text-blue-600 font-black text-lg hover:underline underline-offset-8"
+                        >
                             Learn more about FitCloud <ArrowRight className="w-5 h-5" />
                         </Link>
                     </motion.div>
@@ -66,27 +75,41 @@ export const Ecosystem = () => {
                                     <div className="w-12 h-12 bg-red-600 rounded-full" />
                                 </div>
                                 <div className="grid grid-cols-3 gap-4">
-                                    {[1, 2, 3].map(i => <div key={i} className="h-24 bg-gray-50 rounded-xl" />)}
+                                    {[1, 2, 3].map(i => (
+                                        <div key={i} className="h-24 bg-gray-50 rounded-xl" />
+                                    ))}
                                 </div>
                                 <div className="w-full h-32 bg-gray-50 rounded-xl" />
                             </div>
                         </div>
                     </div>
-                    <motion.div variants={fadeInUp} initial="initial" whileInView="whileInView" viewport={{ once: true }} className="order-1 lg:order-2">
+                    <motion.div
+                        variants={fadeInUp}
+                        initial="initial"
+                        whileInView="whileInView"
+                        viewport={{ once: true }}
+                        className="order-1 lg:order-2"
+                    >
                         <div className="inline-block px-4 py-1.5 mb-6 text-[12px] font-bold tracking-widest text-red-600 uppercase bg-red-50 rounded-full border border-red-100">
                             FitStock Inventory
                         </div>
                         <h2 className="text-4xl lg:text-6xl font-black tracking-tight mb-8">
-                            Predictive logistics <br />
-                            <span className="text-red-600">for supplements.</span>
+                            Inventory control <br />
+                            <span className="text-red-600">built for your business.</span>
                         </h2>
                         <p className="text-lg text-gray-600 leading-relaxed mb-10 font-medium">
-                            Eliminate supply chain friction. FitStock uses advanced forecasting models to automate purchase orders, manage vendor performance, and optimize warehouse space for max efficiency.
+                            Track products, monitor usage trends, and manage restocking across locations without manual spreadsheets or guesswork.
                         </p>
                         <div className="grid sm:grid-cols-2 gap-8">
                             {[
-                                { title: "Smart Replenish", description: "Automated ordering based on usage frequency." },
-                                { title: "Supplier Portal", description: "Unified dashboard for all your vendor communication." }
+                                {
+                                    title: "Usage-Based Restock",
+                                    description: "Order decisions informed by real consumption data."
+                                },
+                                {
+                                    title: "Vendor Management",
+                                    description: "Keep supplier details, pricing, and order history in one place."
+                                }
                             ].map(f => (
                                 <div key={f.title} className="flex gap-4">
                                     <CheckCircle2 className="w-6 h-6 text-red-600 shrink-0" />
@@ -97,7 +120,10 @@ export const Ecosystem = () => {
                                 </div>
                             ))}
                         </div>
-                        <Link href="https://fitstock.fitbinary.com" className="inline-flex items-center gap-2 mt-12 text-red-600 font-black text-lg hover:underline underline-offset-8">
+                        <Link
+                            href="https://fitstock.fitbinary.com"
+                            className="inline-flex items-center gap-2 mt-12 text-red-600 font-black text-lg hover:underline underline-offset-8"
+                        >
                             Learn more about FitStock <ArrowRight className="w-5 h-5" />
                         </Link>
                     </motion.div>
