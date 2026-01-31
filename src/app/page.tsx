@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import { Hero } from "@/components/landing/Hero";
 import { TrustedBy } from "@/components/landing/TrustedBy";
 import { Ecosystem } from "@/components/landing/Ecosystem";

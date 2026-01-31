@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown, Cloud, Package, Briefcase, Zap, Shield, Users, Target, BarChart3, Globe } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -95,9 +96,14 @@ export const navItems = [
 ];
 
 export default function Navbar() {
+    const pathname = usePathname();
     const [isScrolled, setIsScrolled] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+
+    if (pathname === "/StaffLogin" || pathname === "/userlogin") {
+        return null;
+    }
 
     useEffect(() => {
         const handleScroll = () => {
