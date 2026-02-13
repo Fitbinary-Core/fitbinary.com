@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   },
 
   openGraph: {
-    title: "Fitbinary | Business Operations Suite for Gyms & Retail",
+    title: "Fitbinary | Business Operations Suite for Fitness Centers & Retail",
     description:
       "Run operations with Fitbinary: FitCloud for gym management and FitStock for inventory management—built for multi-branch businesses.",
     url: "https://fitbinary.com",

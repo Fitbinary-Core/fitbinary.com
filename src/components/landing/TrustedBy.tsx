@@ -1,7 +1,5 @@
 "use client";
 
-import React from "react";
-
 const partners = ["IRONCORE", "NEOFLOW", "VERTEX", "AQUAFIT", "TITAN"];
 
 export const TrustedBy = () => {

@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen bg-white font-sans text-gray-900 selection:bg-red-100 selection:text-red-900">
       <Hero />
-      <TrustedBy />
+      {/* <TrustedBy /> */}
       <Ecosystem />
       <Developers />
       <Features />

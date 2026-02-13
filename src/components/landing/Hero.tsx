@@ -1,16 +1,9 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import {
-  ArrowRight,
-  Terminal,
-  BarChart,
-  Users,
-  Package,
-  Code,
-} from "lucide-react";
+import { ArrowRight, Terminal, BarChart, Users } from "lucide-react";
 import { HeroBackground } from "@/components/ui/HeroBackground";
 
 interface HeroSlide {
@@ -107,7 +100,7 @@ const heroSlides: HeroSlide[] = [
     },
     secondaryCTA: {
       text: "View Pricing",
-      href: "/pricing",
+      href: "/get-started",
     },
     theme: {
       badgeBg: "bg-red-50",
@@ -273,10 +266,11 @@ export const Hero = () => {
               <button
                 key={index}
                 onClick={() => setCurrentSlide(index)}
-                className={`h-1.5 rounded-full transition-all ${index === currentSlide
+                className={`h-1.5 rounded-full transition-all ${
+                  index === currentSlide
                     ? `w-8 ${slide.theme.highlightText.replace("text-", "bg-")}`
                     : "w-1.5 bg-gray-300"
-                  }`}
+                }`}
                 aria-label={`Go to slide ${index + 1}`}
               />
             ))}
@@ -324,7 +318,7 @@ export const Hero = () => {
                   ))}
                 </div>
               </div>
-              {/* Floating Terminal-like badge */}
+
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-black rounded-lg px-4 py-2 flex items-center gap-2 shadow-2xl">
                 <Terminal className="w-4 h-4 text-red-500" />
                 <span className="text-white text-[10px] font-mono">
