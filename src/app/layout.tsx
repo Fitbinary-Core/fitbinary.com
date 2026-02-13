@@ -20,12 +20,12 @@ export const metadata: Metadata = {
   applicationName: "Fitbinary",
 
   title: {
-    default: "Fitbinary | Enterprise Gym & Fitness Management Software",
+    default: "Fitbinary | Business Operations Suite for Gyms & Retail",
     template: "%s | Fitbinary",
   },
 
   description:
-    "Fitbinary is a multi-tenant gym and fitness management platform built for franchises and enterprises. Manage members, inventory, billing, and operations from one unified system.",
+    "Fitbinary is a modern business software suite. FitCloud helps gyms manage members, billing, and operations. FitStock manages inventory, purchasing, transfers, and stock analytics across branches.",
 
   authors: [{ name: "Fitbinary Inc." }],
   creator: "Fitbinary Inc.",
@@ -42,9 +42,9 @@ export const metadata: Metadata = {
   },
 
   openGraph: {
-    title: "Fitbinary | Enterprise Gym & Fitness Management Software",
+    title: "Fitbinary | Business Operations Suite for Gyms & Retail",
     description:
-      "A modern, scalable platform for gym franchises and fitness enterprises to manage members, inventory, billing, and daily operations.",
+      "Run operations with Fitbinary: FitCloud for gym management and FitStock for inventory management—built for multi-branch businesses.",
     url: "https://fitbinary.com",
     siteName: "Fitbinary",
     images: [
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
         url: "https://fitbinary.com/fitbinary.png",
         width: 1200,
         height: 630,
-        alt: "Fitbinary Platform Overview",
+        alt: "Fitbinary Suite (FitCloud + FitStock)",
       },
     ],
     locale: "en_US",
@@ -61,9 +61,9 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "Fitbinary | Enterprise Gym & Fitness Management Software",
+    title: "Fitbinary | Business Operations Suite for Gyms & Retail",
     description:
-      "Scale and manage gym franchises with a unified fitness management platform built for modern enterprises.",
+      "FitCloud for gym management. FitStock for inventory. One suite for multi-branch operations.",
     images: ["https://fitbinary.com/fitbinary.png"],
     creator: "@fitbinary",
   },

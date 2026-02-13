@@ -42,10 +42,10 @@ export const Footer = () => {
                     <FooterColumn
                         title="Products"
                         links={[
-                            { name: "FitCloud", href: "https://fitcloud.fitbinary.com" },
-                            { name: "FitStock", href: "https://fitstock.fitbinary.com" },
-                            { name: "Mobile App", href: "#" },
-                            { name: "Developer APIs", href: "#" }
+                            { name: "FitCloud", href: "/fitcloud" },
+                            { name: "FitStock", href: "/fitstock" },
+                            { name: "Accounts", href: "/accounts" },
+                            { name: "Mobile App", href: "#" }
                         ]}
                     />
                     <FooterColumn
@@ -69,7 +69,7 @@ export const Footer = () => {
                     <FooterColumn
                         title="Company"
                         links={[
-                            { name: "About Us", href: "#" },
+                            { name: "About Us", href: "/about" },
                             { name: "Careers", href: "#" },
                             { name: "Contact", href: "#" },
                             { name: "Privacy Policy", href: "#" }

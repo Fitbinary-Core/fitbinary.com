@@ -50,12 +50,12 @@ const heroSlides: HeroSlide[] = [
     description:
       "Run memberships, billing, and daily gym operations on a unified platform built for reliability and long-term scale.",
     primaryCTA: {
-      text: "Launch Platform",
-      href: "/get-started",
+      text: "Explore FitCloud",
+      href: "/fitcloud",
     },
     secondaryCTA: {
-      text: "Request Demo",
-      href: "/demo",
+      text: "Get Started",
+      href: "/get-started",
     },
     theme: {
       badgeBg: "bg-blue-50",
@@ -76,8 +76,8 @@ const heroSlides: HeroSlide[] = [
     description:
       "Track stock, monitor usage, and manage inventory across locations with clear visibility and consistent data.",
     primaryCTA: {
-      text: "Explore Inventory",
-      href: "/features/inventory",
+      text: "Explore FitStock",
+      href: "/fitstock",
     },
     secondaryCTA: {
       text: "See Demo",
@@ -273,11 +273,10 @@ export const Hero = () => {
               <button
                 key={index}
                 onClick={() => setCurrentSlide(index)}
-                className={`h-1.5 rounded-full transition-all ${
-                  index === currentSlide
+                className={`h-1.5 rounded-full transition-all ${index === currentSlide
                     ? `w-8 ${slide.theme.highlightText.replace("text-", "bg-")}`
                     : "w-1.5 bg-gray-300"
-                }`}
+                  }`}
                 aria-label={`Go to slide ${index + 1}`}
               />
             ))}

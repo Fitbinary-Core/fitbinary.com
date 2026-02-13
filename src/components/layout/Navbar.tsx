@@ -17,7 +17,7 @@ export const navItems = [
             {
                 name: "FitCloud",
                 description: "A comprehensive multi-tenant platform designed for scaling fitness franchises. Manage multiple branches, staff permissions, and member subscriptions with real-time synchronized data processing.",
-                href: "https://fitcloud.fitbinary.com",
+                href: "/fitcloud",
                 icon: Cloud,
                 color: "text-blue-600",
                 bg: "bg-blue-50",
@@ -25,7 +25,7 @@ export const navItems = [
             {
                 name: "FitStock",
                 description: "Intelligent inventory and supply chain management for gym equipment and supplements. Features automated restocking alerts, vendor portals, and detailed warehouse analytics to prevent stockouts.",
-                href: "https://fitstock.fitbinary.com",
+                href: "/fitstock",
                 icon: Package,
                 color: "text-red-600",
                 bg: "bg-red-50",
@@ -93,6 +93,7 @@ export const navItems = [
         ],
     },
     { title: "Pricing", href: "/pricing" },
+    { title: "About", href: "/about" },
 ];
 
 export default function Navbar() {

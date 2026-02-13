@@ -2,35 +2,36 @@ import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://fitbinary.com";
+  const lastModified = "2026-02-14T03:00:00.000Z";
 
   return [
     {
       url: baseUrl,
-      lastModified: new Date(),
+      lastModified,
       changeFrequency: "yearly",
       priority: 1,
     },
     {
-      url: "https://fitstock.fitbinary.com",
-      lastModified: new Date(),
+      url: `${baseUrl}/fitcloud`,
+      lastModified,
       changeFrequency: "monthly",
       priority: 0.9,
     },
     {
-      url: "https://fitcloud.fitbinary.com",
-      lastModified: new Date(),
+      url: `${baseUrl}/fitstock`,
+      lastModified,
       changeFrequency: "monthly",
       priority: 0.9,
     },
     {
-      url: "https://accounts.fitbinary.com",
-      lastModified: new Date(),
+      url: `${baseUrl}/accounts`,
+      lastModified,
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
       url: `${baseUrl}/about`,
-      lastModified: new Date(),
+      lastModified,
       changeFrequency: "monthly",
       priority: 0.8,
     },
