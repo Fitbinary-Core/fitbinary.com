@@ -3,8 +3,9 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, Terminal, BarChart, Users } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { HeroBackground } from "@/components/ui/HeroBackground";
+import { AccountsDemo } from "./demos/AccountsDemo";
 
 interface HeroSlide {
   badge: string;
@@ -141,7 +142,6 @@ const heroSlides: HeroSlide[] = [
 
 export const Hero = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [dragStart, setDragStart] = useState(0);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -266,11 +266,10 @@ export const Hero = () => {
               <button
                 key={index}
                 onClick={() => setCurrentSlide(index)}
-                className={`h-1.5 rounded-full transition-all ${
-                  index === currentSlide
+                className={`h-1.5 rounded-full transition-all ${index === currentSlide
                     ? `w-8 ${slide.theme.highlightText.replace("text-", "bg-")}`
                     : "w-1.5 bg-gray-300"
-                }`}
+                  }`}
                 aria-label={`Go to slide ${index + 1}`}
               />
             ))}
@@ -284,48 +283,8 @@ export const Hero = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="relative"
         >
-          <div className="relative z-10 bg-white rounded-4xl border border-gray-200 shadow-2xl p-4 overflow-hidden">
-            <div className="bg-gray-50 rounded-2xl w-full aspect-[1.1] border border-gray-100 flex items-center justify-center relative overflow-hidden">
-              {/* Decorative Dashboard Elements */}
-              <div className="absolute top-8 left-8 right-8 h-32 bg-white rounded-xl shadow-sm border border-gray-100 p-6">
-                <div className="w-1/2 h-4 bg-gray-100 rounded-full mb-4" />
-                <div className="flex gap-2">
-                  <div className="w-8 h-8 rounded-lg bg-red-50" />
-                  <div className="w-8 h-8 rounded-lg bg-blue-50" />
-                  <div className="w-8 h-8 rounded-lg bg-gray-100" />
-                </div>
-              </div>
-              <div className="absolute bottom-8 left-8 w-40 h-48 bg-white rounded-xl shadow-sm border border-gray-100 p-4">
-                <div className="w-full h-24 bg-red-600/10 rounded-lg mb-4 flex items-center justify-center">
-                  <BarChart className="w-8 h-8 text-red-600" />
-                </div>
-                <div className="w-full h-2 bg-gray-100 rounded-full mb-2" />
-                <div className="w-2/3 h-2 bg-gray-100 rounded-full" />
-              </div>
-              <div className="absolute top-48 right-8 w-48 h-56 bg-white rounded-xl shadow-sm border border-gray-100 p-4">
-                <div className="flex items-center gap-2 mb-4">
-                  <div className="w-8 h-8 rounded-full bg-blue-600/10 flex items-center justify-center">
-                    <Users className="w-4 h-4 text-blue-600" />
-                  </div>
-                  <div className="w-2/3 h-2 bg-gray-100 rounded-full" />
-                </div>
-                <div className="space-y-3">
-                  {[1, 2, 3, 4].map((i) => (
-                    <div
-                      key={i}
-                      className="w-full h-2 bg-gray-50 rounded-full"
-                    />
-                  ))}
-                </div>
-              </div>
-
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-black rounded-lg px-4 py-2 flex items-center gap-2 shadow-2xl">
-                <Terminal className="w-4 h-4 text-red-500" />
-                <span className="text-white text-[10px] font-mono">
-                  fitbinary init success
-                </span>
-              </div>
-            </div>
+          <div className="relative z-10 w-full h-[500px] lg:h-auto lg:aspect-[1.4] rounded-2xl shadow-2xl overflow-hidden border border-gray-200 bg-white">
+            <AccountsDemo />
           </div>
         </motion.div>
       </div>

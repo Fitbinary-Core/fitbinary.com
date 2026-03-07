@@ -43,7 +43,7 @@ export const Developers = () => {
                         </div>
                         <span className="text-zinc-500 text-xs ml-4">api_initialization.js</span>
                     </div>
-                    <div className="p-8 text-zinc-300">
+                    <div className="p-4 sm:p-8 text-zinc-300 overflow-x-auto">
                         <div className="mb-4">
                             <span className="text-red-400">const</span> fitbinary = <span className="text-blue-400">require</span>(<span className="text-amber-200">'fitbinary-node'</span>);
                         </div>

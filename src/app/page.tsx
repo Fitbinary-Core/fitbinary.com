@@ -1,7 +1,7 @@
 "use client";
 
 import { Hero } from "@/components/landing/Hero";
-import { TrustedBy } from "@/components/landing/TrustedBy";
+// import { TrustedBy } from "@/components/landing/TrustedBy";
 import { Ecosystem } from "@/components/landing/Ecosystem";
 import { Developers } from "@/components/landing/Developers";
 import { Features } from "@/components/landing/Features";
