@@ -9,7 +9,7 @@ import { FitStockDemo } from "./demos/FitStockDemo";
 
 export const Ecosystem = () => {
   return (
-    <section className="pb-40 px-6">
+    <section className="pb-40 pt-6 px-6">
       <div className="max-w-6xl mx-auto space-y-30">
         {/* FitCloud Section */}
         <div className="grid lg:grid-cols-[1.2fr_1fr] gap-20 items-center">

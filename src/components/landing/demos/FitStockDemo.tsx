@@ -13,7 +13,7 @@ export const FitStockDemo = () => {
               </div>
             </div>
             <span className="text-slate-900 font-bold tracking-tight text-sm">
-              Light Weight
+              Organization Name
             </span>
           </div>
         </div>
@@ -80,7 +80,7 @@ export const FitStockDemo = () => {
                 label: "Print Barcodes",
                 icon: "M12 4v16m8-8H4",
                 hasSub: false,
-              }, // Custom icon representation
+              },
             ].map((item, i) => (
               <div
                 key={i}
@@ -147,14 +147,14 @@ export const FitStockDemo = () => {
         <div className="mt-auto p-4 border-t border-slate-100">
           <div className="rounded-lg p-2 flex items-center gap-3 hover:bg-slate-50 cursor-pointer transition-colors">
             <div className="w-9 h-9 rounded-full bg-red-100 text-red-600 flex items-center justify-center font-bold text-xs shrink-0 border border-red-200">
-              NB
+              JD
             </div>
             <div className="flex-1 overflow-hidden">
               <div className="text-slate-900 text-xs font-bold truncate">
-                Nabaraj Basnet
+                John Doe
               </div>
               <div className="text-slate-500 text-[10px] truncate">
-                manager@fitstock...
+                johndoe@fitstock...
               </div>
             </div>
             <svg
@@ -226,11 +226,11 @@ export const FitStockDemo = () => {
             </div>
             <div className="flex items-center gap-2">
               <div className="w-9 h-9 rounded-full bg-red-600 text-white flex items-center justify-center font-bold text-sm shrink-0 shadow-md shadow-red-600/20">
-                NB
+                JD
               </div>
               <div className="hidden sm:block">
                 <div className="text-xs font-bold text-slate-900 leading-tight">
-                  Nabaraj Basnet
+                  John Doe
                 </div>
                 <div className="text-[10px] text-slate-500 font-medium">
                   Branch Manager
@@ -246,23 +246,8 @@ export const FitStockDemo = () => {
             <div className="relative z-10 flex flex-col sm:flex-row justify-between items-start gap-4 sm:gap-0">
               <div>
                 <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 mb-3">
-                  Welcome back, Nabaraj
+                  Welcome back, John
                 </h1>
-                <div className="flex flex-wrap items-center gap-3 mb-4">
-                  <span className="text-xs font-bold text-slate-600 px-2 py-1 bg-slate-100 rounded">
-                    Light Weight
-                  </span>
-                  <span className="w-1 h-1 rounded-full bg-slate-300"></span>
-                  <span className="text-xs font-medium text-slate-500">
-                    US East
-                  </span>
-                  <span className="text-xs font-medium text-slate-500 bg-slate-100 px-2 py-0.5 rounded">
-                    Bhaktapur 1
-                  </span>
-                </div>
-                <p className="text-slate-500 text-sm">
-                  Here's your performance overview for today.
-                </p>
               </div>
               <div className="px-4 py-2.5 bg-[#0a0f1c] text-white rounded-lg text-sm font-bold shadow-md cursor-pointer flex items-center gap-2 hover:bg-slate-900 transition-colors shrink-0">
                 <svg

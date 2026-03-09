@@ -6,7 +6,7 @@ import { Terminal, Globe } from "lucide-react";
 export const Developers = () => {
     return (
         <section className="py-40 bg-black text-white px-6 overflow-hidden relative">
-            <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-blue-600/10 rounded-full blur-[150px] -z-0" />
+            <div className="absolute top-0 right-0 w-200 h-200 bg-blue-600/10 rounded-full blur-[150px] z-0" />
             <div className="max-w-6xl mx-auto grid lg:grid-cols-[1fr_1.3fr] gap-20 items-center relative z-10">
                 <div>
                     <div className="text-red-500 font-bold mb-4 tracking-widest uppercase text-xs">Architected for Speed</div>
