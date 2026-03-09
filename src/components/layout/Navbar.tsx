@@ -115,24 +115,26 @@ export default function Navbar() {
                   )}
                 </Link>
 
-                <AnimatePresence>
-                  {item.dropdown && activeDropdown === item.title && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 15, scale: 0.98 }}
-                      animate={{ opacity: 1, y: 0, scale: 1 }}
-                      exit={{ opacity: 0, y: 10, scale: 0.98 }}
-                      transition={{
-                        duration: 0.25,
-                        ease: [0.23, 1, 0.32, 1],
-                      }}
-                      className="absolute left-1/2 -translate-x-1/2 top-full pt-4 w-120"
-                    >
-                      <div className="bg-white rounded-3xl shadow-[0_20px_50px_-12px_rgba(0,0,0,0.12)] border border-gray-100 p-5 ring-1 ring-black/5 overflow-hidden">
-                        <NavMenu items={item.dropdown} />
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+                {item.dropdown && (
+                  <motion.div
+                    initial={false}
+                    animate={{
+                      opacity: activeDropdown === item.title ? 1 : 0,
+                      y: activeDropdown === item.title ? 0 : 10,
+                      scale: activeDropdown === item.title ? 1 : 0.98,
+                      pointerEvents: activeDropdown === item.title ? "auto" : "none",
+                    }}
+                    transition={{
+                      duration: 0.25,
+                      ease: [0.23, 1, 0.32, 1],
+                    }}
+                    className="absolute left-1/2 -translate-x-1/2 top-full pt-4 w-120 z-50"
+                  >
+                    <div className="bg-white rounded-3xl shadow-[0_20px_50px_-12px_rgba(0,0,0,0.12)] border border-gray-100 p-5 ring-1 ring-black/5 overflow-hidden">
+                      <NavMenu items={item.dropdown} />
+                    </div>
+                  </motion.div>
+                )}
               </div>
             ))}
           </nav>
