@@ -8,29 +8,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: baseUrl,
       lastModified,
-      changeFrequency: "yearly",
+      changeFrequency: "weekly",
       priority: 1,
     },
     {
       url: `${baseUrl}/fitcloud`,
       lastModified,
-      changeFrequency: "monthly",
+      changeFrequency: "weekly",
       priority: 0.9,
     },
     {
       url: `${baseUrl}/fitstock`,
       lastModified,
-      changeFrequency: "monthly",
+      changeFrequency: "weekly",
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/accounts`,
-      lastModified,
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/about`,
+      url: `${baseUrl}/pricing`,
       lastModified,
       changeFrequency: "monthly",
       priority: 0.8,
@@ -39,25 +33,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${baseUrl}/docs`,
       lastModified,
       changeFrequency: "monthly",
-      priority: 0.7,
+      priority: 0.8,
     },
     {
-      url: `${baseUrl}/community`,
+      url: `${baseUrl}/contact`,
       lastModified,
       changeFrequency: "monthly",
       priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/get-started`,
-      lastModified,
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/demo`,
-      lastModified,
-      changeFrequency: "monthly",
-      priority: 0.9,
     },
   ];
 }

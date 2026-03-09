@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { Menu, ChevronDown, Cloud, Package } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { NavMenu } from "@/components/layout/NavMenu";
@@ -33,15 +33,29 @@ export const navItems = [
       },
     ],
   },
+  { title: "Pricing", href: "/pricing" },
   { title: "Docs", href: "/docs" },
-  { title: "Community", href: "/community" },
-  { title: "About", href: "/about" },
+  { title: "Contact", href: "/contact" },
 ];
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const closeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  const handleMouseEnter = (title: string) => {
+    if (closeTimeoutRef.current) {
+      clearTimeout(closeTimeoutRef.current);
+    }
+    setActiveDropdown(title);
+  };
+
+  const handleMouseLeave = () => {
+    closeTimeoutRef.current = setTimeout(() => {
+      setActiveDropdown(null);
+    }, 300);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -90,53 +104,56 @@ export default function Navbar() {
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-1">
-            {navItems.map((item) => (
-              <div
-                key={item.title}
-                className="relative"
-                onMouseEnter={() => setActiveDropdown(item.title)}
-                onMouseLeave={() => setActiveDropdown(null)}
-              >
-                <Link
-                  href={item.href}
-                  className={cn(
-                    "px-4 py-2 text-[14px] font-semibold text-gray-600 hover:text-gray-900 rounded-full flex items-center gap-1 transition-all",
-                    activeDropdown === item.title && "text-gray-900",
-                  )}
+            <ul className="flex items-center gap-1 m-0 p-0 list-none">
+              {navItems.map((item) => (
+                <li
+                  key={item.title}
+                  className="relative group"
+                  onMouseEnter={() => handleMouseEnter(item.title)}
+                  onMouseLeave={handleMouseLeave}
                 >
-                  {item.title}
-                  {item.dropdown && (
-                    <ChevronDown
-                      className={cn(
-                        "w-3.5 h-3.5 transition-transform duration-300",
-                        activeDropdown === item.title && "rotate-180",
-                      )}
-                    />
-                  )}
-                </Link>
-
-                {item.dropdown && (
-                  <motion.div
-                    initial={false}
-                    animate={{
-                      opacity: activeDropdown === item.title ? 1 : 0,
-                      y: activeDropdown === item.title ? 0 : 10,
-                      scale: activeDropdown === item.title ? 1 : 0.98,
-                      pointerEvents: activeDropdown === item.title ? "auto" : "none",
-                    }}
-                    transition={{
-                      duration: 0.25,
-                      ease: [0.23, 1, 0.32, 1],
-                    }}
-                    className="absolute left-1/2 -translate-x-1/2 top-full pt-4 w-120 z-50"
+                  <Link
+                    href={item.href}
+                    className={cn(
+                      "px-4 py-2 text-[14px] font-semibold text-gray-600 hover:text-gray-900 rounded-full flex items-center gap-1 transition-all",
+                      activeDropdown === item.title && "text-gray-900"
+                    )}
                   >
-                    <div className="bg-white rounded-3xl shadow-[0_20px_50px_-12px_rgba(0,0,0,0.12)] border border-gray-100 p-5 ring-1 ring-black/5 overflow-hidden">
-                      <NavMenu items={item.dropdown} />
-                    </div>
-                  </motion.div>
-                )}
-              </div>
-            ))}
+                    {item.title}
+                    {item.dropdown && (
+                      <ChevronDown
+                        className={cn(
+                          "w-3.5 h-3.5 transition-transform duration-300",
+                          activeDropdown === item.title && "rotate-180",
+                        )}
+                      />
+                    )}
+                  </Link>
+                  {item.dropdown && (
+                    <motion.div
+                      initial={false}
+                      animate={{
+                        opacity: activeDropdown === item.title ? 1 : 0,
+                        y: activeDropdown === item.title ? 0 : 10,
+                        scale: activeDropdown === item.title ? 1 : 0.98,
+                        pointerEvents: activeDropdown === item.title ? "auto" : "none",
+                      }}
+                      transition={{
+                        duration: 0.25,
+                        ease: [0.23, 1, 0.32, 1],
+                      }}
+                      className="fixed left-0 right-0 top-18 w-full z-50 pt-2"
+                    >
+                      <div className="w-full mx-auto">
+                        <div className="bg-white rounded-md shadow-[0_24px_60px_-15px_rgba(0,0,0,0.1)] border border-gray-100 p-4 ring-1 ring-black/5 overflow-hidden">
+                          <NavMenu items={item.dropdown} />
+                        </div>
+                      </div>
+                    </motion.div>
+                  )}
+                </li>
+              ))}
+            </ul>
           </nav>
 
           {/* Right side buttons */}

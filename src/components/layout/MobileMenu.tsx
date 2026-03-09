@@ -23,7 +23,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         onClick={onClose}
-                        className="fixed inset-0 bg-black/40 backdrop-blur-md z-[60] lg:hidden"
+                        className="fixed inset-0 bg-black/40 backdrop-blur-md z-60 lg:hidden"
                     />
 
                     {/* Sidebar */}
@@ -32,7 +32,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                         animate={{ x: 0 }}
                         exit={{ x: "100%" }}
                         transition={{ type: "spring", damping: 30, stiffness: 300 }}
-                        className="fixed inset-y-0 right-0 w-full sm:w-[380px] bg-white z-[70] shadow-2xl lg:hidden flex flex-col"
+                        className="fixed inset-y-0 right-0 w-full sm:w-95 bg-white z-70 shadow-2xl lg:hidden flex flex-col"
                     >
                         <div className="flex items-center justify-between p-6 border-b border-gray-100">
                             <div className="flex items-center group">
@@ -49,8 +49,8 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
 
                                     {/* Tech Accent Bars */}
                                     <div className="flex items-center ml-1 h-5">
-                                        <div className="w-[2.5px] h-3.5 bg-blue-600 rounded-full skew-x-[-12deg]" />
-                                        <div className="w-[2.5px] h-2 bg-red-600 rounded-full skew-x-[-12deg] -ml-[1px]" />
+                                        <div className="w-[2.5px] h-3.5 bg-blue-600 rounded-full -skew-x-12" />
+                                        <div className="w-[2.5px] h-2 bg-red-600 rounded-full -skew-x-12 -ml-px" />
                                     </div>
                                 </motion.div>
                             </div>
