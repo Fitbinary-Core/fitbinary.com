@@ -142,7 +142,7 @@ export default function Navbar() {
                         duration: 0.25,
                         ease: [0.23, 1, 0.32, 1],
                       }}
-                      className="fixed left-0 right-0 top-18 w-full z-50 pt-2"
+                      className="fixed left-0 right-0 top-15 w-full z-50 pt-2"
                     >
                       <div className="w-full mx-auto">
                         <div className="bg-white rounded-md shadow-[0_24px_60px_-15px_rgba(0,0,0,0.1)] border border-gray-100 p-4 ring-1 ring-black/5 overflow-hidden">
