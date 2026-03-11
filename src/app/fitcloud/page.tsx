@@ -12,27 +12,31 @@ import {
   Globe,
 } from "lucide-react";
 import { fadeInUp, stagger } from "@/components/landing/animations";
+import { Footer } from "@/components/landing/Footer";
 
 export default function FitCloudPage() {
   return (
-    <div className="bg-white">
+    <div className="flex flex-col min-h-screen bg-white font-sans text-gray-900 selection:bg-blue-100 selection:text-blue-900">
       {/* Hero Section */}
-      <section className="relative pt-32 pb-24 px-6 overflow-hidden">
-        <div className="max-w-6xl mx-auto">
+      <section className="relative pt-40 pb-20 px-6 overflow-hidden bg-slate-50">
+        <div className="absolute inset-0 bg-gradient-to-b from-white/40 via-white/20 to-white/60 z-0 pointer-events-none" />
+        <div className="max-w-4xl mx-auto text-center relative z-10">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center max-w-4xl mx-auto"
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8 }}
           >
-            <div className="inline-block px-4 py-1.5 mb-6 text-[12px] font-bold tracking-widest text-blue-600 uppercase bg-blue-50 rounded-full border border-blue-100">
-              FitCloud Platform
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-slate-600 mb-6 font-bold shadow-sm">
+              <span className="flex w-2.5 h-2.5 rounded-full bg-blue-500 animate-pulse" />
+              <span className="text-[13px] tracking-tight uppercase">
+                FitCloud Platform
+              </span>
             </div>
-            <h1 className="text-5xl lg:text-7xl text-blue-700 font-black tracking-tight mb-8">
+            <h1 className="text-5xl sm:text-7xl font-black tracking-tight mb-8 text-slate-900 leading-[1.1]">
               Gym management software <br />
-              <span className="text-gray-800">built for growth.</span>
+              <span className="text-blue-600">built for growth.</span>
             </h1>
-            <p className="text-xl text-gray-600 leading-relaxed mb-12 font-medium max-w-3xl mx-auto">
+            <p className="text-xl text-slate-600 leading-relaxed font-medium mb-10 max-w-2xl mx-auto">
               A centralized platform to manage memberships, billing, and daily
               operations across one or multiple locations. Built to stay
               reliable as your business grows.
@@ -40,9 +44,9 @@ export default function FitCloudPage() {
             <div className="flex flex-wrap justify-center gap-6">
               <Link
                 href="https://fitcloud.fitbinary.com"
-                className="group relative px-10 py-5 rounded-full overflow-hidden bg-blue-600 text-white hover:scale-105 transition-transform active:scale-95 shadow-2xl shadow-blue-600/20"
+                className="group relative px-10 py-5 rounded-full overflow-hidden bg-blue-600 text-white hover:scale-105 transition-transform active:scale-95 shadow-xl shadow-blue-600/20"
               >
-                <div className="absolute inset-0 bg-blue-700 -translate-x-100 transition-transform duration-300 group-hover:translate-x-0" />
+                <div className="absolute inset-0 bg-blue-700 -translate-x-full transition-transform duration-300 group-hover:translate-x-0" />
                 <span className="relative z-10 font-bold text-lg flex items-center gap-2">
                   Launch FitCloud
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -50,23 +54,24 @@ export default function FitCloudPage() {
               </Link>
               <Link
                 href="/get-started"
-                className="px-10 py-5 bg-white text-gray-900 border-2 border-gray-100 rounded-full font-bold text-lg hover:border-blue-600 transition-all"
+                className="px-10 py-5 bg-white text-gray-900 border border-gray-200 rounded-full font-bold text-lg hover:border-gray-300 hover:bg-gray-50 transition-all active:scale-95 shadow-sm"
               >
                 Contact Sales
               </Link>
             </div>
           </motion.div>
         </div>
+        <div className="absolute bottom-0 inset-x-0 h-32 bg-gradient-to-b from-transparent to-white z-10 pointer-events-none" />
       </section>
 
       {/* Core Features */}
-      <section className="py-24 px-6 bg-gray-50">
+      <section className="py-24 px-6 bg-white relative z-20 top-[-2rem]">
         <div className="max-w-6xl mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-4xl lg:text-5xl text-gray-900 font-black tracking-tight mb-6">
               Everything you need to run your gym.
             </h2>
-            <p className="text-lg text-gray-600 font-medium">
+            <p className="text-xl text-gray-500 font-medium">
               From member check-ins to billing automation, FitCloud handles the
               operational details so you can focus on your members.
             </p>
@@ -85,58 +90,58 @@ export default function FitCloudPage() {
                 title: "Member Management",
                 description:
                   "Complete member profiles with registration, renewals, and attendance tracking.",
-                color: "bg-blue-50 text-blue-600",
+                color: "bg-blue-50 text-blue-600 shadow-blue-500/10",
               },
               {
                 icon: CreditCard,
                 title: "Billing & Payments",
                 description:
                   "Automated recurring billing with clear visibility into payment status and renewals.",
-                color: "bg-red-50 text-red-600",
+                color: "bg-indigo-50 text-indigo-600 shadow-indigo-500/10",
               },
               {
                 icon: Calendar,
                 title: "Membership Plans",
                 description:
                   "Flexible plan structures for monthly, quarterly, and annual memberships.",
-                color: "bg-gray-100 text-gray-900",
+                color: "bg-sky-50 text-sky-600 shadow-sky-500/10",
               },
               {
                 icon: Users,
                 title: "Trainer Management",
                 description:
                   "Assign trainers, track sessions, and manage staff schedules efficiently.",
-                color: "bg-blue-50 text-blue-600",
+                color: "bg-purple-50 text-purple-600 shadow-purple-500/10",
               },
               {
                 icon: BarChart,
                 title: "Reports & Analytics",
                 description:
                   "Performance insights on memberships, attendance trends, and revenue growth.",
-                color: "bg-red-50 text-red-600",
+                color: "bg-blue-50 text-blue-600 shadow-blue-500/10",
               },
               {
                 icon: Globe,
                 title: "Multi-Branch Operations",
                 description:
                   "Manage multiple gym locations with consistent data and centralized control.",
-                color: "bg-gray-100 text-gray-900",
+                color: "bg-gray-100 text-gray-900 shadow-gray-500/10",
               },
             ].map((feature, i) => (
               <motion.div
                 key={i}
                 variants={fadeInUp}
-                className="group p-6 rounded-2xl hover:bg-white hover:shadow-xl transition-all border border-transparent hover:border-gray-100"
+                className="group p-8 rounded-3xl bg-white shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] transition-all border border-gray-100 hover:border-gray-200"
               >
                 <div
-                  className={`w-12 h-12 rounded-xl flex items-center justify-center mb-6 transition-transform group-hover:scale-110 ${feature.color}`}
+                  className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-6 transition-transform group-hover:scale-110 shadow-lg ${feature.color}`}
                 >
-                  <feature.icon className="w-6 h-6" />
+                  <feature.icon className="w-7 h-7" />
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">
+                <h3 className="text-xl font-bold text-gray-900 mb-3">
                   {feature.title}
                 </h3>
-                <p className="text-sm text-gray-600 leading-relaxed font-medium">
+                <p className="text-base text-gray-500 leading-relaxed font-medium">
                   {feature.description}
                 </p>
               </motion.div>
@@ -146,17 +151,23 @@ export default function FitCloudPage() {
       </section>
 
       {/* Use Cases */}
-      <section className="py-24 px-6">
+      <section className="py-24 px-6 bg-gray-50">
         <div className="max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-20 items-center">
-            <div>
-              <h2 className="text-4xl lg:text-5xl text-blue-600 font-black tracking-tight mb-8">
-                Built for gyms of all sizes.
+            <motion.div
+              variants={fadeInUp}
+              initial="initial"
+              whileInView="whileInView"
+              viewport={{ once: true }}
+            >
+              <h2 className="text-4xl lg:text-5xl font-black tracking-tight mb-8">
+                Built for{" "}
+                <span className="text-blue-600">gyms of all sizes.</span>
               </h2>
-              <p className="text-lg text-gray-600 leading-relaxed mb-10 font-medium">
+              <p className="text-xl text-gray-600 leading-relaxed mb-10 font-medium">
                 Whether you're running a single boutique studio or managing a
-                multi-branch franchise, FitCloud scales with your business
-                needs.
+                multi-branch franchise, FitCloud scales with your business needs
+                effortlessly.
               </p>
               <div className="space-y-6">
                 {[
@@ -165,33 +176,44 @@ export default function FitCloudPage() {
                   "Boutique fitness centers",
                   "Corporate wellness programs",
                 ].map((item, i) => (
-                  <div key={i} className="flex gap-4 items-start">
-                    <CheckCircle2 className="w-6 h-6 text-blue-600 shrink-0 mt-0.5" />
-                    <span className="text-gray-900 font-medium">{item}</span>
+                  <div key={i} className="flex gap-4 items-center">
+                    <CheckCircle2 className="w-6 h-6 text-blue-600 shrink-0" />
+                    <span className="text-gray-900 font-bold text-lg">
+                      {item}
+                    </span>
                   </div>
                 ))}
               </div>
-            </div>
-            <div className="bg-blue-50/50 rounded-[40px] aspect-[1.2] border border-blue-100 relative overflow-hidden p-12">
-              <div className="w-full h-full bg-white rounded-2xl shadow-xl border border-blue-200/50 p-6">
-                <div className="space-y-4">
-                  <div className="w-full h-12 bg-gray-50 rounded-xl" />
-                  <div className="flex gap-4">
-                    <div className="w-1/3 h-40 bg-gray-50 rounded-xl" />
-                    <div className="flex-1 h-40 bg-blue-50 rounded-xl" />
+            </motion.div>
+            <motion.div
+              variants={fadeInUp}
+              initial="initial"
+              whileInView="whileInView"
+              viewport={{ once: true }}
+              className="bg-white rounded-[40px] shadow-[0_20px_60px_-15px_rgba(37,99,235,0.1)] border border-blue-50 relative overflow-hidden p-12 lg:p-16 h-[500px] flex items-center justify-center"
+            >
+              <div className="absolute top-0 right-0 p-8 opacity-5 blur-2xl pointer-events-none">
+                <Globe className="w-64 h-64 text-blue-600" />
+              </div>
+              <div className="w-full relative z-10 bg-gray-50 rounded-3xl shadow-lg border border-gray-100 p-8">
+                <div className="space-y-6">
+                  <div className="w-full h-12 bg-white rounded-xl shadow-sm border border-gray-100" />
+                  <div className="flex gap-6">
+                    <div className="w-1/3 h-40 bg-white rounded-xl shadow-sm border border-gray-100" />
+                    <div className="flex-1 h-40 bg-blue-50 rounded-xl shadow-inner border border-blue-100/50" />
                   </div>
-                  <div className="w-full h-20 bg-gray-50 rounded-xl" />
+                  <div className="w-full h-20 bg-white rounded-xl shadow-sm border border-gray-100" />
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
 
       {/* FAQ Section */}
-      <section className="py-24 px-6 bg-gray-50">
+      <section className="py-24 px-6 bg-white">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl font-black text-gray-900 mb-16 text-center">
+          <h2 className="text-4xl lg:text-5xl font-black text-gray-900 mb-16 text-center">
             Frequently Asked Questions
           </h2>
           <div className="space-y-6">
@@ -219,9 +241,9 @@ export default function FitCloudPage() {
             ].map((faq, i) => (
               <div
                 key={i}
-                className="bg-white border border-gray-100 p-8 rounded-2xl shadow-sm"
+                className="bg-gray-50 border border-transparent p-8 rounded-3xl hover:bg-white hover:shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:border-gray-200 transition-all"
               >
-                <h3 className="text-lg font-bold text-gray-900 mb-4">
+                <h3 className="text-xl font-bold text-gray-900 mb-4">
                   {faq.q}
                 </h3>
                 <p className="text-gray-600 leading-relaxed font-medium">
@@ -234,17 +256,17 @@ export default function FitCloudPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 px-6">
+      <section className="py-24 px-6 bg-gray-50">
         <div className="max-w-6xl mx-auto text-center">
-          <div className="bg-blue-600 rounded-[3rem] py-20 px-6 relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl" />
+          <div className="bg-blue-600 rounded-[3rem] py-24 px-6 relative overflow-hidden group shadow-[0_20px_60px_-15px_rgba(37,99,235,0.4)]">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl group-hover:bg-white/20 transition-colors" />
             <div className="absolute bottom-0 left-0 w-64 h-64 bg-black/10 rounded-full translate-y-1/2 -translate-x-1/2 blur-3xl" />
-            <h2 className="text-4xl lg:text-5xl font-black text-white mb-8 relative z-10 leading-tight">
-              Ready to modernize your gym operations?
+            <h2 className="text-4xl lg:text-6xl font-black text-white mb-10 relative z-10 leading-tight">
+              Ready to modernize your <br /> gym operations?
             </h2>
             <Link
               href="https://fitcloud.fitbinary.com"
-              className="inline-flex items-center gap-2 px-10 py-5 bg-white text-blue-600 rounded-full font-bold text-lg hover:bg-gray-50 transition-all shadow-2xl relative z-10"
+              className="inline-flex items-center gap-2 px-10 py-5 bg-white text-blue-600 rounded-full font-bold text-lg hover:bg-gray-50 transition-all shadow-2xl relative z-10 active:scale-95 group-hover:gap-3"
             >
               Launch FitCloud
               <ArrowRight className="w-5 h-5" />
@@ -252,6 +274,9 @@ export default function FitCloudPage() {
           </div>
         </div>
       </section>
+
+      {/* Footer */}
+      <Footer />
 
       {/* Schema.org JSON-LD */}
       <script

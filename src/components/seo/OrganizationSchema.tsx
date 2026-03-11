@@ -27,7 +27,7 @@ export const OrganizationSchema = () => {
         "https://fitcloud.fitbinary.com",
         "https://accounts.fitbinary.com",
         "https://twitter.com/fitbinary",
-        "https://linkedin.com/company/fitbinary"
+        "https://linkedin.com/company/fitbinary",
       ],
     },
     relatedLink: [

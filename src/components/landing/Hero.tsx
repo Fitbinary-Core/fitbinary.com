@@ -174,7 +174,7 @@ export const Hero = () => {
     <div className="relative w-full min-h-screen overflow-hidden bg-slate-50">
       <div className="absolute inset-0 z-0 opacity-70">
         <LiquidEther
-          colors={['#5227FF', '#FF9FFC', '#B19EEF']}
+          colors={["#5227FF", "#FF9FFC", "#B19EEF"]}
           mouseForce={25}
           cursorSize={120}
           isViscous={false}
@@ -194,12 +194,10 @@ export const Hero = () => {
       </div>
 
       <div className="absolute inset-0 bg-gradient-to-b from-white/40 via-white/20 to-white/60 z-0 pointer-events-none" />
-      
-      {/* Smooth fade from the animated hero background into the next section's solid white background */}
+
       <div className="absolute bottom-0 inset-x-0 h-48 bg-gradient-to-b from-transparent to-white z-10 pointer-events-none" />
 
       <section className="relative w-full overflow-hidden flex flex-col items-center z-10">
-
         <div className="w-full max-w-5xl mx-auto px-6 pt-28 flex flex-col items-center text-center relative z-20">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
@@ -293,10 +291,11 @@ export const Hero = () => {
               <button
                 key={index}
                 onClick={() => setCurrentSlide(index)}
-                className={`h-2 rounded-full transition-all duration-300 ${index === currentSlide
-                  ? `w-10 ${slide.theme.highlightText.replace("text-", "bg-")}`
-                  : "w-2.5 bg-slate-300 hover:bg-slate-400"
-                  }`}
+                className={`h-2 rounded-full transition-all duration-300 ${
+                  index === currentSlide
+                    ? `w-10 ${slide.theme.highlightText.replace("text-", "bg-")}`
+                    : "w-2.5 bg-slate-300 hover:bg-slate-400"
+                }`}
                 aria-label={`Go to slide ${index + 1}`}
               />
             ))}

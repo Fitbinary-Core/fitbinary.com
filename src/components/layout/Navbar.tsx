@@ -33,7 +33,7 @@ export const navItems = [
       },
     ],
   },
-  { title: "Pricing", href: "/pricing" },
+  { title: "About Us", href: "/about" },
   { title: "Docs", href: "/docs" },
   { title: "Contact", href: "/contact" },
 ];
@@ -116,7 +116,7 @@ export default function Navbar() {
                     href={item.href}
                     className={cn(
                       "px-4 py-2 text-[14px] font-semibold text-gray-600 hover:text-gray-900 rounded-full flex items-center gap-1 transition-all",
-                      activeDropdown === item.title && "text-gray-900"
+                      activeDropdown === item.title && "text-gray-900",
                     )}
                   >
                     {item.title}
@@ -136,7 +136,8 @@ export default function Navbar() {
                         opacity: activeDropdown === item.title ? 1 : 0,
                         y: activeDropdown === item.title ? 0 : 10,
                         scale: activeDropdown === item.title ? 1 : 0.98,
-                        pointerEvents: activeDropdown === item.title ? "auto" : "none",
+                        pointerEvents:
+                          activeDropdown === item.title ? "auto" : "none",
                       }}
                       transition={{
                         duration: 0.25,

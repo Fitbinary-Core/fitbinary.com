@@ -58,7 +58,6 @@ export const Footer = () => {
             links={[
               { name: "FitCloud", href: "/fitcloud" },
               { name: "FitStock", href: "/fitstock" },
-              { name: "Pricing", href: "/pricing" },
               { name: "Accounts", href: "https://accounts.fitbinary.com" },
             ]}
           />
