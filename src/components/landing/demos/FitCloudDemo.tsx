@@ -1,3 +1,5 @@
+"use client";
+
 export const FitCloudDemo = () => {
   return (
     <div className="flex h-full w-full bg-slate-50 overflow-hidden font-sans text-sm rounded-xl border border-gray-200 shadow-2xl">

@@ -1,11 +1,8 @@
-"use client";
-
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
-import { fadeInUp } from "./animations";
 import { FitCloudDemo } from "./demos/FitCloudDemo";
 import { FitStockDemo } from "./demos/FitStockDemo";
+import { FadeIn } from "./FadeIn";
 
 export default function Ecosystem() {
   return (
@@ -13,12 +10,7 @@ export default function Ecosystem() {
       <div className="max-w-6xl mx-auto space-y-30">
         {/* FitCloud Section */}
         <div className="grid lg:grid-cols-[1.2fr_1fr] gap-20 items-center">
-          <motion.div
-            variants={fadeInUp}
-            initial="initial"
-            whileInView="whileInView"
-            viewport={{ once: true }}
-          >
+          <FadeIn>
             <div className="inline-block px-4 py-1.5 mb-6 text-[12px] font-bold tracking-widest text-blue-600 uppercase bg-blue-50 rounded-full border border-blue-100">
               FitCloud Platform
             </div>
@@ -61,7 +53,7 @@ export default function Ecosystem() {
             >
               Learn more about FitCloud <ArrowRight className="w-5 h-5" />
             </Link>
-          </motion.div>
+          </FadeIn>
         </div>
         <div className="w-full h-150 sm:h-175">
           <FitCloudDemo />
@@ -69,13 +61,7 @@ export default function Ecosystem() {
 
         {/* FitStock Section */}
         <div className="grid lg:grid-cols-[1fr_1.2fr] gap-20 items-center">
-          <motion.div
-            variants={fadeInUp}
-            initial="initial"
-            whileInView="whileInView"
-            viewport={{ once: true }}
-            className="order-1 lg:order-2"
-          >
+          <FadeIn className="order-1 lg:order-2">
             <div className="inline-block px-4 py-1.5 mb-6 text-[12px] font-bold tracking-widest text-red-600 uppercase bg-red-50 rounded-full border border-red-100">
               FitStock Inventory
             </div>
@@ -117,7 +103,7 @@ export default function Ecosystem() {
             >
               Learn more about FitStock <ArrowRight className="w-5 h-5" />
             </Link>
-          </motion.div>
+          </FadeIn>
         </div>
         <div className="w-full h-150 sm:h-175">
           <FitStockDemo />

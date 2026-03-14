@@ -1,3 +1,5 @@
+"use client";
+
 export const FitStockDemo = () => {
   return (
     <div className="flex h-full w-full bg-[#f8f9fc] overflow-hidden font-sans text-sm rounded-xl border border-gray-200 shadow-2xl">

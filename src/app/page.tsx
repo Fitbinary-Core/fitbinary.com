@@ -1,10 +1,8 @@
-import dynamic from "next/dynamic";
 import { Hero } from "@/components/landing/Hero";
-
-const Ecosystem = dynamic(() => import("@/components/landing/Ecosystem"));
-const Developers = dynamic(() => import("@/components/landing/Developers"));
-const Features = dynamic(() => import("@/components/landing/Features"));
-const Footer = dynamic(() => import("@/components/landing/Footer"));
+import Ecosystem from "@/components/landing/Ecosystem";
+import Developers from "@/components/landing/Developers";
+import Features from "@/components/landing/Features";
+import Footer from "@/components/landing/Footer";
 
 export default function Home() {
   return (

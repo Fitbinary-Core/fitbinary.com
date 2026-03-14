@@ -1,6 +1,3 @@
-"use client";
-
-import { motion } from "framer-motion";
 import {
   ShieldCheck,
   Cpu,
@@ -12,7 +9,7 @@ import {
   Zap,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { fadeInUp, stagger } from "./animations";
+import { FadeIn, StaggerContainer } from "./FadeIn";
 
 const Feature = ({
   icon: Icon,
@@ -25,10 +22,7 @@ const Feature = ({
   description: string;
   color: string;
 }) => (
-  <motion.div
-    variants={fadeInUp}
-    className="group p-6 rounded-2xl hover:bg-white hover:shadow-xl transition-all border border-transparent hover:border-gray-100"
-  >
+  <FadeIn className="group p-6 rounded-2xl hover:bg-white hover:shadow-xl transition-all border border-transparent hover:border-gray-100">
     <div
       className={cn(
         "w-12 h-12 rounded-xl flex items-center justify-center mb-6 transition-transform group-hover:scale-110",
@@ -41,7 +35,7 @@ const Feature = ({
     <p className="text-sm text-gray-500 leading-relaxed font-medium">
       {description}
     </p>
-  </motion.div>
+  </FadeIn>
 );
 
 export default function Features() {
@@ -58,13 +52,7 @@ export default function Features() {
           </p>
         </div>
 
-        <motion.div
-          variants={stagger}
-          initial="initial"
-          whileInView="whileInView"
-          viewport={{ once: true }}
-          className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8"
-        >
+        <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
           <Feature
             icon={ShieldCheck}
             title="Secure by Design"
@@ -120,7 +108,7 @@ export default function Features() {
             description="Get started quickly with guided onboarding for gyms, branches, and staff."
             color="bg-blue-50 text-blue-600"
           />
-        </motion.div>
+        </StaggerContainer>
       </div>
     </section>
   );
