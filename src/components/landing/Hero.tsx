@@ -290,11 +290,10 @@ export const Hero = () => {
               <button
                 key={index}
                 onClick={() => setCurrentSlide(index)}
-                className={`h-2 rounded-full transition-all duration-300 ${
-                  index === currentSlide
+                className={`h-2 rounded-full transition-all duration-300 ${index === currentSlide
                     ? `w-10 ${slide.theme.highlightText.replace("text-", "bg-")}`
                     : "w-2.5 bg-slate-300 hover:bg-slate-400"
-                }`}
+                  }`}
                 aria-label={`Go to slide ${index + 1}`}
               />
             ))}
