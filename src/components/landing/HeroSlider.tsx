@@ -43,8 +43,8 @@ export const HeroSlider = ({ slides }: { slides: HeroSlide[] }) => {
         />
       </div>
 
-      <div className="absolute inset-0 bg-liner-to-b from-white/40 via-white/20 to-white/60 z-0 pointer-events-none" />
-      <div className="absolute bottom-0 inset-x-0 h-48 bg-liner-to-b from-transparent to-white z-10 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-white/40 via-white/20 to-white/60 z-0 pointer-events-none" />
+      <div className="absolute bottom-0 inset-x-0 h-48 bg-gradient-to-b from-transparent to-white z-10 pointer-events-none" />
 
       <section className="relative w-full overflow-hidden flex flex-col items-center z-10">
         <div className="w-full max-w-5xl mx-auto px-6 pt-28 flex flex-col items-center text-center relative z-20">
