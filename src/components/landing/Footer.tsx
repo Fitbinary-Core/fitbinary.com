@@ -29,7 +29,7 @@ const FooterColumn = ({
   </div>
 );
 
-export const Footer = () => {
+export default function Footer() {
   return (
     <footer className="bg-zinc-50 pt-32 pb-14 border-t border-gray-100">
       <div className="max-w-6xl mx-auto px-6">
@@ -103,4 +103,4 @@ export const Footer = () => {
       </div>
     </footer>
   );
-};
+}

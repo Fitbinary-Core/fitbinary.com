@@ -12,14 +12,14 @@ import {
   AlertCircle,
 } from "lucide-react";
 import { fadeInUp, stagger } from "@/components/landing/animations";
-import { Footer } from "@/components/landing/Footer";
+import Footer from "@/components/landing/Footer";
 
 export default function FitStockPage() {
   return (
     <div className="flex flex-col min-h-screen bg-white font-sans text-gray-900 selection:bg-red-100 selection:text-red-900">
       {/* Hero Section */}
       <section className="relative pt-40 pb-20 px-6 overflow-hidden bg-slate-50">
-        <div className="absolute inset-0 bg-gradient-to-b from-white/40 via-white/20 to-white/60 z-0 pointer-events-none" />
+        <div className="absolute inset-0 bg-liner-to-b from-white/40 via-white/20 to-white/60 z-0 pointer-events-none" />
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
@@ -61,11 +61,11 @@ export default function FitStockPage() {
             </div>
           </motion.div>
         </div>
-        <div className="absolute bottom-0 inset-x-0 h-32 bg-gradient-to-b from-transparent to-white z-10 pointer-events-none" />
+        <div className="absolute bottom-0 inset-x-0 h-32 bg-liner-to-b from-transparent to-white z-10 pointer-events-none" />
       </section>
 
       {/* Core Features */}
-      <section className="py-24 px-6 bg-white relative z-20 top-[-2rem]">
+      <section className="py-24 px-6 bg-white relative z-20 -top-8">
         <div className="max-w-6xl mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-4xl lg:text-5xl text-gray-900 font-black tracking-tight mb-6">
@@ -159,7 +159,7 @@ export default function FitStockPage() {
               initial="initial"
               whileInView="whileInView"
               viewport={{ once: true }}
-              className="order-2 lg:order-1 bg-white rounded-[40px] shadow-[0_20px_60px_-15px_rgba(220,38,38,0.1)] border border-red-50 relative overflow-hidden p-12 lg:p-16 h-[500px] flex items-center justify-center"
+              className="order-2 lg:order-1 bg-white rounded-[40px] shadow-[0_20px_60px_-15px_rgba(220,38,38,0.1)] border border-red-50 relative overflow-hidden p-12 lg:p-16 h-125 flex items-center justify-center"
             >
               <div className="absolute top-0 right-0 p-8 opacity-5 blur-2xl pointer-events-none">
                 <Package className="w-64 h-64 text-red-600" />

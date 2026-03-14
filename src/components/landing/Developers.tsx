@@ -3,7 +3,7 @@
 import React from "react";
 import { Terminal, Globe } from "lucide-react";
 
-export const Developers = () => {
+export default function Developers() {
   return (
     <section className="py-40 bg-black text-white px-6 overflow-hidden relative">
       <div className="absolute top-0 right-0 w-200 h-200 bg-blue-600/10 rounded-full blur-[150px] z-0" />
@@ -101,4 +101,4 @@ export const Developers = () => {
       </div>
     </section>
   );
-};
+}

@@ -44,7 +44,7 @@ const Feature = ({
   </motion.div>
 );
 
-export const Features = () => {
+export default function Features() {
   return (
     <section className="py-40 bg-white px-6">
       <div className="max-w-6xl mx-auto">
@@ -124,4 +124,4 @@ export const Features = () => {
       </div>
     </section>
   );
-};
+}

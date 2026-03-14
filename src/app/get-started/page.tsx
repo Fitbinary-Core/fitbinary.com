@@ -4,14 +4,14 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle2, Cloud, Package, Shield } from "lucide-react";
 import { fadeInUp, stagger } from "@/components/landing/animations";
-import { Footer } from "@/components/landing/Footer";
+import Footer from "@/components/landing/Footer";
 
 export default function GetStartedPage() {
   return (
     <div className="flex flex-col min-h-screen bg-white font-sans text-gray-900 selection:bg-red-100 selection:text-red-900">
       {/* Hero Section */}
       <section className="relative pt-40 pb-20 px-6 overflow-hidden bg-slate-50">
-        <div className="absolute inset-0 bg-gradient-to-b from-white/40 via-white/20 to-white/60 z-0 pointer-events-none" />
+        <div className="absolute inset-0 bg-liner-to-b from-white/40 via-white/20 to-white/60 z-0 pointer-events-none" />
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
@@ -35,7 +35,7 @@ export default function GetStartedPage() {
             </p>
           </motion.div>
         </div>
-        <div className="absolute bottom-0 inset-x-0 h-32 bg-gradient-to-b from-transparent to-white z-10 pointer-events-none" />
+        <div className="absolute bottom-0 inset-x-0 h-32 bg-liner-to-b from-transparent to-white z-10 pointer-events-none" />
       </section>
 
       {/* Product Selection */}

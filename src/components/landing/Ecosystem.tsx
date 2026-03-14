@@ -7,7 +7,7 @@ import { fadeInUp } from "./animations";
 import { FitCloudDemo } from "./demos/FitCloudDemo";
 import { FitStockDemo } from "./demos/FitStockDemo";
 
-export const Ecosystem = () => {
+export default function Ecosystem() {
   return (
     <section className="pb-40 pt-6 px-6">
       <div className="max-w-6xl mx-auto space-y-30">
@@ -125,4 +125,4 @@ export const Ecosystem = () => {
       </div>
     </section>
   );
-};
+}
