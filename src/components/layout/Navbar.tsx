@@ -16,20 +16,34 @@ export const navItems = [
       {
         name: "FitCloud",
         description:
-          "Gym management software for memberships, billing, and multi-branch operations.",
+          "All-in-one gym management platform for memberships, billing, attendance, and multi-branch operations — designed for modern fitness businesses.",
         href: "/fitcloud",
         icon: Cloud,
         color: "text-blue-600",
         bg: "bg-blue-50",
+        badge: "Gym Software",
+        features: [
+          "Member management & digital cards",
+          "Automated billing & subscriptions",
+          "Attendance tracking & check-ins",
+          "Multi-branch & staff management",
+        ],
       },
       {
         name: "FitStock",
         description:
-          "Inventory management for products, stock transfers, and multi-location tracking.",
+          "Smart inventory management for products, purchase orders, inter-branch stock transfers, and real-time analytics across all your locations.",
         href: "/fitstock",
         icon: Package,
         color: "text-red-600",
         bg: "bg-red-50",
+        badge: "Inventory",
+        features: [
+          "Real-time stock tracking",
+          "Purchase orders & suppliers",
+          "Inter-branch transfers",
+          "Analytics & low-stock alerts",
+        ],
       },
     ],
   },
@@ -40,9 +54,11 @@ export const navItems = [
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const closeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const lastScrollY = useRef(0);
 
   const handleMouseEnter = (title: string) => {
     if (closeTimeoutRef.current) {
@@ -59,9 +75,19 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY < lastScrollY.current || currentScrollY < 20) {
+        setIsVisible(true);
+      } else if (currentScrollY > lastScrollY.current && currentScrollY > 80) {
+        setIsVisible(false);
+      }
+
+      setIsScrolled(currentScrollY > 20);
+      lastScrollY.current = currentScrollY;
     };
-    window.addEventListener("scroll", handleScroll);
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -69,10 +95,9 @@ export default function Navbar() {
     <>
       <header
         className={cn(
-          "fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out px-6 py-4 font-sans",
-          isScrolled
-            ? "bg-white/90 backdrop-blur-xl border-b border-gray-100 py-3 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_4px_6px_-2px_rgba(0,0,0,0.05)]"
-            : "bg-transparent",
+          "fixed top-0 left-0 right-0 z-55 border-b border-gray-200 transition-all duration-300 ease-in-out px-6 py-2 font-sans",
+          isScrolled ? "bg-white py-2" : "",
+          !isVisible && "-translate-y-full",
         )}
       >
         <div className="max-w-7xl mx-auto flex items-center justify-between">
@@ -143,10 +168,10 @@ export default function Navbar() {
                         duration: 0.25,
                         ease: [0.23, 1, 0.32, 1],
                       }}
-                      className="fixed left-0 right-0 top-15 w-full z-50 pt-2"
+                      className="fixed left-0 right-0 top-15 w-full z-50 pt-2 flex justify-center px-6"
                     >
-                      <div className="w-full mx-auto">
-                        <div className="bg-white rounded-md shadow-[0_24px_60px_-15px_rgba(0,0,0,0.1)] border border-gray-100 p-4 ring-1 ring-black/5 overflow-hidden">
+                      <div className="w-full max-w-5xl">
+                        <div className="bg-gray-50 rounded-2xl shadow-2xl border border-gray-200 ring-1 ring-black/5 overflow-hidden">
                           <NavMenu items={item.dropdown} />
                         </div>
                       </div>
