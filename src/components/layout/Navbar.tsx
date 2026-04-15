@@ -95,7 +95,7 @@ export default function Navbar() {
     <>
       <header
         className={cn(
-          "fixed top-0 left-0 right-0 z-55 border-b border-gray-200 transition-all duration-300 ease-in-out px-6 py-2 font-sans",
+          "fixed top-0 left-0 right-0 z-55 border-b bg-white border-gray-200 transition-all duration-300 ease-in-out px-6 py-2 font-sans",
           isScrolled ? "bg-white py-2" : "",
           !isVisible && "-translate-y-full",
         )}
@@ -183,25 +183,84 @@ export default function Navbar() {
           </nav>
 
           {/* Right side buttons */}
+          {/* Paste this <style> once in your layout or globals.css */}
+          <style>{`
+  @keyframes shimmer {
+    0% { transform: translateX(-100%) skewX(-15deg); }
+    100% { transform: translateX(250%) skewX(-15deg); }
+  }
+  @keyframes ring-pulse {
+    0%, 100% { box-shadow: 0 0 0 0px rgba(220,38,38,0.4); }
+    50% { box-shadow: 0 0 0 6px rgba(220,38,38,0); }
+  }
+  .get-started-btn {
+    animation: ring-pulse 2.4s ease-in-out infinite;
+  }
+  .get-started-btn:hover {
+    animation: none;
+  }
+  .shimmer-track::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.35) 50%, transparent 100%);
+    transform: translateX(-100%) skewX(-15deg);
+    transition: none;
+  }
+  .get-started-btn:hover .shimmer-track::after {
+    animation: shimmer 0.65s ease forwards;
+  }
+  .signin-link {
+    position: relative;
+  }
+  .signin-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0%;
+    height: 1.5px;
+    background: currentColor;
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .signin-link:hover::after {
+    width: 100%;
+  }
+`}</style>
+
           <div className="hidden lg:flex items-center gap-6">
             <Link
               href="https://accounts.fitbinary.com/signin"
-              className="text-[14px] font-bold text-gray-600 hover:text-gray-900 transition-colors"
+              className="signin-link text-[14px] font-bold text-gray-500 hover:text-gray-900 transition-colors duration-200"
             >
               Sign in
             </Link>
+
             <Link
               href="/get-started"
-              className="group relative px-6 py-2.5 rounded-full overflow-hidden"
+              className="get-started-btn group relative px-6 py-2.5 rounded-full overflow-hidden"
             >
-              <div className="absolute inset-0 bg-red-600 transition-transform duration-300 group-hover:scale-105" />
-              <div className="absolute inset-0 bg-blue-600 translate-x-full transition-transform duration-300 group-hover:translate-x-0" />
-              <span className="relative text-white text-[14px] font-bold">
+              <div className="absolute inset-0 bg-red-600 rounded-full transition-transform duration-200 ease-out group-hover:scale-[1.04]" />
+              <div className="shimmer-track absolute inset-0 rounded-full overflow-hidden" />
+              <span className="relative flex items-center gap-1.5 text-white text-[14px] font-bold">
                 Get Started
+                <svg
+                  className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-0.5"
+                  viewBox="0 0 14 14"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M1 7h12M8 2.5l4.5 4.5L8 11.5"
+                    stroke="white"
+                    strokeWidth="1.7"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
               </span>
             </Link>
           </div>
-
           {/* Mobile Menu Toggle */}
           <button
             className="lg:hidden p-2 text-gray-900 rounded-xl hover:bg-gray-100 transition-colors"
