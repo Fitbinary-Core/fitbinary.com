@@ -36,7 +36,13 @@ export function TopographyBackground({
     let width = container.clientWidth;
     let height = container.clientHeight;
 
-    const dpr = window.devicePixelRatio || 1;
+    const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+
+    const isMobile = window.innerWidth < 768;
+    const effectiveLineCount = isMobile
+      ? Math.floor(lineCount * 0.6)
+      : lineCount;
+
     canvas.width = width * dpr;
     canvas.height = height * dpr;
     canvas.style.width = `${width}px`;
@@ -80,10 +86,10 @@ export function TopographyBackground({
       ctx.lineCap = "round";
       ctx.lineJoin = "round";
 
-      const spacing = height / (lineCount - 1);
+      const spacing = height / (effectiveLineCount - 1);
       const padding = 100;
 
-      for (let i = 0; i < lineCount; i++) {
+      for (let i = 0; i < effectiveLineCount; i++) {
         const baseY = spacing * i;
 
         ctx.beginPath();

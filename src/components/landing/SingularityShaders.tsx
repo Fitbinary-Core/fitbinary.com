@@ -33,12 +33,12 @@ void mainImage(out vec4 O, vec2 F)
 {
     float i = .2 * u_speed, a;
     vec2 r = iResolution.xy,
-         p = ( F+F - r ) / r.y / (.7 * u_size),
+         p = ( F+F - r ) / min(r.x, r.y) / (.7 * u_size),
          d = vec2(-1,1),
          b = p - i*d,
          c = p * mat2(1, 1, d/(.1 + i/dot(b,b))),
          v = c * mat2(cos(.5*log(a=dot(c,c)) + iTime*i*u_speed + vec4(0,33,11,0)))/i,
-         w = vec2(0.0);
+        w = vec2(0.0);
 
     for(float j = 0.0; j < 9.0; j++) {
         i++;
@@ -80,18 +80,25 @@ export const SingularityShaders = ({
 
     const container = containerRef.current;
 
-    // Setup renderer
-    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-    renderer.setPixelRatio(window.devicePixelRatio);
+    const pixelRatio =
+      window.devicePixelRatio > 1.5
+        ? window.innerWidth < 768
+          ? 1.2
+          : 2.0
+        : window.devicePixelRatio;
+    const renderer = new THREE.WebGLRenderer({ antialias: false, alpha: true });
+    renderer.setPixelRatio(pixelRatio);
     container.appendChild(renderer.domElement);
 
-    // Setup scene
     const scene = new THREE.Scene();
     const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0.1, 10);
     camera.position.z = 1;
 
-    // Setup geometry & material
     const geometry = new THREE.PlaneGeometry(2, 2);
+
+    const isMobile = window.innerWidth < 768;
+    const mobileFragmentShader = fragmentShader.replace("j < 9.0", "j < 5.0");
+
     const uniforms = {
       iTime: { value: 0 },
       iResolution: { value: new THREE.Vector2() },
@@ -104,7 +111,7 @@ export const SingularityShaders = ({
 
     const material = new THREE.ShaderMaterial({
       vertexShader,
-      fragmentShader,
+      fragmentShader: isMobile ? mobileFragmentShader : fragmentShader,
       uniforms,
     });
 
@@ -156,7 +163,6 @@ export const SingularityShaders = ({
       className={cn("w-full h-full relative", className)}
       {...props}
     >
-      {/* Bottom fade for transition to next section */}
       <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-neutral-950 to-transparent z-10 pointer-events-none" />
     </div>
   );

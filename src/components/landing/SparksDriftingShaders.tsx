@@ -100,30 +100,42 @@ vec2 noiseStackUV(vec3 pos, int octaves, float falloff, float diff) {
 void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     float time = iTime;
     vec2 resolution = iResolution.xy;
-    vec2 offset = iMouse.xy;
+    
+    // Normalized coordinates [0, 1]
+    vec2 uv = fragCoord / resolution;
+    // Centered coordinates [-aspect, aspect] or similar
+    float minRes = min(resolution.x, resolution.y);
+    vec2 p = (fragCoord * 2.0 - resolution) / minRes;
 
-    float xpart = fragCoord.x / resolution.x;
-    float ypart = fragCoord.y / resolution.y;
+    float xpart = uv.x;
+    float ypart = uv.y;
 
-    float clip = 210.0;
-    float ypartClip = fragCoord.y / clip;
+    float clip = 0.4; // Normalized clip relative to height
+    float ypartClip = ypart / clip;
     float ypartClippedFalloff = clamp(2.0 - ypartClip, 0.0, 1.0);
     float ypartClipped = min(ypartClip, 1.0);
     float ypartClippedn = 1.0 - ypartClipped;
 
+    // Center-focused intensity
     float xfuel = 1.0 - abs(2.0 * xpart - 1.0);
+    // Broaden slightly on narrow screens
+    if (resolution.x < 768.0) {
+        xfuel = 1.0 - abs(1.4 * xpart - 0.7);
+    }
+    xfuel = clamp(xfuel, 0.0, 1.0);
+
     float timeSpeed = 0.5 * u_speed;
     float realTime = timeSpeed * time;
 
-    vec2 coordScaled = 0.01 * fragCoord - 0.02 * vec2(offset.x, 0.0);
-    vec3 position = vec3(coordScaled, 0.0) + vec3(1223.0, 6434.0, 8425.0);
+    // Use a fixed scale for position noise, independent of pixel resolution
+    vec3 position = vec3(p * 8.0, 0.0) + vec3(1223.0, 6434.0, 8425.0);
     vec3 flow = vec3(4.1 * (0.5 - xpart) * pow(ypartClippedn, 4.0), -2.0 * xfuel * pow(ypartClippedn, 64.0), 0.0);
     vec3 timing = realTime * vec3(0.0, -1.7, 1.1) + flow;
 
     vec3 displacePos = vec3(1.0, 0.5, 1.0) * 2.4 * position + realTime * vec3(0.01, -0.7, 1.3);
     vec3 displace3 = vec3(noiseStackUV(displacePos, 2, 0.4, 0.1), 0.0);
 
-    vec3 noiseCoord = (vec3(2.0, 1.0, 1.0) * position + timing + 0.4 * displace3) / 1.0;
+    vec3 noiseCoord = (vec3(2.0, 1.0, 1.0) * position + timing + 0.4 * displace3);
     float noise = noiseStack(noiseCoord, 3, 0.4);
 
     float flames = pow(ypartClipped, 0.3 * xfuel) * pow(noise, 0.3 * xfuel);
@@ -134,23 +146,25 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     float smokeNoise = 0.5 + snoise(0.4 * position + timing * vec3(1.0, 1.0, 0.2)) / 2.0;
     vec3 smoke = vec3(0.3 * pow(xfuel, 3.0) * pow(ypart, 2.0) * (smokeNoise + 0.4 * (1.0 - noise))) * u_smokeIntensity;
 
-    float sparkGridSize = 30.0;
-    vec2 sparkCoord = fragCoord - vec2(2.0 * offset.x, 190.0 * realTime);
-    sparkCoord -= 30.0 * noiseStackUV(0.01 * vec3(sparkCoord, 30.0 * time), 1, 0.4, 0.1);
-    sparkCoord += 100.0 * flow.xy;
-    if (mod(sparkCoord.y / sparkGridSize, 2.0) < 1.0) sparkCoord.x += 0.5 * sparkGridSize;
-    vec2 sparkGridIndex = vec2(floor(sparkCoord / sparkGridSize));
+    // Sparks - normalized grid
+    float sparkGridSize = 0.1; // Proportional to minRes
+    vec2 sparkUV = p - vec2(0.0, 0.8 * realTime);
+    sparkUV -= 0.1 * noiseStackUV(0.5 * vec3(sparkUV, 1.0 * time), 1, 0.4, 0.1);
+    
+    if (mod(sparkUV.y / sparkGridSize, 2.0) < 1.0) sparkUV.x += 0.5 * sparkGridSize;
+    vec2 sparkGridIndex = vec2(floor(sparkUV / sparkGridSize));
     float sparkRandom = prng(sparkGridIndex);
-    float sparkLife = min(10.0 * (1.0 - min((sparkGridIndex.y + (190.0 * realTime / sparkGridSize)) / (24.0 - 20.0 * sparkRandom), 1.0)), 1.0);
+    float sparkLife = min(10.0 * (1.0 - min((sparkGridIndex.y + (0.8 * realTime / sparkGridSize)) / (24.0 - 20.0 * sparkRandom), 1.0)), 1.0);
+    
     vec3 sparks = vec3(0.0);
     if (sparkLife > 0.0) {
-        float sparkSizeVal = xfuel * xfuel * sparkRandom * 0.08 * u_sparkSize;
+        float sparkSizeVal = xfuel * xfuel * sparkRandom * 0.003 * u_sparkSize;
         float sparkRadians = 999.0 * sparkRandom * 2.0 * PI + 2.0 * time;
         vec2 sparkCircular = vec2(sin(sparkRadians), cos(sparkRadians));
-        vec2 sparkOffset = (0.5 - sparkSizeVal) * sparkGridSize * sparkCircular;
-        vec2 sparkModulus = mod(sparkCoord + sparkOffset, sparkGridSize) - 0.5 * vec2(sparkGridSize);
+        vec2 sparkOffset = (0.5 - sparkSizeVal/sparkGridSize) * sparkGridSize * sparkCircular;
+        vec2 sparkModulus = mod(sparkUV + sparkOffset, sparkGridSize) - 0.5 * vec2(sparkGridSize);
         float sparkLength = length(sparkModulus);
-        float sparksGray = max(0.0, 1.0 - sparkLength / (sparkSizeVal * sparkGridSize));
+        float sparksGray = max(0.0, 1.0 - sparkLength / sparkSizeVal);
         sparks = sparkLife * sparksGray * vec3(1.0, 0.3, 0.0);
     }
 
@@ -176,8 +190,14 @@ export const SparksDriftingShaders = ({
     if (!containerRef.current) return;
 
     const container = containerRef.current;
-    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-    renderer.setPixelRatio(window.devicePixelRatio);
+    const pixelRatio =
+      window.devicePixelRatio > 1.5
+        ? window.innerWidth < 768
+          ? 1.0
+          : 1.5
+        : window.devicePixelRatio;
+    const renderer = new THREE.WebGLRenderer({ antialias: false, alpha: true });
+    renderer.setPixelRatio(pixelRatio);
     container.appendChild(renderer.domElement);
 
     const scene = new THREE.Scene();
@@ -185,10 +205,16 @@ export const SparksDriftingShaders = ({
     camera.position.z = 1;
 
     const geometry = new THREE.PlaneGeometry(2, 2);
+
+    // Performance tiering
+    const isMobile = window.innerWidth < 768;
+    const mobileFragmentShader = fragmentShader
+      .replace("octaves > 2", "octaves > 99") // Disable 3rd octave
+      .replace("octaves > 3", "octaves > 99"); // Disable 4th octave
+
     const uniforms = {
       iTime: { value: 0 },
       iResolution: { value: new THREE.Vector2() },
-      iMouse: { value: new THREE.Vector2() },
       u_speed: { value: speed },
       u_sparkSize: { value: sparkSize },
       u_fireIntensity: { value: fireIntensity },
@@ -197,7 +223,7 @@ export const SparksDriftingShaders = ({
 
     const material = new THREE.ShaderMaterial({
       vertexShader,
-      fragmentShader,
+      fragmentShader: isMobile ? mobileFragmentShader : fragmentShader,
       uniforms,
     });
 
@@ -239,7 +265,6 @@ export const SparksDriftingShaders = ({
       className={cn("w-full h-full relative", className)}
       {...props}
     >
-      {/* Top fade for transition from previous section */}
       <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-neutral-950 to-transparent z-10 pointer-events-none" />
     </div>
   );
