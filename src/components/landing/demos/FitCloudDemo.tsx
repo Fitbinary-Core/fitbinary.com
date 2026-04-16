@@ -2,11 +2,11 @@
 
 export const FitCloudDemo = () => {
   return (
-    <div className="flex h-full w-full bg-slate-50 overflow-hidden font-sans text-sm rounded-xl border border-gray-200 shadow-2xl">
+    <div className="flex h-full w-full bg-neutral-900 overflow-hidden font-sans text-sm rounded-xl border border-neutral-800 shadow-2xl">
       {/* Main Content */}
       <div className="flex-1 flex flex-col min-w-0 bg-[#f8f9fc]">
         {/* Header */}
-        <div className="h-16 bg-white border-b border-gray-200 flex items-center px-6 justify-between shrink-0">
+        <div className="h-16 bg-neutral-950 border-b border-neutral-800 flex items-center px-6 justify-between shrink-0">
           <div className="w-8 h-8 rounded border border-blue-200 text-blue-600 flex items-center justify-center shrink-0 cursor-pointer">
             <svg
               className="w-4 h-4"
@@ -24,7 +24,7 @@ export const FitCloudDemo = () => {
           </div>
 
           <div className="flex items-center gap-6">
-            <div className="items-center text-slate-600 text-xs font-medium gap-2 hidden sm:flex">
+            <div className="items-center text-neutral-400 text-xs font-medium gap-2 hidden sm:flex">
               <svg
                 className="w-4 h-4 text-blue-500"
                 fill="none"
@@ -40,7 +40,7 @@ export const FitCloudDemo = () => {
               </svg>
               <span>03/07/2026</span>
             </div>
-            <div className="items-center text-slate-600 text-xs font-medium gap-2 hidden sm:flex">
+            <div className="items-center text-neutral-400 text-xs font-medium gap-2 hidden sm:flex">
               <svg
                 className="w-4 h-4 text-blue-500"
                 fill="none"
@@ -56,7 +56,7 @@ export const FitCloudDemo = () => {
               </svg>
               <span>11:02:06 PM</span>
             </div>
-            <div className="w-8 h-8 rounded-full border border-slate-200 flex items-center justify-center text-slate-500">
+            <div className="w-8 h-8 rounded-full border border-neutral-800 flex items-center justify-center text-neutral-400">
               <svg
                 className="w-4 h-4"
                 fill="none"
@@ -71,7 +71,7 @@ export const FitCloudDemo = () => {
                 />
               </svg>
             </div>
-            <div className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-700 font-bold text-xs shrink-0">
+            <div className="w-8 h-8 rounded-full bg-neutral-900 flex items-center justify-center text-neutral-300 font-bold text-xs shrink-0">
               GG
             </div>
           </div>
@@ -80,17 +80,17 @@ export const FitCloudDemo = () => {
         {/* Content */}
         <div className="flex-1 p-6 overflow-hidden flex flex-col">
           <div className="mb-6">
-            <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 mb-1">
+            <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-white mb-1">
               Welcome back, <span className="text-blue-600">Gold Gym!</span>
             </h1>
-            <p className="text-slate-500 text-sm">
+            <p className="text-neutral-400 text-sm">
               Manage{" "}
-              <span className="font-semibold text-slate-700">Gold Gym</span>{" "}
+              <span className="font-semibold text-neutral-300">Gold Gym</span>{" "}
               with powerful analytics and insights.
             </p>
           </div>
 
-          <div className="bg-white rounded-xl border border-slate-200 p-4 mb-6 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4 sm:gap-0">
+          <div className="bg-neutral-950 rounded-xl border border-neutral-800 p-4 mb-6 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4 sm:gap-0">
             <div className="flex items-center gap-4">
               <div className="w-10 h-10 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
                 <svg
@@ -107,11 +107,11 @@ export const FitCloudDemo = () => {
                   />
                 </svg>
               </div>
-              <span className="font-bold text-slate-900 text-sm tracking-wide">
+              <span className="font-bold text-white text-sm tracking-wide">
                 WHAT'S NEW IN FITCLOUD
               </span>
             </div>
-            <div className="text-xs font-semibold text-slate-600 bg-slate-100 px-3 py-1.5 rounded-md flex items-center gap-1">
+            <div className="text-xs font-semibold text-neutral-400 bg-neutral-900 px-3 py-1.5 rounded-md flex items-center gap-1">
               See whats new
               <svg
                 className="w-3 h-3"
@@ -129,24 +129,24 @@ export const FitCloudDemo = () => {
             </div>
           </div>
 
-          <div className="bg-white rounded-xl border border-slate-200 p-5 mb-6 shadow-sm">
+          <div className="bg-neutral-950 rounded-xl border border-neutral-800 p-5 mb-6 shadow-sm">
             <div className="flex flex-col lg:flex-row gap-6 mb-6">
               <div className="flex items-start gap-3 w-auto lg:w-64 shrink-0">
                 <div className="w-6 h-6 rounded-full border border-blue-200 text-blue-500 flex items-center justify-center shrink-0 mt-0.5">
                   <span className="text-xs font-serif font-bold italic">i</span>
                 </div>
                 <div>
-                  <h3 className="font-bold text-slate-900 text-sm">
+                  <h3 className="font-bold text-white text-sm">
                     Date Range Filter
                   </h3>
-                  <p className="text-xs text-slate-500 mt-1">
+                  <p className="text-xs text-neutral-400 mt-1">
                     Select a custom date range to view specific data
                   </p>
                 </div>
               </div>
 
-              <div className="flex flex-col gap-2 border-l border-slate-100 pl-6 h-full justify-center">
-                <div className="flex items-center gap-2 text-sm text-slate-600">
+              <div className="flex flex-col gap-2 border-l border-neutral-800 pl-6 h-full justify-center">
+                <div className="flex items-center gap-2 text-sm text-neutral-400">
                   <div className="w-2 h-2 rounded-full bg-emerald-500"></div>{" "}
                   Current Month
                 </div>
@@ -177,10 +177,10 @@ export const FitCloudDemo = () => {
 
             <div className="flex flex-col sm:flex-row gap-4 sm:items-end">
               <div className="flex-1 w-full">
-                <label className="text-xs font-medium text-slate-700 mb-1.5 block">
+                <label className="text-xs font-medium text-neutral-300 mb-1.5 block">
                   Start Date
                 </label>
-                <div className="h-10 border border-slate-200 rounded-lg flex items-center justify-between px-3 text-sm">
+                <div className="h-10 border border-neutral-800 rounded-lg flex items-center justify-between px-3 text-sm">
                   <span>02/28/2026</span>
                   <svg
                     className="w-4 h-4 text-slate-400"
@@ -197,12 +197,12 @@ export const FitCloudDemo = () => {
                   </svg>
                 </div>
               </div>
-              <div className="hidden sm:block h-0 border-t border-slate-200 w-8 mb-5"></div>
+              <div className="hidden sm:block h-0 border-t border-neutral-800 w-8 mb-5"></div>
               <div className="flex-1 w-full">
-                <label className="text-xs font-medium text-slate-700 mb-1.5 block">
+                <label className="text-xs font-medium text-neutral-300 mb-1.5 block">
                   End Date
                 </label>
-                <div className="h-10 border border-slate-200 rounded-lg flex items-center justify-between px-3 text-sm">
+                <div className="h-10 border border-neutral-800 rounded-lg flex items-center justify-between px-3 text-sm">
                   <span>03/08/2026</span>
                   <svg
                     className="w-4 h-4 text-slate-400"
@@ -219,7 +219,7 @@ export const FitCloudDemo = () => {
                   </svg>
                 </div>
               </div>
-              <div className="h-10 px-4 border border-slate-200 rounded-lg flex items-center gap-2 hover:bg-slate-50 cursor-pointer">
+              <div className="h-10 px-4 border border-neutral-800 rounded-lg flex items-center gap-2 hover:bg-neutral-900 cursor-pointer">
                 <svg
                   className="w-4 h-4"
                   fill="none"
@@ -238,15 +238,15 @@ export const FitCloudDemo = () => {
             </div>
           </div>
 
-          <h2 className="text-lg font-bold text-slate-900 mb-4">
+          <h2 className="text-lg font-bold text-white mb-4">
             Period Analytics (Feb 28, 2026 - Mar 8, 2026 (8 days))
           </h2>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            <div className="bg-white rounded-xl border border-slate-200 p-5 shadow-sm">
+            <div className="bg-neutral-950 rounded-xl border border-neutral-800 p-5 shadow-sm">
               <div className="flex justify-between items-start mb-4">
                 <div>
-                  <h3 className="text-sm text-slate-500 font-medium mb-1">
+                  <h3 className="text-sm text-neutral-400 font-medium mb-1">
                     New Members
                   </h3>
                   <div className="text-3xl font-bold text-purple-600">1</div>
@@ -267,15 +267,15 @@ export const FitCloudDemo = () => {
                   </svg>
                 </div>
               </div>
-              <p className="text-xs text-slate-500">
+              <p className="text-xs text-neutral-400">
                 8 days of new members (Saturday Feb 28 - Sunday Mar 8)
               </p>
             </div>
 
-            <div className="bg-white rounded-xl border border-slate-200 p-5 shadow-sm">
+            <div className="bg-neutral-950 rounded-xl border border-neutral-800 p-5 shadow-sm">
               <div className="flex justify-between items-start mb-4">
                 <div>
-                  <h3 className="text-sm text-slate-500 font-medium mb-1">
+                  <h3 className="text-sm text-neutral-400 font-medium mb-1">
                     Renewed Members
                   </h3>
                   <div className="text-3xl font-bold text-blue-600">2</div>
@@ -296,7 +296,7 @@ export const FitCloudDemo = () => {
                   </svg>
                 </div>
               </div>
-              <p className="text-xs text-slate-500">
+              <p className="text-xs text-neutral-400">
                 8 days of membership renewals (Saturday Feb 28 - Sunday Mar 8)
               </p>
             </div>

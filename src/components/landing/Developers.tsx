@@ -31,7 +31,7 @@ export default function Developers() {
               },
             ].map((item) => (
               <div key={item.title} className="flex gap-4">
-                <div className="p-3 bg-white/5 rounded-xl">
+                <div className="p-3 bg-neutral-950/5 rounded-xl">
                   <item.icon className="w-5 h-5 text-red-500" />
                 </div>
                 <div>

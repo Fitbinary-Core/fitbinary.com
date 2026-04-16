@@ -21,9 +21,9 @@ interface NavMenuProps {
 
 function FitCloudPreview() {
   return (
-    <div className="w-full rounded-xl border border-gray-100 bg-gray-50 overflow-hidden p-3 space-y-2 shadow-inner">
+    <div className="w-full rounded-xl border border-neutral-800 bg-neutral-900 overflow-hidden p-3 space-y-2 shadow-inner">
       {/* Search bar */}
-      <div className="flex items-center gap-2 bg-white border border-gray-200 rounded-lg px-3 py-1.5">
+      <div className="flex items-center gap-2 bg-neutral-950 border border-neutral-800 rounded-lg px-3 py-1.5">
         <svg
           className="w-3 h-3 text-gray-400"
           fill="none"
@@ -58,13 +58,13 @@ function FitCloudPreview() {
       ].map((r) => (
         <div
           key={r.name}
-          className="flex items-center justify-between bg-white border border-gray-100 rounded-lg px-3 py-1.5"
+          className="flex items-center justify-between bg-neutral-950 border border-neutral-800 rounded-lg px-3 py-1.5"
         >
           <div className="flex items-center gap-2">
             <div className="w-5 h-5 rounded-full bg-blue-100 flex items-center justify-center text-[9px] font-bold text-blue-600">
               {r.name[0]}
             </div>
-            <span className="text-[11px] font-medium text-gray-700">
+            <span className="text-[11px] font-medium text-neutral-300">
               {r.name}
             </span>
           </div>
@@ -80,10 +80,10 @@ function FitCloudPreview() {
 
 function FitStockPreview() {
   return (
-    <div className="w-full rounded-xl border border-gray-100 bg-gray-50 overflow-hidden p-3 space-y-2 shadow-inner">
+    <div className="w-full rounded-xl border border-neutral-800 bg-neutral-900 overflow-hidden p-3 space-y-2 shadow-inner">
       {/* Header row */}
       <div className="flex items-center justify-between">
-        <span className="text-[11px] font-semibold text-gray-600">
+        <span className="text-[11px] font-semibold text-neutral-400">
           Stock Overview
         </span>
         <span className="text-[10px] text-red-500 font-medium">
@@ -98,15 +98,15 @@ function FitStockPreview() {
       ].map((i) => (
         <div
           key={i.name}
-          className="bg-white border border-gray-100 rounded-lg px-3 py-2"
+          className="bg-neutral-950 border border-neutral-800 rounded-lg px-3 py-2"
         >
           <div className="flex items-center justify-between mb-1">
-            <span className="text-[11px] font-medium text-gray-700">
+            <span className="text-[11px] font-medium text-neutral-300">
               {i.name}
             </span>
             <span className="text-[10px] text-gray-400">{i.qty} units</span>
           </div>
-          <div className="w-full h-1 bg-gray-100 rounded-full overflow-hidden">
+          <div className="w-full h-1 bg-neutral-900 rounded-full overflow-hidden">
             <div
               className={cn("h-full rounded-full", i.color)}
               style={{ width: `${Math.round((i.qty / i.max) * 100)}%` }}
@@ -137,7 +137,7 @@ export function NavMenu({ items }: NavMenuProps) {
           <Link
             key={item.name}
             href={item.href}
-            className="group flex flex-col gap-3 p-5 rounded-2xl bg-white border border-gray-100 hover:border-gray-200 hover:shadow-md transition-all duration-200"
+            className="group flex flex-col gap-3 p-5 rounded-2xl bg-neutral-950 border border-neutral-800 hover:border-neutral-800 hover:shadow-md transition-all duration-200"
           >
             {/* Icon */}
             <div
@@ -151,10 +151,10 @@ export function NavMenu({ items }: NavMenuProps) {
 
             {/* Text */}
             <div>
-              <p className="text-[15px] font-bold text-gray-900 mb-1">
+              <p className="text-[15px] font-bold text-white mb-1">
                 {item.name}
               </p>
-              <p className="text-[13px] text-gray-500 leading-[1.55]">
+              <p className="text-[13px] text-neutral-400 leading-[1.55]">
                 {item.description}
               </p>
             </div>
@@ -162,7 +162,7 @@ export function NavMenu({ items }: NavMenuProps) {
             {/* Mini preview */}
             <div className="mt-1">
               {previews[item.name] ?? (
-                <div className="w-full h-28 rounded-xl bg-gray-50 border border-gray-100" />
+                <div className="w-full h-28 rounded-xl bg-neutral-900 border border-neutral-800" />
               )}
             </div>
           </Link>
@@ -170,7 +170,7 @@ export function NavMenu({ items }: NavMenuProps) {
       </div>
 
       {/* Footer */}
-      <div className="border-t border-gray-100 px-6 py-3.5 flex items-center justify-center gap-1 text-[13px] text-gray-500">
+      <div className="border-t border-neutral-800 px-6 py-3.5 flex items-center justify-center gap-1 text-[13px] text-neutral-400">
         Looking for a custom solution?{" "}
         <Link
           href="/contact"

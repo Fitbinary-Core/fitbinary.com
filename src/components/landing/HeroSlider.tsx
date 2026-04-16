@@ -19,7 +19,7 @@ export const HeroSlider = ({ slides }: { slides: HeroSlide[] }) => {
   const slide = slides[currentSlide];
 
   return (
-    <div className="relative w-full min-h-screen overflow-hidden bg-white">
+    <div className="relative w-full min-h-screen overflow-hidden bg-neutral-950">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0"
@@ -46,12 +46,12 @@ export const HeroSlider = ({ slides }: { slides: HeroSlide[] }) => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 8 }}
               transition={{ duration: 0.28 }}
-              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-gray-200 shadow-sm mb-8"
+              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-neutral-950 border border-neutral-800 shadow-sm mb-8"
             >
               <span
                 className={`flex w-2 h-2 rounded-full ${slide.theme.badgeText.replace("text-", "bg-")} opacity-80`}
               />
-              <span className="text-[13px] font-semibold text-gray-700 tracking-tight">
+              <span className="text-[13px] font-semibold text-neutral-300 tracking-tight">
                 {slide.badge}
               </span>
             </motion.div>
@@ -81,7 +81,7 @@ export const HeroSlider = ({ slides }: { slides: HeroSlide[] }) => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -14 }}
               transition={{ duration: 0.38, delay: 0.08 }}
-              className="text-[15px] sm:text-base text-gray-500 mb-10 leading-[1.7] max-w-md font-normal"
+              className="text-[15px] sm:text-base text-neutral-400 mb-10 leading-[1.7] max-w-md font-normal"
             >
               {slide.description}
             </motion.p>
@@ -105,7 +105,7 @@ export const HeroSlider = ({ slides }: { slides: HeroSlide[] }) => {
 
               <Link
                 href={slide.secondaryCTA.href}
-                className="inline-flex items-center gap-1.5 text-[14px] font-medium text-gray-500 hover:text-gray-800 transition-colors duration-150 group"
+                className="inline-flex items-center gap-1.5 text-[14px] font-medium text-neutral-400 hover:text-neutral-200 transition-colors duration-150 group"
               >
                 {slide.secondaryCTA.text}
                 <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />

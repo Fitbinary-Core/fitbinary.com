@@ -49,7 +49,7 @@ export const heroSlides: HeroSlide[] = [
     },
     theme: {
       badgeBg: "bg-blue-50",
-      badgeBorder: "border-blue-100",
+      badgeBorder: "border-blue-900/50",
       badgeText: "text-blue-600",
       highlightText: "text-blue-600",
       buttonBg: "bg-blue-600",
@@ -76,7 +76,7 @@ export const heroSlides: HeroSlide[] = [
     },
     theme: {
       badgeBg: "bg-red-50",
-      badgeBorder: "border-red-100",
+      badgeBorder: "border-red-900/50",
       badgeText: "text-red-600",
       highlightText: "text-red-600",
       buttonBg: "bg-black",
@@ -103,7 +103,7 @@ export const heroSlides: HeroSlide[] = [
     },
     theme: {
       badgeBg: "bg-red-50",
-      badgeBorder: "border-red-100",
+      badgeBorder: "border-red-900/50",
       badgeText: "text-red-600",
       highlightText: "text-red-600",
       buttonBg: "bg-black",
@@ -130,7 +130,7 @@ export const heroSlides: HeroSlide[] = [
     },
     theme: {
       badgeBg: "bg-red-50",
-      badgeBorder: "border-red-100",
+      badgeBorder: "border-red-900/50",
       badgeText: "text-red-600",
       highlightText: "text-red-600",
       buttonBg: "bg-black",

@@ -15,7 +15,7 @@ const tabs = [
     badge: "FitCloud Platform",
     badgeColor: "text-blue-600",
     badgeBg: "bg-blue-50",
-    badgeBorder: "border-blue-100",
+    badgeBorder: "border-blue-900/50",
     activeColor: "text-blue-600",
     activeBorder: "bg-blue-600",
     headline: "Operations management",
@@ -41,7 +41,7 @@ const tabs = [
     badge: "FitStock Inventory",
     badgeColor: "text-red-600",
     badgeBg: "bg-red-50",
-    badgeBorder: "border-red-100",
+    badgeBorder: "border-red-900/50",
     activeColor: "text-red-600",
     activeBorder: "bg-red-600",
     headline: "Inventory control",
@@ -68,10 +68,10 @@ export default function Ecosystem() {
   const DemoComponent = current.demo;
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 bg-neutral-950">
       <div className="w-full md:px-0 px-10 md:max-w-6xl mx-auto">
         {/* Tab bar */}
-        <div className="flex items-center justify-center gap-0 border-b border-gray-200 mb-14">
+        <div className="flex items-center justify-center gap-0 border-b border-neutral-800 mb-14">
           {tabs.map((tab) => {
             const isActive = activeTab === tab.id;
             return (
@@ -81,7 +81,7 @@ export default function Ecosystem() {
                 className={`relative px-8 py-4 text-sm font-semibold transition-colors duration-200 ${
                   isActive
                     ? tab.activeColor
-                    : "text-gray-500 hover:text-gray-800"
+                    : "text-neutral-400 hover:text-neutral-200"
                 }`}
               >
                 <span>{tab.label}</span>
@@ -129,7 +129,7 @@ export default function Ecosystem() {
                   </span>
                 </h2>
 
-                <p className="text-[15px] text-gray-500 leading-relaxed mb-8 font-normal">
+                <p className="text-[15px] text-neutral-400 leading-relaxed mb-8 font-normal">
                   {current.description}
                 </p>
 
@@ -137,7 +137,7 @@ export default function Ecosystem() {
                   {current.features.map((f) => (
                     <li
                       key={f}
-                      className="flex items-center gap-3 text-[14px] text-gray-700 font-medium"
+                      className="flex items-center gap-3 text-[14px] text-neutral-300 font-medium"
                     >
                       <CheckCircle2
                         className={`w-4.5 h-4.5 shrink-0 ${current.badgeColor}`}
@@ -156,7 +156,7 @@ export default function Ecosystem() {
                 </Link>
               </div>
 
-              <div className="w-full h-130 rounded-2xl overflow-hidden shadow-[0_32px_80px_-20px_rgba(0,0,0,0.13)] border border-gray-200">
+              <div className="w-full h-130 rounded-2xl overflow-hidden shadow-[0_32px_80px_-20px_rgba(0,0,0,0.13)] border border-neutral-800">
                 <DemoComponent />
               </div>
             </div>

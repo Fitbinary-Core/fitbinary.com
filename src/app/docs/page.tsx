@@ -15,9 +15,9 @@ import Footer from "@/components/landing/Footer";
 
 export default function DocsPage() {
   return (
-    <div className="flex flex-col min-h-screen bg-white font-sans text-gray-900 selection:bg-red-100 selection:text-red-900">
+    <div className="flex flex-col min-h-screen bg-neutral-950 font-sans text-white selection:bg-red-100 selection:text-red-900">
       {/* Hero Section */}
-      <section className="relative pt-40 pb-20 px-6 overflow-hidden bg-slate-50">
+      <section className="relative pt-40 pb-20 px-6 overflow-hidden bg-neutral-900">
         <div className="absolute inset-0 bg-liner-to-b from-white/40 via-white/20 to-white/60 z-0 pointer-events-none" />
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <motion.div
@@ -25,17 +25,17 @@ export default function DocsPage() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8 }}
           >
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-slate-600 mb-6 font-bold shadow-sm">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-neutral-900 border border-neutral-800 text-neutral-400 mb-6 font-bold shadow-sm">
               <span className="flex w-2.5 h-2.5 rounded-full bg-purple-500 animate-pulse" />
               <span className="text-[13px] tracking-tight uppercase">
                 Developer Documentation
               </span>
             </div>
-            <h1 className="text-5xl sm:text-7xl font-black tracking-tight mb-8 text-slate-900 leading-[1.1]">
+            <h1 className="text-5xl sm:text-7xl font-black tracking-tight mb-8 text-white leading-[1.1]">
               Build with <br />
               <span className="text-blue-600">Fitbinary APIs.</span>
             </h1>
-            <p className="text-xl text-slate-600 leading-relaxed font-medium mb-10 max-w-2xl mx-auto">
+            <p className="text-xl text-neutral-400 leading-relaxed font-medium mb-10 max-w-2xl mx-auto">
               Integrate Fitbinary into your custom mobile apps, member portals,
               or corporate systems. RESTful APIs and real-time webhooks for
               complete control.
@@ -46,13 +46,13 @@ export default function DocsPage() {
       </section>
 
       {/* API Features */}
-      <section className="py-24 px-6 bg-white relative z-20 -top-8">
+      <section className="py-24 px-6 bg-neutral-950 relative z-20 -top-8">
         <div className="max-w-6xl mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-4xl lg:text-5xl text-gray-900 font-black tracking-tight mb-6">
+            <h2 className="text-4xl lg:text-5xl text-white font-black tracking-tight mb-6">
               Developer-first infrastructure.
             </h2>
-            <p className="text-xl text-gray-500 font-medium">
+            <p className="text-xl text-neutral-400 font-medium">
               Clean SDKs, comprehensive documentation, and fast API response
               times for seamless integration.
             </p>
@@ -85,7 +85,7 @@ export default function DocsPage() {
                 title: "Full Documentation",
                 description:
                   "Detailed guides, code examples, and API references.",
-                color: "bg-gray-100 text-gray-900 shadow-gray-500/10",
+                color: "bg-neutral-900 text-white shadow-gray-500/10",
               },
               {
                 icon: Zap,
@@ -97,17 +97,17 @@ export default function DocsPage() {
               <motion.div
                 key={i}
                 variants={fadeInUp}
-                className="group p-8 rounded-3xl bg-white shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] transition-all border border-gray-100 hover:border-gray-200"
+                className="group p-8 rounded-3xl bg-neutral-950 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] transition-all border border-neutral-800 hover:border-neutral-800"
               >
                 <div
                   className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-6 transition-transform group-hover:scale-110 shadow-lg ${feature.color}`}
                 >
                   <feature.icon className="w-7 h-7" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">
+                <h3 className="text-xl font-bold text-white mb-3">
                   {feature.title}
                 </h3>
-                <p className="text-base text-gray-500 leading-relaxed font-medium">
+                <p className="text-base text-neutral-400 leading-relaxed font-medium">
                   {feature.description}
                 </p>
               </motion.div>
@@ -117,7 +117,7 @@ export default function DocsPage() {
       </section>
 
       {/* Code Example */}
-      <section className="py-24 px-6 bg-gray-50">
+      <section className="py-24 px-6 bg-neutral-900">
         <div className="max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-20 items-center">
             <motion.div
@@ -129,7 +129,7 @@ export default function DocsPage() {
               <h2 className="text-4xl lg:text-5xl font-black tracking-tight mb-8">
                 Simple, powerful integration.
               </h2>
-              <p className="text-xl text-gray-500 leading-relaxed mb-10 font-medium">
+              <p className="text-xl text-neutral-400 leading-relaxed mb-10 font-medium">
                 Get started in minutes with our clean API design and
                 comprehensive SDKs. Build custom integrations for your specific
                 business needs without the hassle.
@@ -191,12 +191,12 @@ export default function DocsPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 px-6 bg-white">
-        <div className="max-w-4xl mx-auto text-center border-t border-gray-100 pt-24">
-          <h2 className="text-4xl lg:text-5xl font-black text-gray-900 tracking-tight mb-8">
+      <section className="py-24 px-6 bg-neutral-950">
+        <div className="max-w-4xl mx-auto text-center border-t border-neutral-800 pt-24">
+          <h2 className="text-4xl lg:text-5xl font-black text-white tracking-tight mb-8">
             Ready to start building?
           </h2>
-          <p className="text-xl text-gray-600 mb-12 font-medium">
+          <p className="text-xl text-neutral-400 mb-12 font-medium">
             Contact our team to get API access and start integrating Fitbinary
             into your applications.
           </p>

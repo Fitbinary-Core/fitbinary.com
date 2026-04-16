@@ -18,7 +18,7 @@ import { fadeInUp, stagger } from "@/components/landing/animations";
 
 export default function DemoPage() {
   return (
-    <div className="bg-white">
+    <div className="bg-neutral-950">
       {/* Hero Section */}
       <section className="relative pt-32 pb-24 px-6 overflow-hidden">
         <div className="max-w-6xl mx-auto">
@@ -28,14 +28,14 @@ export default function DemoPage() {
             transition={{ duration: 0.6 }}
             className="text-center max-w-4xl mx-auto"
           >
-            <div className="inline-block px-4 py-1.5 mb-6 text-[12px] font-bold tracking-widest text-blue-600 uppercase bg-blue-50 rounded-full border border-blue-100">
+            <div className="inline-block px-4 py-1.5 mb-6 text-[12px] font-bold tracking-widest text-blue-600 uppercase bg-blue-50 rounded-full border border-blue-900/50">
               Product Demo
             </div>
-            <h1 className="text-5xl lg:text-7xl text-gray-900 font-black tracking-tight mb-8">
+            <h1 className="text-5xl lg:text-7xl text-white font-black tracking-tight mb-8">
               See Fitbinary <br />
               <span className="text-blue-600">in action.</span>
             </h1>
-            <p className="text-xl text-gray-600 leading-relaxed mb-12 font-medium max-w-3xl mx-auto">
+            <p className="text-xl text-neutral-400 leading-relaxed mb-12 font-medium max-w-3xl mx-auto">
               Experience how FitCloud and FitStock transform gym management and
               inventory operations. Book a personalized demo or explore
               interactive previews.
@@ -50,7 +50,7 @@ export default function DemoPage() {
               </a>
               <Link
                 href="/get-started"
-                className="px-10 py-5 bg-white text-gray-900 border-2 border-gray-100 rounded-full font-bold text-lg hover:border-blue-600 transition-all"
+                className="px-10 py-5 bg-neutral-950 text-white border-2 border-neutral-800 rounded-full font-bold text-lg hover:border-blue-600 transition-all"
               >
                 Start Free Trial
               </Link>
@@ -60,13 +60,13 @@ export default function DemoPage() {
       </section>
 
       {/* Demo Options */}
-      <section id="interactive-demo" className="py-24 px-6 bg-gray-50">
+      <section id="interactive-demo" className="py-24 px-6 bg-neutral-900">
         <div className="max-w-6xl mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-4xl lg:text-5xl text-gray-900 font-black tracking-tight mb-6">
+            <h2 className="text-4xl lg:text-5xl text-white font-black tracking-tight mb-6">
               Choose your demo experience.
             </h2>
-            <p className="text-lg text-gray-600 font-medium">
+            <p className="text-lg text-neutral-400 font-medium">
               Select the product you want to explore and see how it can
               transform your business operations.
             </p>
@@ -82,15 +82,15 @@ export default function DemoPage() {
             {/* FitCloud Demo */}
             <motion.div
               variants={fadeInUp}
-              className="group bg-white rounded-3xl p-8 border-2 border-gray-100 hover:border-blue-600 transition-all hover:shadow-2xl"
+              className="group bg-neutral-950 rounded-3xl p-8 border-2 border-neutral-800 hover:border-blue-600 transition-all hover:shadow-2xl"
             >
               <div className="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                 <Cloud className="w-8 h-8 text-blue-600" />
               </div>
-              <h3 className="text-2xl font-black text-gray-900 mb-4">
+              <h3 className="text-2xl font-black text-white mb-4">
                 FitCloud Demo
               </h3>
-              <p className="text-gray-600 leading-relaxed mb-6 font-medium">
+              <p className="text-neutral-400 leading-relaxed mb-6 font-medium">
                 See how gym management becomes effortless with automated
                 billing, member tracking, and multi-branch operations.
               </p>
@@ -103,7 +103,7 @@ export default function DemoPage() {
                 ].map((feature, i) => (
                   <div key={i} className="flex gap-3 items-start">
                     <CheckCircle2 className="w-5 h-5 text-blue-600 shrink-0 mt-0.5" />
-                    <span className="text-sm text-gray-600 font-medium">
+                    <span className="text-sm text-neutral-400 font-medium">
                       {feature}
                     </span>
                   </div>
@@ -120,15 +120,15 @@ export default function DemoPage() {
             {/* FitStock Demo */}
             <motion.div
               variants={fadeInUp}
-              className="group bg-white rounded-3xl p-8 border-2 border-gray-100 hover:border-red-600 transition-all hover:shadow-2xl"
+              className="group bg-neutral-950 rounded-3xl p-8 border-2 border-neutral-800 hover:border-red-600 transition-all hover:shadow-2xl"
             >
               <div className="w-16 h-16 bg-red-50 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                 <Package className="w-8 h-8 text-red-600" />
               </div>
-              <h3 className="text-2xl font-black text-gray-900 mb-4">
+              <h3 className="text-2xl font-black text-white mb-4">
                 FitStock Demo
               </h3>
-              <p className="text-gray-600 leading-relaxed mb-6 font-medium">
+              <p className="text-neutral-400 leading-relaxed mb-6 font-medium">
                 Experience complete inventory visibility with real-time
                 tracking, stock transfers, and automated alerts.
               </p>
@@ -141,7 +141,7 @@ export default function DemoPage() {
                 ].map((feature, i) => (
                   <div key={i} className="flex gap-3 items-start">
                     <CheckCircle2 className="w-5 h-5 text-red-600 shrink-0 mt-0.5" />
-                    <span className="text-sm text-gray-600 font-medium">
+                    <span className="text-sm text-neutral-400 font-medium">
                       {feature}
                     </span>
                   </div>
@@ -162,10 +162,10 @@ export default function DemoPage() {
       <section className="py-24 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-4xl lg:text-5xl text-gray-900 font-black tracking-tight mb-6">
+            <h2 className="text-4xl lg:text-5xl text-white font-black tracking-tight mb-6">
               What you'll see in the demo.
             </h2>
-            <p className="text-lg text-gray-600 font-medium">
+            <p className="text-lg text-neutral-400 font-medium">
               Our demos showcase real-world scenarios that fitness businesses
               face every day.
             </p>
@@ -224,24 +224,24 @@ export default function DemoPage() {
                 title: "Access Control",
                 description:
                   "Manage user roles, permissions, and secure multi-branch access.",
-                color: "text-gray-900",
-                bg: "bg-gray-50",
+                color: "text-white",
+                bg: "bg-neutral-900",
               },
             ].map((feature, i) => (
               <motion.div
                 key={i}
                 variants={fadeInUp}
-                className="bg-white p-6 rounded-2xl border border-gray-100 hover:shadow-xl transition-all"
+                className="bg-neutral-950 p-6 rounded-2xl border border-neutral-800 hover:shadow-xl transition-all"
               >
                 <div
                   className={`w-12 h-12 ${feature.bg} rounded-xl flex items-center justify-center mb-4`}
                 >
                   <feature.icon className={`w-6 h-6 ${feature.color}`} />
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">
+                <h3 className="text-lg font-bold text-white mb-2">
                   {feature.title}
                 </h3>
-                <p className="text-sm text-gray-600 leading-relaxed font-medium">
+                <p className="text-sm text-neutral-400 leading-relaxed font-medium">
                   {feature.description}
                 </p>
               </motion.div>
@@ -251,10 +251,10 @@ export default function DemoPage() {
       </section>
 
       {/* Interactive Demo CTA */}
-      <section className="py-24 px-6 bg-gray-50">
+      <section className="py-24 px-6 bg-neutral-900">
         <div className="max-w-6xl mx-auto">
           <div className="bg-liner-to-br from-blue-600 to-blue-700 rounded-[3rem] py-16 px-6 text-center">
-            <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
+            <div className="w-16 h-16 bg-neutral-950 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
               <Play className="w-8 h-8 text-blue-600" />
             </div>
             <h2 className="text-3xl lg:text-4xl font-black text-white mb-4">
@@ -267,14 +267,14 @@ export default function DemoPage() {
             <div className="flex flex-wrap justify-center gap-4">
               <Link
                 href="/demo/fitcloud"
-                className="inline-flex items-center gap-2 px-10 py-5 bg-white text-blue-600 rounded-full font-bold text-lg hover:bg-gray-50 transition-all shadow-2xl"
+                className="inline-flex items-center gap-2 px-10 py-5 bg-neutral-950 text-blue-600 rounded-full font-bold text-lg hover:bg-neutral-900 transition-all shadow-2xl"
               >
                 <Play className="w-5 h-5" />
                 FitCloud Demo
               </Link>
               <Link
                 href="/demo/fitstock"
-                className="inline-flex items-center gap-2 px-10 py-5 bg-white text-red-600 rounded-full font-bold text-lg hover:bg-gray-50 transition-all shadow-2xl"
+                className="inline-flex items-center gap-2 px-10 py-5 bg-neutral-950 text-red-600 rounded-full font-bold text-lg hover:bg-neutral-900 transition-all shadow-2xl"
               >
                 <Play className="w-5 h-5" />
                 FitStock Demo
@@ -288,10 +288,10 @@ export default function DemoPage() {
       <section className="py-24 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-4xl lg:text-5xl text-gray-900 font-black tracking-tight mb-6">
+            <h2 className="text-4xl lg:text-5xl text-white font-black tracking-tight mb-6">
               Why watch our demos?
             </h2>
-            <p className="text-lg text-gray-600 font-medium">
+            <p className="text-lg text-neutral-400 font-medium">
               See exactly how Fitbinary works with interactive, animated
               demonstrations.
             </p>
@@ -329,12 +329,12 @@ export default function DemoPage() {
               <motion.div
                 key={i}
                 variants={fadeInUp}
-                className="bg-gray-50 p-6 rounded-2xl border border-gray-100"
+                className="bg-neutral-900 p-6 rounded-2xl border border-neutral-800"
               >
-                <h3 className="text-lg font-bold text-gray-900 mb-2">
+                <h3 className="text-lg font-bold text-white mb-2">
                   {benefit.title}
                 </h3>
-                <p className="text-sm text-gray-600 leading-relaxed font-medium">
+                <p className="text-sm text-neutral-400 leading-relaxed font-medium">
                   {benefit.description}
                 </p>
               </motion.div>
@@ -344,12 +344,12 @@ export default function DemoPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 px-6 bg-gray-50">
+      <section className="py-24 px-6 bg-neutral-900">
         <div className="max-w-6xl mx-auto text-center">
-          <h2 className="text-4xl lg:text-5xl text-gray-900 font-black tracking-tight mb-6">
+          <h2 className="text-4xl lg:text-5xl text-white font-black tracking-tight mb-6">
             Ready to see Fitbinary in action?
           </h2>
-          <p className="text-xl text-gray-600 mb-12 font-medium max-w-2xl mx-auto">
+          <p className="text-xl text-neutral-400 mb-12 font-medium max-w-2xl mx-auto">
             Choose between a self-guided demo or schedule a personalized
             walkthrough with our team.
           </p>

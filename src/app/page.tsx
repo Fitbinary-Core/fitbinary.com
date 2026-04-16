@@ -7,7 +7,7 @@ import { PageBorders } from "@/components/layout/PageBorders";
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen bg-white font-sans text-gray-900 selection:bg-red-100 selection:text-red-900">
+    <div className="flex flex-col min-h-screen bg-neutral-950 font-sans text-white selection:bg-red-100 selection:text-red-900">
       <PageBorders />
       <Hero />
       <Ecosystem />

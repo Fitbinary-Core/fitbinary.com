@@ -2,11 +2,11 @@
 
 export const FitStockDemo = () => {
   return (
-    <div className="flex h-full w-full bg-[#f8f9fc] overflow-hidden font-sans text-sm rounded-xl border border-gray-200 shadow-2xl">
+    <div className="flex h-full w-full bg-[#f8f9fc] overflow-hidden font-sans text-sm rounded-xl border border-neutral-800 shadow-2xl">
       {/* Main Content */}
       <div className="flex-1 flex flex-col min-w-0 bg-transparent">
         {/* Header */}
-        <div className="h-16 bg-white border-b border-slate-200 flex items-center px-6 justify-between shrink-0">
+        <div className="h-16 bg-neutral-950 border-b border-neutral-800 flex items-center px-6 justify-between shrink-0">
           <div className="w-8 h-8 rounded border border-red-200 text-red-600 flex items-center justify-center shrink-0 cursor-pointer">
             <svg
               className="w-4 h-4"
@@ -24,7 +24,7 @@ export const FitStockDemo = () => {
           </div>
 
           <div className="flex items-center gap-4">
-            <div className="px-3 py-3 border border-slate-200 rounded-lg flex items-center gap-2 text-slate-600 text-xs font-medium bg-white hover:bg-slate-50 cursor-pointer shadow-sm">
+            <div className="px-3 py-3 border border-neutral-800 rounded-lg flex items-center gap-2 text-neutral-400 text-xs font-medium bg-neutral-950 hover:bg-neutral-900 cursor-pointer shadow-sm">
               <svg
                 className="w-4 h-4 text-slate-400 shrink-0"
                 fill="none"
@@ -58,10 +58,10 @@ export const FitStockDemo = () => {
                 JD
               </div>
               <div className="hidden sm:block">
-                <div className="text-xs font-bold text-slate-900 leading-tight">
+                <div className="text-xs font-bold text-white leading-tight">
                   John Doe
                 </div>
-                <div className="text-[10px] text-slate-500 font-medium">
+                <div className="text-[10px] text-neutral-400 font-medium">
                   Branch Manager
                 </div>
               </div>
@@ -71,9 +71,9 @@ export const FitStockDemo = () => {
 
         {/* Content */}
         <div className="flex-1 p-4 overflow-hidden flex flex-col">
-          <div className="bg-white rounded-xl border border-slate-200 p-4 mb-4 shadow-sm relative">
+          <div className="bg-neutral-950 rounded-xl border border-neutral-800 p-4 mb-4 shadow-sm relative">
             <div className="relative z-10 flex flex-col sm:flex-row justify-between items-center gap-4 sm:gap-0">
-              <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900">
+              <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-white">
                 Welcome back, John
               </h1>
               <div className="px-4 py-2.5 bg-[#0a0f1c] text-white rounded-lg text-sm font-bold shadow-md cursor-pointer flex items-center gap-2 hover:bg-slate-900 transition-colors shrink-0">
@@ -97,12 +97,12 @@ export const FitStockDemo = () => {
 
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
             {/* Total Products */}
-            <div className="bg-white rounded-xl border border-slate-200 p-5 shadow-sm">
+            <div className="bg-neutral-950 rounded-xl border border-neutral-800 p-5 shadow-sm">
               <div className="flex justify-between items-start mb-6">
-                <h3 className="text-xs font-bold text-slate-500 tracking-wider">
+                <h3 className="text-xs font-bold text-neutral-400 tracking-wider">
                   TOTAL PRODUCTS
                 </h3>
-                <div className="w-8 h-8 rounded-lg bg-slate-50 border border-slate-100 text-slate-400 flex items-center justify-center">
+                <div className="w-8 h-8 rounded-lg bg-neutral-900 border border-neutral-800 text-slate-400 flex items-center justify-center">
                   <svg
                     className="w-4 h-4"
                     fill="none"
@@ -118,13 +118,13 @@ export const FitStockDemo = () => {
                   </svg>
                 </div>
               </div>
-              <div className="text-3xl font-bold text-slate-900">0</div>
+              <div className="text-3xl font-bold text-white">0</div>
             </div>
 
             {/* In Stock */}
-            <div className="bg-white rounded-xl border border-blue-100 p-5 shadow-sm shadow-blue-50/50">
+            <div className="bg-neutral-950 rounded-xl border border-blue-900/50 p-5 shadow-sm shadow-blue-50/50">
               <div className="flex justify-between items-start mb-6">
-                <h3 className="text-xs font-bold text-slate-500 tracking-wider">
+                <h3 className="text-xs font-bold text-neutral-400 tracking-wider">
                   IN STOCK
                 </h3>
                 <div className="w-8 h-8 rounded-lg bg-blue-50 text-blue-500 flex items-center justify-center">
@@ -143,13 +143,13 @@ export const FitStockDemo = () => {
                   </svg>
                 </div>
               </div>
-              <div className="text-3xl font-bold text-slate-900">0</div>
+              <div className="text-3xl font-bold text-white">0</div>
             </div>
 
             {/* Low Stock Items */}
-            <div className="bg-white rounded-xl border border-amber-100 p-5 shadow-sm shadow-amber-50/50">
+            <div className="bg-neutral-950 rounded-xl border border-amber-900/50 p-5 shadow-sm shadow-amber-50/50">
               <div className="flex justify-between items-start mb-6">
-                <h3 className="text-xs font-bold text-slate-500 tracking-wider">
+                <h3 className="text-xs font-bold text-neutral-400 tracking-wider">
                   LOW STOCK ITEMS
                 </h3>
                 <div className="w-8 h-8 rounded-lg bg-amber-50 text-amber-500 flex items-center justify-center">
@@ -168,13 +168,13 @@ export const FitStockDemo = () => {
                   </svg>
                 </div>
               </div>
-              <div className="text-3xl font-bold text-slate-900">0</div>
+              <div className="text-3xl font-bold text-white">0</div>
             </div>
 
             {/* Out of Stock */}
-            <div className="bg-white rounded-xl border border-red-100 p-5 shadow-sm shadow-red-50/50">
+            <div className="bg-neutral-950 rounded-xl border border-red-900/50 p-5 shadow-sm shadow-red-50/50">
               <div className="flex justify-between items-start mb-6">
-                <h3 className="text-xs font-bold text-slate-500 tracking-wider">
+                <h3 className="text-xs font-bold text-neutral-400 tracking-wider">
                   OUT OF STOCK
                 </h3>
                 <div className="w-8 h-8 rounded-lg bg-red-50 text-red-500 flex items-center justify-center">
@@ -193,14 +193,14 @@ export const FitStockDemo = () => {
                   </svg>
                 </div>
               </div>
-              <div className="text-3xl font-bold text-slate-900">0</div>
+              <div className="text-3xl font-bold text-white">0</div>
             </div>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
-            <div className="bg-white rounded-xl border border-slate-200 p-5 shadow-sm">
+            <div className="bg-neutral-950 rounded-xl border border-neutral-800 p-5 shadow-sm">
               <div className="flex justify-between items-center mb-4">
-                <h3 className="text-xs font-bold text-slate-500 tracking-wider">
+                <h3 className="text-xs font-bold text-neutral-400 tracking-wider">
                   INCOMING TRANSFERS
                 </h3>
                 <div className="w-8 h-8 rounded-lg bg-blue-50 text-blue-500 flex items-center justify-center">
@@ -219,11 +219,11 @@ export const FitStockDemo = () => {
                   </svg>
                 </div>
               </div>
-              <div className="text-3xl font-bold text-slate-900">0</div>
+              <div className="text-3xl font-bold text-white">0</div>
             </div>
-            <div className="bg-white rounded-xl border border-slate-200 p-5 shadow-sm">
+            <div className="bg-neutral-950 rounded-xl border border-neutral-800 p-5 shadow-sm">
               <div className="flex justify-between items-center mb-4">
-                <h3 className="text-xs font-bold text-slate-500 tracking-wider">
+                <h3 className="text-xs font-bold text-neutral-400 tracking-wider">
                   OUTGOING TRANSFERS
                 </h3>
                 <div className="w-8 h-8 rounded-lg bg-orange-50 text-orange-500 flex items-center justify-center">
@@ -242,7 +242,7 @@ export const FitStockDemo = () => {
                   </svg>
                 </div>
               </div>
-              <div className="text-3xl font-bold text-slate-900">0</div>
+              <div className="text-3xl font-bold text-white">0</div>
             </div>
           </div>
 
@@ -250,12 +250,12 @@ export const FitStockDemo = () => {
             <div>
               <div className="flex items-center gap-2 mb-4">
                 <div className="w-1 h-4 bg-red-600 rounded"></div>
-                <h2 className="text-base font-bold text-slate-900">
+                <h2 className="text-base font-bold text-white">
                   Movement (30d)
                 </h2>
               </div>
-              <div className="bg-white rounded-xl border border-slate-200 shadow-sm p-2">
-                <div className="flex items-center justify-between p-3 border-b border-slate-100">
+              <div className="bg-neutral-950 rounded-xl border border-neutral-800 shadow-sm p-2">
+                <div className="flex items-center justify-between p-3 border-b border-neutral-800">
                   <div className="flex items-center gap-3">
                     <div className="w-6 h-6 rounded-full bg-emerald-50 text-emerald-500 flex items-center justify-center">
                       <svg
@@ -272,11 +272,11 @@ export const FitStockDemo = () => {
                         />
                       </svg>
                     </div>
-                    <span className="text-sm font-bold text-slate-700">
+                    <span className="text-sm font-bold text-neutral-300">
                       Stock Received
                     </span>
                   </div>
-                  <span className="font-bold text-slate-900">0</span>
+                  <span className="font-bold text-white">0</span>
                 </div>
                 {/* ... Add more rows if needed, keep static ... */}
               </div>
@@ -286,7 +286,7 @@ export const FitStockDemo = () => {
               <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center gap-2">
                   <div className="w-1 h-4 bg-red-600 rounded"></div>
-                  <h2 className="text-base font-bold text-slate-900">
+                  <h2 className="text-base font-bold text-white">
                     Recent Transactions
                   </h2>
                 </div>
@@ -294,9 +294,9 @@ export const FitStockDemo = () => {
                   View All
                 </span>
               </div>
-              <div className="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
+              <div className="bg-neutral-950 rounded-xl border border-neutral-800 shadow-sm overflow-hidden">
                 <table className="w-full text-left text-sm">
-                  <thead className="bg-slate-50/50 text-slate-500 font-medium text-xs border-b border-slate-100">
+                  <thead className="bg-neutral-900/50 text-neutral-400 font-medium text-xs border-b border-neutral-800">
                     <tr>
                       <th className="px-4 py-3 font-medium">Type</th>
                       <th className="px-4 py-3 font-medium">Product</th>

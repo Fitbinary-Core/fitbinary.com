@@ -4,7 +4,7 @@ import { ArrowLeft } from "lucide-react";
 export default function NotFound() {
   return (
     <div className="flex flex-col items-center justify-center min-h-[80vh] px-6 text-center">
-      <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-50 border border-red-100 text-red-600 mb-8">
+      <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-50 border border-red-900/50 text-red-600 mb-8">
         <span className="flex w-2 h-2 rounded-full bg-red-600 animate-pulse" />
         <span className="text-[12px] font-bold tracking-tight uppercase">
           Error 404
@@ -15,7 +15,7 @@ export default function NotFound() {
         Page <span className="text-red-600">Not Found</span>.
       </h1>
 
-      <p className="text-xl text-gray-600 mb-12 max-w-lg font-medium leading-relaxed">
+      <p className="text-xl text-neutral-400 mb-12 max-w-lg font-medium leading-relaxed">
         We couldn't find the page you were looking for. It might have been
         moved, deleted, or perhaps it never existed.
       </p>

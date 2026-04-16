@@ -32,9 +32,9 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ type: "spring", damping: 30, stiffness: 300 }}
-            className="fixed inset-y-0 right-0 w-full sm:w-95 bg-white z-70 shadow-2xl lg:hidden flex flex-col"
+            className="fixed inset-y-0 right-0 w-full sm:w-95 bg-neutral-950 z-70 shadow-2xl lg:hidden flex flex-col"
           >
-            <div className="flex items-center justify-between p-6 border-b border-gray-100">
+            <div className="flex items-center justify-between p-6 border-b border-neutral-800">
               <div className="flex items-center group">
                 <motion.div
                   className="flex items-center gap-1"
@@ -42,7 +42,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                   transition={{ type: "spring", stiffness: 400, damping: 10 }}
                 >
                   <div className="flex items-baseline">
-                    <span className="text-xl font-black tracking-[-0.05em] text-gray-900 lowercase">
+                    <span className="text-xl font-black tracking-[-0.05em] text-white lowercase">
                       fitbinary
                     </span>
                   </div>
@@ -56,7 +56,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
               </div>
               <button
                 onClick={onClose}
-                className="p-2 text-gray-500 hover:text-gray-900 rounded-xl hover:bg-gray-100 transition-colors"
+                className="p-2 text-neutral-400 hover:text-white rounded-xl hover:bg-neutral-900 transition-colors"
                 aria-label="Close menu"
               >
                 <X className="w-6 h-6" />
@@ -77,7 +77,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                             key={subItem.name}
                             href={subItem.href}
                             onClick={onClose}
-                            className="flex items-start gap-4 p-3 rounded-2xl hover:bg-gray-50 group transition-all"
+                            className="flex items-start gap-4 p-3 rounded-2xl hover:bg-neutral-900 group transition-all"
                           >
                             <div
                               className={cn(
@@ -89,14 +89,14 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                               <subItem.icon className="w-5 h-5" />
                             </div>
                             <div className="flex-1 pt-1">
-                              <div className="text-[14px] font-bold text-gray-900 group-hover:text-red-600 transition-colors">
+                              <div className="text-[14px] font-bold text-white group-hover:text-red-600 transition-colors">
                                 {subItem.name}
                               </div>
-                              <p className="text-[12px] text-gray-500 mt-0.5 line-clamp-1 font-medium">
+                              <p className="text-[12px] text-neutral-400 mt-0.5 line-clamp-1 font-medium">
                                 {subItem.description}
                               </p>
                             </div>
-                            <ChevronRight className="w-4 h-4 text-gray-300 group-hover:text-gray-900 self-center" />
+                            <ChevronRight className="w-4 h-4 text-gray-300 group-hover:text-white self-center" />
                           </Link>
                         ))}
                       </div>
@@ -104,12 +104,12 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                       <Link
                         href={item.href}
                         onClick={onClose}
-                        className="flex items-center justify-between p-3 rounded-2xl hover:bg-gray-50 group transition-all"
+                        className="flex items-center justify-between p-3 rounded-2xl hover:bg-neutral-900 group transition-all"
                       >
-                        <span className="text-[14px] font-bold text-gray-900">
+                        <span className="text-[14px] font-bold text-white">
                           {item.title}
                         </span>
-                        <ChevronRight className="w-4 h-4 text-gray-300 group-hover:text-gray-900" />
+                        <ChevronRight className="w-4 h-4 text-gray-300 group-hover:text-white" />
                       </Link>
                     )}
                   </div>
@@ -117,10 +117,10 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
               </nav>
             </div>
 
-            <div className="p-6 border-t border-gray-100 bg-gray-50/50 flex flex-col gap-4">
+            <div className="p-6 border-t border-neutral-800 bg-neutral-900/50 flex flex-col gap-4">
               <Link
                 href="https://accounts.fitbinary.com/signin"
-                className="w-full py-4 text-center text-[14px] font-bold text-gray-900 border border-gray-200 bg-white rounded-2xl hover:bg-gray-50 transition-all active:scale-95"
+                className="w-full py-4 text-center text-[14px] font-bold text-white border border-neutral-800 bg-neutral-950 rounded-2xl hover:bg-neutral-900 transition-all active:scale-95"
               >
                 Sign in
               </Link>

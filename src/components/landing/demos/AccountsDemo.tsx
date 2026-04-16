@@ -2,7 +2,7 @@
 
 export const AccountsDemo = () => {
   return (
-    <div className="flex h-full w-full bg-slate-50 overflow-hidden font-sans text-sm rounded-xl border border-gray-200 shadow-2xl">
+    <div className="flex h-full w-full bg-neutral-900 overflow-hidden font-sans text-sm rounded-xl border border-neutral-800 shadow-2xl">
       {/* Sidebar - Dark */}
       <div className="w-56 lg:w-55 bg-[#0a0f1c] text-slate-300 hidden md:flex flex-col shrink-0">
         <div className="h-16 flex items-center px-4">
@@ -16,7 +16,7 @@ export const AccountsDemo = () => {
           </div>
         </div>
         <div className="px-4 py-2">
-          <div className="text-[10px] font-bold text-slate-500 mb-2 uppercase tracking-wider px-2">
+          <div className="text-[10px] font-bold text-neutral-400 mb-2 uppercase tracking-wider px-2">
             Overview
           </div>
           <div className="bg-slate-800/80 text-white rounded-lg px-3 py-2 flex items-center gap-3 relative overflow-hidden">
@@ -77,7 +77,7 @@ export const AccountsDemo = () => {
               <div className="text-white text-xs font-medium truncate">
                 John Doe
               </div>
-              <div className="text-slate-500 text-[10px] truncate">
+              <div className="text-neutral-400 text-[10px] truncate">
                 johndoe@gmail.com
               </div>
             </div>
@@ -86,10 +86,10 @@ export const AccountsDemo = () => {
       </div>
 
       {/* Main Content */}
-      <div className="flex-1 flex flex-col min-w-0 bg-white">
+      <div className="flex-1 flex flex-col min-w-0 bg-neutral-950">
         {/* Header */}
-        <div className="h-16 border-b border-gray-100 flex items-center px-4 sm:px-8 justify-between shrink-0">
-          <div className="w-48 sm:w-64 bg-slate-50 h-9 rounded-md border border-slate-200 flex items-center px-3 gap-2">
+        <div className="h-16 border-b border-neutral-800 flex items-center px-4 sm:px-8 justify-between shrink-0">
+          <div className="w-48 sm:w-64 bg-neutral-900 h-9 rounded-md border border-neutral-800 flex items-center px-3 gap-2">
             <svg
               className="w-4 h-4 text-slate-400"
               fill="none"
@@ -124,12 +124,12 @@ export const AccountsDemo = () => {
             <span className="text-slate-300 text-xs">System Active</span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-black tracking-tight text-slate-900 mb-2 leading-tight">
+          <h1 className="text-3xl sm:text-5xl font-black tracking-tight text-white mb-2 leading-tight">
             Welcome back,
             <br />
             <span className="text-slate-400">John</span>
           </h1>
-          <p className="text-slate-500 text-sm sm:text-base max-w-xl mb-8 sm:mb-12">
+          <p className="text-neutral-400 text-sm sm:text-base max-w-xl mb-8 sm:mb-12">
             Centralized management for your organization, users, and security
             settings across the entire Fitbinary ecosystem.
           </p>
@@ -164,11 +164,11 @@ export const AccountsDemo = () => {
             </div>
 
             {/* Security Score */}
-            <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between h-48">
+            <div className="bg-neutral-950 rounded-2xl p-6 border border-neutral-800 shadow-sm flex flex-col justify-between h-48">
               <div>
-                <div className="w-10 h-10 rounded-xl bg-slate-50 flex items-center justify-center mb-4 border border-slate-100">
+                <div className="w-10 h-10 rounded-xl bg-neutral-900 flex items-center justify-center mb-4 border border-neutral-800">
                   <svg
-                    className="w-5 h-5 text-slate-600"
+                    className="w-5 h-5 text-neutral-400"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -181,24 +181,24 @@ export const AccountsDemo = () => {
                     />
                   </svg>
                 </div>
-                <h3 className="font-bold text-slate-900 text-lg mb-1">
+                <h3 className="font-bold text-white text-lg mb-1">
                   Security Score
                 </h3>
-                <p className="text-slate-500 text-sm">
+                <p className="text-neutral-400 text-sm">
                   Your account is 85% secure. Complete 2 steps.
                 </p>
               </div>
-              <div className="text-slate-900 text-xs font-bold tracking-wider pt-4">
+              <div className="text-white text-xs font-bold tracking-wider pt-4">
                 VIEW ACTIONS &rarr;
               </div>
             </div>
 
             {/* System Status */}
-            <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between h-48">
+            <div className="bg-neutral-950 rounded-2xl p-6 border border-neutral-800 shadow-sm flex flex-col justify-between h-48">
               <div>
-                <div className="w-10 h-10 rounded-xl bg-slate-50 flex items-center justify-center mb-4 border border-slate-100">
+                <div className="w-10 h-10 rounded-xl bg-neutral-900 flex items-center justify-center mb-4 border border-neutral-800">
                   <svg
-                    className="w-5 h-5 text-slate-600"
+                    className="w-5 h-5 text-neutral-400"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -217,14 +217,14 @@ export const AccountsDemo = () => {
                     />
                   </svg>
                 </div>
-                <h3 className="font-bold text-slate-900 text-lg mb-1">
+                <h3 className="font-bold text-white text-lg mb-1">
                   System Status
                 </h3>
-                <p className="text-slate-500 text-sm">
+                <p className="text-neutral-400 text-sm">
                   All Fitbinary services are operational.
                 </p>
               </div>
-              <div className="text-slate-900 text-xs font-bold tracking-wider pt-4">
+              <div className="text-white text-xs font-bold tracking-wider pt-4">
                 NETWORK MAP &rarr;
               </div>
             </div>

@@ -5,7 +5,7 @@ const partners = ["IRONCORE", "NEOFLOW", "VERTEX", "AQUAFIT", "TITAN"];
 export const TrustedBy = () => {
   return (
     <section className="pb-32 px-6">
-      <div className="max-w-6xl mx-auto border-t border-gray-100 pt-16">
+      <div className="max-w-6xl mx-auto border-t border-neutral-800 pt-16">
         <p className="text-[12px] font-bold text-gray-400 uppercase tracking-[0.2em] mb-12 text-center lg:text-left">
           Trusted by the world's most innovative gyms
         </p>
@@ -13,7 +13,7 @@ export const TrustedBy = () => {
           {partners.map((name) => (
             <span
               key={name}
-              className="text-2xl font-black italic tracking-tighter text-gray-900"
+              className="text-2xl font-black italic tracking-tighter text-white"
             >
               {name}
             </span>

@@ -16,7 +16,7 @@ import { fadeInUp, stagger } from "@/components/landing/animations";
 
 export default function AccountsPage() {
   return (
-    <div className="bg-white">
+    <div className="bg-neutral-950">
       {/* Hero Section */}
       <section className="relative pt-32 pb-24 px-6 overflow-hidden">
         <div className="max-w-6xl mx-auto">
@@ -26,14 +26,14 @@ export default function AccountsPage() {
             transition={{ duration: 0.6 }}
             className="text-center max-w-4xl mx-auto"
           >
-            <div className="inline-block px-4 py-1.5 mb-6 text-[12px] font-bold tracking-widest text-blue-600 uppercase bg-blue-50 rounded-full border border-blue-100">
+            <div className="inline-block px-4 py-1.5 mb-6 text-[12px] font-bold tracking-widest text-blue-600 uppercase bg-blue-50 rounded-full border border-blue-900/50">
               Fitbinary Accounts
             </div>
-            <h1 className="text-5xl lg:text-7xl text-gray-900 font-black tracking-tight mb-8">
+            <h1 className="text-5xl lg:text-7xl text-white font-black tracking-tight mb-8">
               Secure access to <br />
               <span className="text-blue-600">your Fitbinary products.</span>
             </h1>
-            <p className="text-xl text-gray-600 leading-relaxed mb-12 font-medium max-w-3xl mx-auto">
+            <p className="text-xl text-neutral-400 leading-relaxed mb-12 font-medium max-w-3xl mx-auto">
               Unified authentication portal for FitCloud and FitStock. Manage
               your organization, team permissions, and security settings from
               one central location.
@@ -51,7 +51,7 @@ export default function AccountsPage() {
               </Link>
               <Link
                 href="/get-started"
-                className="px-10 py-5 bg-white text-gray-900 border-2 border-gray-100 rounded-full font-bold text-lg hover:border-blue-600 transition-all"
+                className="px-10 py-5 bg-neutral-950 text-white border-2 border-neutral-800 rounded-full font-bold text-lg hover:border-blue-600 transition-all"
               >
                 Create Account
               </Link>
@@ -61,13 +61,13 @@ export default function AccountsPage() {
       </section>
 
       {/* Core Features */}
-      <section className="py-24 px-6 bg-gray-50">
+      <section className="py-24 px-6 bg-neutral-900">
         <div className="max-w-6xl mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-4xl lg:text-5xl text-gray-900 font-black tracking-tight mb-6">
+            <h2 className="text-4xl lg:text-5xl text-white font-black tracking-tight mb-6">
               Centralized authentication.
             </h2>
-            <p className="text-lg text-gray-600 font-medium">
+            <p className="text-lg text-neutral-400 font-medium">
               One account for all Fitbinary products with enterprise-grade
               security and role-based access control.
             </p>
@@ -100,7 +100,7 @@ export default function AccountsPage() {
                 title: "Organization Management",
                 description:
                   "Multi-tenant support for managing multiple businesses under one account.",
-                color: "bg-gray-100 text-gray-900",
+                color: "bg-neutral-900 text-white",
               },
               {
                 icon: Lock,
@@ -121,23 +121,23 @@ export default function AccountsPage() {
                 title: "Global Access",
                 description:
                   "Secure access from anywhere with session management and activity logs.",
-                color: "bg-gray-100 text-gray-900",
+                color: "bg-neutral-900 text-white",
               },
             ].map((feature, i) => (
               <motion.div
                 key={i}
                 variants={fadeInUp}
-                className="group p-6 rounded-2xl hover:bg-white hover:shadow-xl transition-all border border-transparent hover:border-gray-100"
+                className="group p-6 rounded-2xl hover:bg-neutral-900 hover:shadow-xl transition-all border border-transparent hover:border-neutral-800"
               >
                 <div
                   className={`w-12 h-12 rounded-xl flex items-center justify-center mb-6 transition-transform group-hover:scale-110 ${feature.color}`}
                 >
                   <feature.icon className="w-6 h-6" />
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">
+                <h3 className="text-lg font-bold text-white mb-2">
                   {feature.title}
                 </h3>
-                <p className="text-sm text-gray-600 leading-relaxed font-medium">
+                <p className="text-sm text-neutral-400 leading-relaxed font-medium">
                   {feature.description}
                 </p>
               </motion.div>
@@ -151,10 +151,10 @@ export default function AccountsPage() {
         <div className="max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-20 items-center">
             <div>
-              <h2 className="text-4xl lg:text-5xl text-gray-900 font-black tracking-tight mb-8">
+              <h2 className="text-4xl lg:text-5xl text-white font-black tracking-tight mb-8">
                 Built for security and control.
               </h2>
-              <p className="text-lg text-gray-600 leading-relaxed mb-10 font-medium">
+              <p className="text-lg text-neutral-400 leading-relaxed mb-10 font-medium">
                 Fitbinary Accounts provides the authentication infrastructure
                 for your entire business operations with enterprise-grade
                 security standards.
@@ -168,20 +168,20 @@ export default function AccountsPage() {
                 ].map((item, i) => (
                   <div key={i} className="flex gap-4 items-start">
                     <CheckCircle2 className="w-6 h-6 text-blue-600 shrink-0 mt-0.5" />
-                    <span className="text-gray-900 font-medium">{item}</span>
+                    <span className="text-white font-medium">{item}</span>
                   </div>
                 ))}
               </div>
             </div>
-            <div className="bg-blue-50/50 rounded-[40px] aspect-[1.2] border border-blue-100 relative overflow-hidden p-12">
-              <div className="w-full h-full bg-white rounded-2xl shadow-xl border border-blue-200/50 p-6 flex items-center justify-center">
+            <div className="bg-blue-50/50 rounded-[40px] aspect-[1.2] border border-blue-900/50 relative overflow-hidden p-12">
+              <div className="w-full h-full bg-neutral-950 rounded-2xl shadow-xl border border-blue-200/50 p-6 flex items-center justify-center">
                 <div className="text-center">
                   <div className="w-20 h-20 bg-blue-600 rounded-full mx-auto mb-6 flex items-center justify-center">
                     <Shield className="w-10 h-10 text-white" />
                   </div>
                   <div className="space-y-3">
-                    <div className="w-48 h-4 bg-gray-100 rounded-full mx-auto" />
-                    <div className="w-32 h-4 bg-gray-100 rounded-full mx-auto" />
+                    <div className="w-48 h-4 bg-neutral-900 rounded-full mx-auto" />
+                    <div className="w-32 h-4 bg-neutral-900 rounded-full mx-auto" />
                   </div>
                 </div>
               </div>
@@ -191,9 +191,9 @@ export default function AccountsPage() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-24 px-6 bg-gray-50">
+      <section className="py-24 px-6 bg-neutral-900">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl font-black text-gray-900 mb-16 text-center">
+          <h2 className="text-4xl font-black text-white mb-16 text-center">
             Frequently Asked Questions
           </h2>
           <div className="space-y-6">
@@ -221,12 +221,12 @@ export default function AccountsPage() {
             ].map((faq, i) => (
               <div
                 key={i}
-                className="bg-white border border-gray-100 p-8 rounded-2xl shadow-sm"
+                className="bg-neutral-950 border border-neutral-800 p-8 rounded-2xl shadow-sm"
               >
-                <h3 className="text-lg font-bold text-gray-900 mb-4">
+                <h3 className="text-lg font-bold text-white mb-4">
                   {faq.q}
                 </h3>
-                <p className="text-gray-600 leading-relaxed font-medium">
+                <p className="text-neutral-400 leading-relaxed font-medium">
                   {faq.a}
                 </p>
               </div>
@@ -239,14 +239,14 @@ export default function AccountsPage() {
       <section className="py-24 px-6">
         <div className="max-w-6xl mx-auto text-center">
           <div className="bg-blue-600 rounded-[3rem] py-20 px-6 relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl" />
+            <div className="absolute top-0 right-0 w-64 h-64 bg-neutral-950/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl" />
             <div className="absolute bottom-0 left-0 w-64 h-64 bg-black/10 rounded-full translate-y-1/2 -translate-x-1/2 blur-3xl" />
             <h2 className="text-4xl lg:text-5xl font-black text-white mb-8 relative z-10 leading-tight">
               Ready to get started?
             </h2>
             <Link
               href="https://accounts.fitbinary.com"
-              className="inline-flex items-center gap-2 px-10 py-5 bg-white text-blue-600 rounded-full font-bold text-lg hover:bg-gray-50 transition-all shadow-2xl relative z-10"
+              className="inline-flex items-center gap-2 px-10 py-5 bg-neutral-950 text-blue-600 rounded-full font-bold text-lg hover:bg-neutral-900 transition-all shadow-2xl relative z-10"
             >
               Access Portal
               <ArrowRight className="w-5 h-5" />

@@ -95,8 +95,8 @@ export default function Navbar() {
     <>
       <header
         className={cn(
-          "fixed top-0 left-0 right-0 z-55 border-b bg-white border-gray-200 transition-all duration-300 ease-in-out px-6 py-2 font-sans",
-          isScrolled ? "bg-white py-2" : "",
+          "fixed top-0 left-0 right-0 z-55 border-b bg-neutral-950 border-neutral-800 transition-all duration-300 ease-in-out px-6 py-2 font-sans",
+          isScrolled ? "bg-neutral-950 py-2" : "",
           !isVisible && "-translate-y-full",
         )}
       >
@@ -109,7 +109,7 @@ export default function Navbar() {
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
             >
               <div className="flex items-baseline">
-                <span className="text-2xl font-black tracking-[-0.05em] text-gray-900 lowercase">
+                <span className="text-2xl font-black tracking-[-0.05em] text-white lowercase">
                   fitbinary
                 </span>
               </div>
@@ -140,8 +140,8 @@ export default function Navbar() {
                   <Link
                     href={item.href}
                     className={cn(
-                      "px-4 py-2 text-[14px] font-semibold text-gray-600 hover:text-gray-900 rounded-full flex items-center gap-1 transition-all",
-                      activeDropdown === item.title && "text-gray-900",
+                      "px-4 py-2 text-[14px] font-semibold text-neutral-400 hover:text-white rounded-full flex items-center gap-1 transition-all",
+                      activeDropdown === item.title && "text-white",
                     )}
                   >
                     {item.title}
@@ -171,7 +171,7 @@ export default function Navbar() {
                       className="fixed left-0 right-0 top-15 w-full z-50 pt-2 flex justify-center px-6"
                     >
                       <div className="w-full max-w-5xl">
-                        <div className="bg-gray-50 rounded-2xl shadow-2xl border border-gray-200 ring-1 ring-black/5 overflow-hidden">
+                        <div className="bg-neutral-900 rounded-2xl shadow-2xl border border-neutral-800 ring-1 ring-black/5 overflow-hidden">
                           <NavMenu items={item.dropdown} />
                         </div>
                       </div>
@@ -231,7 +231,7 @@ export default function Navbar() {
           <div className="hidden lg:flex items-center gap-6">
             <Link
               href="https://accounts.fitbinary.com/signin"
-              className="signin-link text-[14px] font-bold text-gray-500 hover:text-gray-900 transition-colors duration-200"
+              className="signin-link text-[14px] font-bold text-neutral-400 hover:text-white transition-colors duration-200"
             >
               Sign in
             </Link>
@@ -263,7 +263,7 @@ export default function Navbar() {
           </div>
           {/* Mobile Menu Toggle */}
           <button
-            className="lg:hidden p-2 text-gray-900 rounded-xl hover:bg-gray-100 transition-colors"
+            className="lg:hidden p-2 text-white rounded-xl hover:bg-neutral-900 transition-colors"
             onClick={() => setMobileMenuOpen(true)}
           >
             <Menu className="w-6 h-6" />

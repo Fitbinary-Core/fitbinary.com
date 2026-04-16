@@ -159,19 +159,19 @@ export default function FitStockDemoPage() {
   const colors = colorClasses[step.color as keyof typeof colorClasses];
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-neutral-900">
       {/* Header */}
-      <div className="border-b border-gray-100 bg-white/80 backdrop-blur-sm sticky top-0 z-50">
+      <div className="border-b border-neutral-800 bg-neutral-950/80 backdrop-blur-sm sticky top-0 z-50">
         <div className="max-w-6xl mx-auto px-6 py-6 flex items-center justify-between">
           <Link
             href="/demo"
-            className="flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors"
+            className="flex items-center gap-2 text-neutral-400 hover:text-white transition-colors"
           >
             <ArrowLeft className="w-5 h-5" />
             <span className="font-bold">Back to Demos</span>
           </Link>
           <div className="flex items-center gap-3">
-            <div className="px-4 py-1.5 text-[12px] font-bold tracking-widest text-red-600 uppercase bg-red-50 rounded-full border border-red-100">
+            <div className="px-4 py-1.5 text-[12px] font-bold tracking-widest text-red-600 uppercase bg-red-50 rounded-full border border-red-900/50">
               FitStock Demo
             </div>
           </div>
@@ -182,19 +182,19 @@ export default function FitStockDemoPage() {
       <div className="max-w-6xl mx-auto px-6 py-16">
         {/* Title */}
         <div className="text-center mb-16">
-          <h1 className="text-5xl lg:text-6xl text-gray-900 font-black tracking-tight mb-6">
+          <h1 className="text-5xl lg:text-6xl text-white font-black tracking-tight mb-6">
             FitStock in <span className="text-red-600">Action</span>
           </h1>
-          <p className="text-xl text-gray-600 font-medium max-w-2xl mx-auto">
+          <p className="text-xl text-neutral-400 font-medium max-w-2xl mx-auto">
             Watch how FitStock provides complete inventory visibility with
             real-time tracking and intelligent alerts.
           </p>
         </div>
 
         {/* Demo Player */}
-        <div className="bg-white rounded-3xl shadow-2xl border border-gray-100 overflow-hidden mb-12">
+        <div className="bg-neutral-950 rounded-3xl shadow-2xl border border-neutral-800 overflow-hidden mb-12">
           {/* Progress Bar */}
-          <div className="h-2 bg-gray-100">
+          <div className="h-2 bg-neutral-900">
             <motion.div
               className={`h-full ${colors.progressBg}`}
               initial={{ width: 0 }}
@@ -221,10 +221,10 @@ export default function FitStockDemoPage() {
                     <StepIcon className={`w-8 h-8 ${colors.text}`} />
                   </div>
                   <div className="flex-1">
-                    <h2 className="text-3xl font-black text-gray-900 mb-2">
+                    <h2 className="text-3xl font-black text-white mb-2">
                       {step.title}
                     </h2>
-                    <p className="text-lg text-gray-600 font-medium">
+                    <p className="text-lg text-neutral-400 font-medium">
                       {step.description}
                     </p>
                   </div>
@@ -242,21 +242,21 @@ export default function FitStockDemoPage() {
                           initial={{ opacity: 0, x: -20 }}
                           animate={{ opacity: 1, x: 0 }}
                           transition={{ delay: i * 0.2 }}
-                          className="bg-white p-5 rounded-xl border border-gray-200 flex items-center justify-between"
+                          className="bg-neutral-950 p-5 rounded-xl border border-neutral-800 flex items-center justify-between"
                         >
                           <div>
-                            <div className="font-bold text-gray-900 mb-1">
+                            <div className="font-bold text-white mb-1">
                               {item.name}
                             </div>
-                            <div className="text-sm text-gray-600 font-medium">
+                            <div className="text-sm text-neutral-400 font-medium">
                               SKU: {item.sku}
                             </div>
                           </div>
                           <div className="text-right">
-                            <div className="text-2xl font-black text-gray-900">
+                            <div className="text-2xl font-black text-white">
                               {item.stock}
                             </div>
-                            <div className="text-xs text-gray-600 font-medium">
+                            <div className="text-xs text-neutral-400 font-medium">
                               In Stock
                             </div>
                           </div>
@@ -279,15 +279,15 @@ export default function FitStockDemoPage() {
                       <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
-                        className="bg-white p-6 rounded-xl border border-gray-200"
+                        className="bg-neutral-950 p-6 rounded-xl border border-neutral-800"
                       >
-                        <div className="text-sm text-gray-600 font-medium mb-2">
+                        <div className="text-sm text-neutral-400 font-medium mb-2">
                           Purchase Order
                         </div>
-                        <div className="text-3xl font-black text-gray-900 mb-4">
+                        <div className="text-3xl font-black text-white mb-4">
                           {step.ui.order}
                         </div>
-                        <div className="text-lg text-gray-600 font-medium">
+                        <div className="text-lg text-neutral-400 font-medium">
                           {step.ui.items} received
                         </div>
                       </motion.div>
@@ -295,7 +295,7 @@ export default function FitStockDemoPage() {
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.5 }}
-                        className="flex items-center justify-center gap-3 font-bold text-gray-900"
+                        className="flex items-center justify-center gap-3 font-bold text-white"
                       >
                         <Package className={`w-5 h-5 ${colors.text}`} />
                         {step.ui.status}
@@ -317,17 +317,17 @@ export default function FitStockDemoPage() {
                       <motion.div
                         initial={{ opacity: 0, x: -20 }}
                         animate={{ opacity: 1, x: 0 }}
-                        className="bg-white p-6 rounded-xl border border-gray-200"
+                        className="bg-neutral-950 p-6 rounded-xl border border-neutral-800"
                       >
-                        <div className="text-lg font-bold text-gray-900 mb-4">
+                        <div className="text-lg font-bold text-white mb-4">
                           {step.ui.product}
                         </div>
                         <div className="flex items-center gap-4 mb-4">
                           <div className="flex-1">
-                            <div className="text-sm text-gray-600 font-medium mb-1">
+                            <div className="text-sm text-neutral-400 font-medium mb-1">
                               From
                             </div>
-                            <div className="font-bold text-gray-900">
+                            <div className="font-bold text-white">
                               {step.ui.from}
                             </div>
                           </div>
@@ -335,15 +335,15 @@ export default function FitStockDemoPage() {
                             className={`w-6 h-6 ${colors.text}`}
                           />
                           <div className="flex-1">
-                            <div className="text-sm text-gray-600 font-medium mb-1">
+                            <div className="text-sm text-neutral-400 font-medium mb-1">
                               To
                             </div>
-                            <div className="font-bold text-gray-900">
+                            <div className="font-bold text-white">
                               {step.ui.to}
                             </div>
                           </div>
                         </div>
-                        <div className="text-gray-600 font-medium">
+                        <div className="text-neutral-400 font-medium">
                           {step.ui.items}
                         </div>
                       </motion.div>
@@ -367,14 +367,14 @@ export default function FitStockDemoPage() {
                           initial={{ opacity: 0, x: -20 }}
                           animate={{ opacity: 1, x: 0 }}
                           transition={{ delay: i * 0.2 }}
-                          className="bg-white p-5 rounded-xl border-2 border-orange-200 flex items-center gap-4"
+                          className="bg-neutral-950 p-5 rounded-xl border-2 border-orange-200 flex items-center gap-4"
                         >
                           <AlertTriangle className="w-6 h-6 text-orange-600 shrink-0" />
                           <div className="flex-1">
-                            <div className="font-bold text-gray-900 mb-1">
+                            <div className="font-bold text-white mb-1">
                               {warning.product}
                             </div>
-                            <div className="text-sm text-gray-600 font-medium">
+                            <div className="text-sm text-neutral-400 font-medium">
                               Current: {warning.current} units • Minimum:{" "}
                               {warning.minimum} units
                             </div>
@@ -404,12 +404,12 @@ export default function FitStockDemoPage() {
                           initial={{ opacity: 0, y: 20 }}
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ delay: i * 0.2 }}
-                          className="bg-white p-6 rounded-xl border border-gray-200 text-center"
+                          className="bg-neutral-950 p-6 rounded-xl border border-neutral-800 text-center"
                         >
-                          <div className="text-sm text-gray-600 font-medium mb-2">
+                          <div className="text-sm text-neutral-400 font-medium mb-2">
                             {metric.label}
                           </div>
-                          <div className="text-3xl font-black text-gray-900 mb-2">
+                          <div className="text-3xl font-black text-white mb-2">
                             {metric.value}
                           </div>
                           <div className="flex items-center justify-center gap-1 text-green-600 font-bold text-sm">
@@ -426,9 +426,9 @@ export default function FitStockDemoPage() {
           </div>
 
           {/* Controls */}
-          <div className="border-t border-gray-100 p-6 bg-gray-50">
+          <div className="border-t border-neutral-800 p-6 bg-neutral-900">
             <div className="flex items-center justify-between">
-              <div className="text-sm font-bold text-gray-600">
+              <div className="text-sm font-bold text-neutral-400">
                 Step {currentStep + 1} of {demoSteps.length}
               </div>
               <button
@@ -456,14 +456,14 @@ export default function FitStockDemoPage() {
                 className={`p-4 rounded-2xl border-2 transition-all text-left ${
                   isActive
                     ? "border-red-600 bg-red-50"
-                    : "border-gray-100 bg-white hover:border-red-600"
+                    : "border-neutral-800 bg-neutral-950 hover:border-red-600"
                 }`}
               >
                 <Icon
                   className={`w-6 h-6 mb-2 ${isActive ? "text-red-600" : "text-gray-400"}`}
                 />
                 <div
-                  className={`text-sm font-bold ${isActive ? "text-gray-900" : "text-gray-600"}`}
+                  className={`text-sm font-bold ${isActive ? "text-white" : "text-neutral-400"}`}
                 >
                   {s.title}
                 </div>
@@ -474,10 +474,10 @@ export default function FitStockDemoPage() {
 
         {/* CTA */}
         <div className="text-center">
-          <h3 className="text-3xl font-black text-gray-900 mb-4">
+          <h3 className="text-3xl font-black text-white mb-4">
             Ready to get started?
           </h3>
-          <p className="text-lg text-gray-600 mb-8 font-medium">
+          <p className="text-lg text-neutral-400 mb-8 font-medium">
             Experience FitStock with your own inventory data.
           </p>
           <Link

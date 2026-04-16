@@ -22,7 +22,7 @@ const Feature = ({
   description: string;
   color: string;
 }) => (
-  <FadeIn className="group p-6 rounded-2xl hover:bg-white hover:shadow-xl transition-all border border-transparent hover:border-gray-100">
+  <FadeIn className="group p-6 rounded-2xl hover:bg-neutral-900 hover:shadow-xl transition-all border border-transparent hover:border-neutral-800">
     <div
       className={cn(
         "w-12 h-12 rounded-xl flex items-center justify-center mb-6 transition-transform group-hover:scale-110",
@@ -31,8 +31,8 @@ const Feature = ({
     >
       <Icon className="w-6 h-6" />
     </div>
-    <h3 className="text-lg font-bold text-gray-900 mb-2">{title}</h3>
-    <p className="text-sm text-gray-500 leading-relaxed font-medium">
+    <h3 className="text-lg font-bold text-white mb-2">{title}</h3>
+    <p className="text-sm text-neutral-400 leading-relaxed font-medium">
       {description}
     </p>
   </FadeIn>
@@ -40,13 +40,13 @@ const Feature = ({
 
 export default function Features() {
   return (
-    <section className="py-40 bg-white px-6">
+    <section className="py-40 bg-neutral-950 px-6">
       <div className="max-w-6xl mx-auto">
         <div className="text-center max-w-3xl mx-auto mb-20">
           <h2 className="text-4xl lg:text-5xl font-black tracking-tight mb-8">
             Core platform capabilities.
           </h2>
-          <p className="text-lg text-gray-500 font-medium">
+          <p className="text-lg text-neutral-400 font-medium">
             Built to support day-to-day gym operations and inventory workflows
             at scale.
           </p>
@@ -71,7 +71,7 @@ export default function Features() {
             icon={Database}
             title="Reliable Data Sync"
             description="Consistent member and inventory data across branches, even with intermittent connectivity."
-            color="bg-gray-100 text-gray-900"
+            color="bg-neutral-900 text-white"
           />
 
           <Feature
@@ -92,7 +92,7 @@ export default function Features() {
             icon={Layout}
             title="Staff & Member Apps"
             description="Mobile-friendly experiences for staff operations and member self-service access."
-            color="bg-gray-100 text-gray-900"
+            color="bg-neutral-900 text-white"
           />
 
           <Feature
