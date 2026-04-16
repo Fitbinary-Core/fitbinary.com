@@ -44,7 +44,7 @@ export default function FitStockPage() {
             <div className="flex flex-wrap justify-center gap-6">
               <Link
                 href="https://fitstock.fitbinary.com"
-                className="group relative px-10 py-5 rounded-full overflow-hidden bg-red-600 text-white hover:scale-105 transition-transform active:scale-95 shadow-xl shadow-red-600/20"
+                className="group relative px-10 py-5 rounded-full overflow-hidden bg-red-600 text-white hover:scale-105 transition-transform active:scale-95"
               >
                 <div className="absolute inset-0 bg-red-700 -translate-x-full transition-transform duration-300 group-hover:translate-x-0" />
                 <span className="relative z-10 font-bold text-lg flex items-center gap-2">
@@ -207,9 +207,7 @@ export default function FitStockPage() {
                 ].map((item, i) => (
                   <div key={i} className="flex gap-4 items-center">
                     <CheckCircle2 className="w-6 h-6 text-red-600 shrink-0" />
-                    <span className="text-white font-bold text-lg">
-                      {item}
-                    </span>
+                    <span className="text-white font-bold text-lg">{item}</span>
                   </div>
                 ))}
               </div>
@@ -251,9 +249,7 @@ export default function FitStockPage() {
                 key={i}
                 className="bg-neutral-900 border border-transparent p-8 rounded-3xl hover:bg-neutral-900 hover:shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:border-neutral-800 transition-all"
               >
-                <h3 className="text-xl font-bold text-white mb-4">
-                  {faq.q}
-                </h3>
+                <h3 className="text-xl font-bold text-white mb-4">{faq.q}</h3>
                 <p className="text-neutral-400 leading-relaxed font-medium">
                   {faq.a}
                 </p>
@@ -266,7 +262,7 @@ export default function FitStockPage() {
       {/* CTA Section */}
       <section className="py-24 px-6 bg-neutral-900">
         <div className="max-w-6xl mx-auto text-center">
-          <div className="bg-red-600 rounded-[3rem] py-24 px-6 relative overflow-hidden group shadow-[0_20px_60px_-15px_rgba(220,38,38,0.4)]">
+          <div className="bg-red-600 rounded-[3rem] py-24 px-6 relative overflow-hidden group">
             <div className="absolute top-0 right-0 w-64 h-64 bg-neutral-950/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl group-hover:bg-neutral-900/20 transition-colors" />
             <div className="absolute bottom-0 left-0 w-64 h-64 bg-black/10 rounded-full translate-y-1/2 -translate-x-1/2 blur-3xl" />
             <h2 className="text-4xl lg:text-6xl font-black text-white mb-10 relative z-10 leading-tight">
@@ -274,7 +270,7 @@ export default function FitStockPage() {
             </h2>
             <Link
               href="https://fitstock.fitbinary.com"
-              className="inline-flex items-center gap-2 px-10 py-5 bg-neutral-950 text-red-600 rounded-full font-bold text-lg hover:bg-neutral-900 transition-all shadow-2xl relative z-10 active:scale-95 group-hover:gap-3"
+              className="inline-flex items-center gap-2 px-10 py-5 bg-neutral-950 text-white rounded-full font-bold text-lg hover:bg-neutral-900 transition-all shadow-2xl relative z-10 active:scale-95 group-hover:gap-3"
             >
               Launch FitStock
               <ArrowRight className="w-5 h-5" />

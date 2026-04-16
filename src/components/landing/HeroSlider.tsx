@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { HeroSlide } from "./hero-data";
+import { SingularityShaders } from "./SingularityShaders";
 
 export const HeroSlider = ({ slides }: { slides: HeroSlide[] }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -20,21 +21,12 @@ export const HeroSlider = ({ slides }: { slides: HeroSlide[] }) => {
 
   return (
     <div className="relative w-full min-h-screen overflow-hidden bg-neutral-950">
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0"
-        style={{
-          background:
-            "radial-gradient(ellipse 85% 65% at 50% 62%, rgba(56,189,248,0.22) 0%, rgba(125,211,252,0.14) 45%, transparent 70%)",
-        }}
-      />
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0"
-        style={{
-          background:
-            "radial-gradient(ellipse 48% 38% at 50% 62%, rgba(14,165,233,0.28) 0%, rgba(56,189,248,0.16) 50%, transparent 80%)",
-        }}
+      <SingularityShaders
+        className="absolute inset-0 z-0 opacity-80"
+        speed={0.6}
+        intensity={1.1}
+        size={1.2}
+        waveStrength={1.5}
       />
 
       <section className="relative z-10 w-full flex flex-col items-center">
@@ -46,7 +38,7 @@ export const HeroSlider = ({ slides }: { slides: HeroSlide[] }) => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 8 }}
               transition={{ duration: 0.28 }}
-              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-neutral-950 border border-neutral-800 shadow-sm mb-8"
+              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-neutral-950/50 backdrop-blur-sm border border-neutral-800 shadow-sm mb-8"
             >
               <span
                 className={`flex w-2 h-2 rounded-full ${slide.theme.badgeText.replace("text-", "bg-")} opacity-80`}
@@ -64,7 +56,7 @@ export const HeroSlider = ({ slides }: { slides: HeroSlide[] }) => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -18 }}
               transition={{ duration: 0.38 }}
-              className="text-4xl sm:text-5xl md:text-[3.5rem] font-black tracking-[-0.04em] text-gray-950 leading-[1.1] mb-6 max-w-2xl"
+              className="text-4xl sm:text-5xl md:text-[3.5rem] font-black tracking-[-0.04em] text-white leading-[1.1] mb-6 max-w-2xl"
             >
               {slide.headline.before}{" "}
               <span className={slide.theme.highlightText}>
@@ -74,18 +66,17 @@ export const HeroSlider = ({ slides }: { slides: HeroSlide[] }) => {
             </motion.h1>
           </AnimatePresence>
 
-          <AnimatePresence mode="wait">
-            <motion.p
-              key={`description-${currentSlide}`}
-              initial={{ opacity: 0, y: 18 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -14 }}
-              transition={{ duration: 0.38, delay: 0.08 }}
-              className="text-[15px] sm:text-base text-neutral-400 mb-10 leading-[1.7] max-w-md font-normal"
-            >
-              {slide.description}
-            </motion.p>
-          </AnimatePresence>
+          <motion.p
+            key={`description-${currentSlide}`}
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -14 }}
+            transition={{ duration: 0.38, delay: 0.08 }}
+            style={{ textShadow: "0px 2px 6px rgba(0,0,0,0.6)" }}
+            className="text-[15px] sm:text-base text-neutral-50 text-shadow-md shadow-amber-50 mb-10 leading-[1.7] max-w-md font-normal"
+          >
+            {slide.description}
+          </motion.p>
 
           <AnimatePresence mode="wait">
             <motion.div

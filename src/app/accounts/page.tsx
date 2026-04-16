@@ -223,9 +223,7 @@ export default function AccountsPage() {
                 key={i}
                 className="bg-neutral-950 border border-neutral-800 p-8 rounded-2xl shadow-sm"
               >
-                <h3 className="text-lg font-bold text-white mb-4">
-                  {faq.q}
-                </h3>
+                <h3 className="text-lg font-bold text-white mb-4">{faq.q}</h3>
                 <p className="text-neutral-400 leading-relaxed font-medium">
                   {faq.a}
                 </p>

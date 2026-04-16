@@ -1,10 +1,19 @@
 import { Terminal, Globe } from "lucide-react";
+import { TopographyBackground } from "./TopographyBackground";
 
 export default function Developers() {
   return (
-    <section className="py-40 z-100 bg-black text-white px-6 overflow-hidden relative">
-      <div className="absolute top-0 right-0 w-200 h-200 bg-blue-600/10 rounded-full blur-[150px] z-0" />
-      <div className="max-w-6xl mx-auto grid lg:grid-cols-[1fr_1.3fr] gap-20 items-center relative z-10">
+    <section className="relative py-48 bg-neutral-950 text-white px-6 overflow-hidden">
+      <TopographyBackground
+        lineCount={10}
+        lineColor="rgba(255, 255, 255, 0.02)"
+        speed={0.2}
+      />
+
+      {/* Decorative Blur */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-red-600/5 rounded-full blur-[120px] pointer-events-none" />
+
+      <div className="max-w-6xl mx-auto grid lg:grid-cols-[1fr_1.3fr] gap-24 items-center relative z-10">
         <div>
           <div className="text-red-500 font-bold mb-4 tracking-widest uppercase text-xs">
             Architected for Speed

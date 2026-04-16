@@ -178,9 +178,7 @@ export default function FitCloudPage() {
                 ].map((item, i) => (
                   <div key={i} className="flex gap-4 items-center">
                     <CheckCircle2 className="w-6 h-6 text-blue-600 shrink-0" />
-                    <span className="text-white font-bold text-lg">
-                      {item}
-                    </span>
+                    <span className="text-white font-bold text-lg">{item}</span>
                   </div>
                 ))}
               </div>
@@ -243,9 +241,7 @@ export default function FitCloudPage() {
                 key={i}
                 className="bg-neutral-900 border border-transparent p-8 rounded-3xl hover:bg-neutral-900 hover:shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:border-neutral-800 transition-all"
               >
-                <h3 className="text-xl font-bold text-white mb-4">
-                  {faq.q}
-                </h3>
+                <h3 className="text-xl font-bold text-white mb-4">{faq.q}</h3>
                 <p className="text-neutral-400 leading-relaxed font-medium">
                   {faq.a}
                 </p>
