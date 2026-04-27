@@ -128,7 +128,7 @@ export default function Navbar() {
                         className={cn(
                           "w-3.5 h-3.5 transition-transform duration-200 opacity-60",
                           activeDropdown === item.title &&
-                            "rotate-180 opacity-100",
+                          "rotate-180 opacity-100",
                         )}
                       />
                     )}
@@ -149,7 +149,7 @@ export default function Navbar() {
                           className="fixed left-0 right-0 top-14 w-full z-50 flex justify-center px-6 pt-1.5"
                         >
                           <div className="w-full max-w-3xl">
-                            <div className="bg-white rounded-2xl shadow-xl shadow-zinc-200/80 border border-zinc-200/80 overflow-hidden">
+                            <div className="bg-white rounded-xl border border-zinc-200/80 overflow-hidden">
                               <NavMenu items={item.dropdown} />
                             </div>
                           </div>
