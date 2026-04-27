@@ -1,126 +1,127 @@
+"use client";
+
+import { motion } from "framer-motion";
 import {
   ShieldCheck,
   Cpu,
-  Database,
   Globe,
-  BarChart,
-  Layout,
-  MessageSquare,
+  BarChart3,
+  MapPin,
+  RefreshCw,
+  Users,
   Zap,
 } from "lucide-react";
-import { cn } from "@/lib/utils";
-import { FadeIn, StaggerContainer } from "./FadeIn";
-import { TopographyBackground } from "./TopographyBackground";
 
-const Feature = ({
-  icon: Icon,
-  title,
-  description,
-  color,
-}: {
-  icon: any;
-  title: string;
-  description: string;
-  color: string;
-}) => (
-  <FadeIn className="group relative bg-zinc-900/50 backdrop-blur-sm rounded-2xl p-6 text-white cursor-pointer hover:bg-zinc-800/80 transition-all duration-300 border border-zinc-800/50 hover:border-zinc-700 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.3)]">
-    {/* Subtle inner glow on hover */}
-    <div className="absolute inset-x-0 -top-px h-px bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-
-    <div
-      className={cn(
-        "w-12 h-12 rounded-xl flex items-center justify-center mb-6 transition-all duration-300 group-hover:scale-110 group-hover:rotate-3 shadow-lg",
-        color.replace("bg-", "bg-opacity-10 bg-").replace("text-", "shadow-"),
-      )}
-    >
-      <Icon className={cn("w-6 h-6", color.split(" ")[1])} />
-    </div>
-    <h3 className="text-lg font-bold text-white mb-2 tracking-tight group-hover:text-white transition-colors">
-      {title}
-    </h3>
-    <p className="text-sm text-neutral-400 leading-relaxed font-medium group-hover:text-neutral-300 transition-colors">
-      {description}
-    </p>
-  </FadeIn>
-);
+const features = [
+  {
+    icon: Users,
+    title: "Multi-tenant architecture",
+    description:
+      "Run multiple independent businesses on one platform. Each tenant gets full data isolation with shared infrastructure benefits.",
+    size: "large",
+  },
+  {
+    icon: Globe,
+    title: "Multi-branch support",
+    description:
+      "Manage any number of locations, staff, and inventory from one unified dashboard.",
+    size: "small",
+  },
+  {
+    icon: Cpu,
+    title: "Fast by default",
+    description:
+      "Optimized for peak-hour operations — check-ins, billing, and lookups stay snappy under load.",
+    size: "small",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Secure & reliable",
+    description:
+      "Member data, payment records, and inventory handled with modern encryption and access controls.",
+    size: "small",
+  },
+  {
+    icon: RefreshCw,
+    title: "Real-time sync",
+    description:
+      "Stock levels, member status, and attendance data stay consistent across all branches — instantly.",
+    size: "small",
+  },
+  {
+    icon: BarChart3,
+    title: "Operational insights",
+    description:
+      "Clear dashboards for memberships, attendance trends, revenue, and inventory movement.",
+    size: "large",
+  },
+  {
+    icon: MapPin,
+    title: "Geo-fenced check-ins",
+    description:
+      "Location-verified attendance without manual sign-in. Members check in from the gym floor.",
+    size: "small",
+  },
+  {
+    icon: Zap,
+    title: "Quick onboarding",
+    description:
+      "Get your gym, staff, and members set up in hours — not weeks.",
+    size: "small",
+  },
+];
 
 export default function Features() {
   return (
-    <section className="relative py-48 bg-neutral-950 px-6 overflow-hidden">
-      <TopographyBackground
-        lineCount={12}
-        lineColor="rgba(255, 255, 255, 0.03)"
-        speed={0.3}
-      />
-
-      <div className="relative z-10 max-w-6xl mx-auto">
-        <div className="text-center max-w-3xl mx-auto mb-24">
-          <h2 className="text-4xl lg:text-[3.25rem] font-black tracking-tight mb-8 text-white leading-[1.1]">
-            Core platform capabilities.
+    <section className="py-32 bg-zinc-950 px-6">
+      <div className="max-w-6xl mx-auto">
+        {/* Header */}
+        <div className="max-w-2xl mb-16">
+          <div className="inline-block px-3 py-1 rounded-full bg-zinc-900 border border-zinc-800 mb-5">
+            <span className="text-[11px] font-bold text-zinc-400 uppercase tracking-[0.15em]">
+              Platform
+            </span>
+          </div>
+          <h2 className="text-4xl lg:text-[3.25rem] font-black tracking-[-0.03em] text-white mb-5 leading-[1.05]">
+            Built for the gym floor
+            <br />
+            <span className="text-zinc-500">and back office.</span>
           </h2>
-          <p className="text-[19px] text-neutral-400 font-medium leading-relaxed">
-            Built to support day-to-day gym operations and inventory workflows
-            at scale.
+          <p className="text-zinc-400 text-lg leading-relaxed">
+            Every capability designed around the real demands of running a
+            fitness business at scale.
           </p>
         </div>
 
-        <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          <Feature
-            icon={ShieldCheck}
-            title="Secure by Design"
-            description="Member, payment, and inventory data handled with modern security practices and encrypted storage."
-            color="bg-red-500 text-red-500"
-          />
+        {/* Bento grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 auto-rows-auto">
+          {features.map(({ icon: Icon, title, description, size }, i) => (
+            <motion.div
+              key={title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.45, delay: i * 0.05 }}
+              className={`group relative rounded-2xl border border-zinc-800/70 bg-zinc-900/50 p-7 hover:border-zinc-700 hover:bg-zinc-900 transition-all duration-300 ${
+                size === "large" ? "lg:col-span-2" : "lg:col-span-1"
+              }`}
+            >
+              {/* Subtle top glow line on hover */}
+              <div className="absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-zinc-600/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-t-2xl" />
 
-          <Feature
-            icon={Cpu}
-            title="Fast & Responsive"
-            description="Optimized for quick check-ins, billing actions, and daily operational tasks during peak hours."
-            color="bg-blue-500 text-blue-500"
-          />
+              <div className="w-11 h-11 rounded-xl bg-zinc-800 border border-zinc-700/60 flex items-center justify-center mb-6 group-hover:border-zinc-600 transition-colors">
+                <Icon className="w-5 h-5 text-zinc-300" />
+              </div>
 
-          <Feature
-            icon={Database}
-            title="Reliable Data Sync"
-            description="Consistent member and inventory data across branches, even with intermittent connectivity."
-            color="bg-neutral-500 text-white"
-          />
-
-          <Feature
-            icon={Globe}
-            title="Multi-Branch Support"
-            description="Manage multiple gym locations, staff roles, and shared inventory from one system."
-            color="bg-red-500 text-red-500"
-          />
-
-          <Feature
-            icon={BarChart}
-            title="Operational Insights"
-            description="Clear reporting on memberships, attendance trends, and product movement."
-            color="bg-blue-500 text-blue-500"
-          />
-
-          <Feature
-            icon={Layout}
-            title="Staff & Member Apps"
-            description="Mobile-friendly experiences for staff operations and member self-service access."
-            color="bg-neutral-500 text-white"
-          />
-
-          <Feature
-            icon={MessageSquare}
-            title="Geo-Fence Attendance"
-            description="Location-based check-ins to ensure accurate attendance without manual verification."
-            color="bg-red-500 text-red-500"
-          />
-
-          <Feature
-            icon={Zap}
-            title="Quick Setup"
-            description="Get started quickly with guided onboarding for gyms, branches, and staff."
-            color="bg-blue-500 text-blue-500"
-          />
-        </StaggerContainer>
+              <h3 className="text-[16px] font-bold text-white mb-2.5 tracking-tight">
+                {title}
+              </h3>
+              <p className="text-[13px] text-zinc-500 leading-relaxed font-normal group-hover:text-zinc-400 transition-colors">
+                {description}
+              </p>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );

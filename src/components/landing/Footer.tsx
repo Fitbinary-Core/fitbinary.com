@@ -1,110 +1,129 @@
 import Link from "next/link";
-import { Globe } from "lucide-react";
-import { SparksDriftingShaders } from "./SparksDriftingShaders";
+import { Github, Twitter, Linkedin } from "lucide-react";
 
-const FooterColumn = ({
-  title,
-  links,
-}: {
-  title: string;
-  links: { name: string; href: string }[];
-}) => (
-  <div className="flex flex-col gap-4 relative z-10">
-    <h4 className="text-[14px] font-bold text-white uppercase tracking-widest">
-      {title}
-    </h4>
-    <ul className="flex flex-col gap-3">
-      {links.map((link) => (
-        <li key={link.name}>
-          <Link
-            href={link.href}
-            className="text-[14px] font-medium text-neutral-400 hover:text-red-600 transition-colors"
-          >
-            {link.name}
-          </Link>
-        </li>
-      ))}
-    </ul>
-  </div>
-);
+const nav = {
+  Products: [
+    { name: "FitCloud", href: "/fitcloud", tag: "Gym Software" },
+    { name: "FitStock", href: "/fitstock", tag: "Inventory" },
+    { name: "Accounts", href: "https://accounts.fitbinary.com" },
+  ],
+  Resources: [
+    { name: "Documentation", href: "/docs" },
+    { name: "Changelog", href: "/changelog" },
+    { name: "Community", href: "/community" },
+    { name: "Status", href: "https://status.fitbinary.com" },
+  ],
+  Company: [
+    { name: "About", href: "/about" },
+    { name: "Blog", href: "/blog" },
+    { name: "Careers", href: "/careers" },
+    { name: "Contact", href: "/contact" },
+  ],
+  Legal: [
+    { name: "Privacy", href: "/privacy" },
+    { name: "Terms", href: "/terms" },
+    { name: "Security", href: "/security" },
+  ],
+};
 
 export default function Footer() {
   return (
-    <footer className="relative bg-neutral-950 pt-32 pb-14 border-t border-neutral-800 overflow-hidden text-white">
-      <SparksDriftingShaders
-        className="absolute inset-x-0 bottom-0 h-full z-0 opacity-40 pointer-events-none"
-        speed={0.8}
-        sparkSize={1.2}
-        fireIntensity={0.6}
-        smokeIntensity={0.4}
-      />
-
-      <div className="max-w-6xl mx-auto px-6 relative z-10">
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-12 mb-20">
-          <div className="col-span-2 lg:col-span-1">
-            <div className="flex items-center gap-3 mb-8">
-              <div className="w-10 h-10">
-                <img
-                  src="/Icon.png"
-                  alt="Fitbinary Logo"
-                  className="w-full h-full object-contain rounded-lg"
-                />
-              </div>
-              <span className="text-xl font-black tracking-tighter">
-                Fitbinary
+    <footer className="bg-zinc-950">
+      <div className="max-w-7xl mx-auto px-6">
+        {/* Top grid */}
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-8 py-16 border-b border-zinc-900">
+          {/* Brand */}
+          <div className="col-span-2 md:col-span-1 pr-4">
+            <div className="flex items-center gap-2 mb-4">
+              <img
+                src="/Icon.png"
+                alt="Fitbinary"
+                className="w-6 h-6 rounded-md object-contain"
+              />
+              <span className="text-[14px] font-black text-white tracking-tight">
+                fitbinary
               </span>
             </div>
-            <p className="text-neutral-400 text-sm font-medium leading-[1.8] pr-4">
-              The modern infrastructure for the global fitness industry.
-              Empowering gyms and more businesses with the technology they need
-              to lead.
+            <p className="text-[13px] text-zinc-500 leading-relaxed mb-6">
+              The operations platform for gyms and fitness businesses.
             </p>
+            <div className="flex items-center gap-3">
+              <Link
+                href="https://github.com/fitbinary"
+                className="w-8 h-8 rounded-lg flex items-center justify-center text-zinc-600 hover:text-zinc-300 hover:bg-zinc-800 transition-all duration-150"
+              >
+                <Github className="w-4 h-4" />
+              </Link>
+              <Link
+                href="https://twitter.com/fitbinary"
+                className="w-8 h-8 rounded-lg flex items-center justify-center text-zinc-600 hover:text-zinc-300 hover:bg-zinc-800 transition-all duration-150"
+              >
+                <Twitter className="w-4 h-4" />
+              </Link>
+              <Link
+                href="https://linkedin.com/company/fitbinary"
+                className="w-8 h-8 rounded-lg flex items-center justify-center text-zinc-600 hover:text-zinc-300 hover:bg-zinc-800 transition-all duration-150"
+              >
+                <Linkedin className="w-4 h-4" />
+              </Link>
+            </div>
           </div>
-          <FooterColumn
-            title="Products"
-            links={[
-              { name: "FitCloud", href: "/fitcloud" },
-              { name: "FitStock", href: "/fitstock" },
-              { name: "Accounts", href: "https://accounts.fitbinary.com" },
-            ]}
-          />
-          <FooterColumn
-            title="Resources"
-            links={[
-              { name: "Documentation", href: "/docs" },
-              { name: "Community", href: "/community" },
-            ]}
-          />
-          <FooterColumn
-            title="Company"
-            links={[
-              { name: "About Us", href: "/about" },
-              { name: "Contact", href: "/contact" },
-            ]}
-          />
-        </div>
-      </div>
 
-      {/* Break line */}
-      <div className="flex flex-col md:flex-row justify-between items-center gap-8 border-t border-neutral-800 py-8 relative z-10"></div>
-
-      <div className="max-w-6xl px-6 mx-auto flex flex-col md:flex-row justify-between items-center gap-8 relative z-10">
-        <div className="flex items-center gap-8">
-          <span className="text-[12px] font-bold text-gray-400">
-            © 2026 Fitbinary Inc.
-          </span>
-          <div className="flex items-center gap-4">
-            <div className="w-5 h-5 bg-neutral-900 rounded-lg border border-neutral-800" />
-            <div className="w-5 h-5 bg-neutral-900 rounded-lg border border-neutral-800" />
-            <div className="w-5 h-5 bg-neutral-900 rounded-lg border border-neutral-800" />
-          </div>
+          {/* Link columns */}
+          {Object.entries(nav).map(([title, links]) => (
+            <div key={title}>
+              <p className="text-[11px] font-semibold text-zinc-500 uppercase tracking-widest mb-4">
+                {title}
+              </p>
+              <ul className="space-y-3">
+                {links.map((link) => (
+                  <li key={link.name}>
+                    <Link
+                      href={link.href}
+                      className="group inline-flex items-center gap-1.5 text-[13px] text-zinc-500 hover:text-zinc-200 transition-colors duration-150"
+                    >
+                      {link.name}
+                      {"tag" in link && link.tag && (
+                        <span className="text-[9px] font-bold px-1.5 py-0.5 rounded bg-zinc-800 text-zinc-500 group-hover:text-zinc-400 transition-colors">
+                          {link.tag}
+                        </span>
+                      )}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
-        <div className="flex items-center gap-6">
-          <div className="flex items-center gap-2">
-            <Globe className="w-4 h-4 text-gray-400" />
-            <span className="text-[12px] font-bold text-white">
-              English (United States)
-            </span>
+
+        {/* Bottom bar */}
+        <div className="py-6 flex flex-col sm:flex-row items-center justify-between gap-3">
+          <p className="text-[12px] text-zinc-600">
+            © 2026 Fitbinary Inc. All rights reserved.
+          </p>
+
+          <div className="flex items-center gap-6">
+            <div className="flex items-center gap-1.5">
+              <span className="relative flex h-1.5 w-1.5">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500" />
+              </span>
+              <span className="text-[11px] text-zinc-600">
+                All systems operational
+              </span>
+            </div>
+            <Link
+              href="/privacy"
+              className="text-[12px] text-zinc-600 hover:text-zinc-400 transition-colors"
+            >
+              Privacy
+            </Link>
+            <Link
+              href="/terms"
+              className="text-[12px] text-zinc-600 hover:text-zinc-400 transition-colors"
+            >
+              Terms
+            </Link>
           </div>
         </div>
       </div>
