@@ -280,7 +280,7 @@ export const Hero = () => {
               </div>
             </motion.div>
 
-            <h1 className="text-2xl sm:text-[4.5rem] font-bold tracking-tight leading-[1.05] text-white mb-6">
+            <h1 className="text-[3.5rem] font-bold tracking-tight leading-[1.05] text-white mb-6">
               <div className="flex flex-wrap">
                 <RevealText text="Built for how" delay={0.1} />
               </div>
