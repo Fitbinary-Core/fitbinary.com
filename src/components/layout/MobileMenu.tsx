@@ -126,7 +126,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
               </Link>
               <Link
                 href="/get-started"
-                className="w-full py-4 text-center bg-red-600 text-white rounded-2xl text-[14px] font-bold hover:bg-red-700 shadow-lg shadow-red-200 transition-all active:scale-95"
+                className="w-full py-4 text-center bg-red-600 text-white rounded-2xl text-[14px] font-bold hover:bg-red-700 transition-all active:scale-95"
               >
                 Get Started
               </Link>
