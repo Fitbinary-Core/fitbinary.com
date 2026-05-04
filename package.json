@@ -9,7 +9,11 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@base-ui/react": "^1.4.1",
     "@types/three": "^0.183.1",
+    "all": "^0.0.0",
+    "button": "link:@base-ui/react/button",
+    "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "framer-motion": "^12.29.0",
     "lucide-react": "^0.562.0",
