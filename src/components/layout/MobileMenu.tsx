@@ -42,7 +42,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                   transition={{ type: "spring", stiffness: 400, damping: 10 }}
                 >
                   <div className="flex items-baseline">
-                    <span className="text-xl font-black tracking-[-0.05em] text-white lowercase">
+                    <span className="text-xl font-black tracking-tighter text-white lowercase">
                       fitbinary
                     </span>
                   </div>

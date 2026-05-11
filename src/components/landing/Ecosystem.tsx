@@ -13,7 +13,7 @@ import {
 
 function FitCloudPreview() {
   return (
-    <div className="w-full h-full bg-[#050A14] rounded-2xl p-5 overflow-hidden">
+    <div className="w-full h-full bg-[#050A14] rounded-xl p-5 overflow-hidden">
       <div className="flex items-center justify-between mb-4">
         <div>
           <p className="text-[10px] font-bold text-blue-400/70 uppercase tracking-widest mb-0.5">
@@ -39,7 +39,7 @@ function FitCloudPreview() {
         ].map((s) => (
           <div
             key={s.l}
-            className="bg-white/[0.04] rounded-xl px-2.5 py-2.5 border border-white/[0.05]"
+            className="bg-white/4 rounded-xl px-2.5 py-2.5 border border-white/5"
           >
             <p className="text-[8px] text-zinc-500 uppercase tracking-wider font-bold mb-1">
               {s.l}
@@ -57,7 +57,7 @@ function FitCloudPreview() {
         ].map((m) => (
           <div
             key={m.name}
-            className="flex items-center justify-between bg-white/[0.03] rounded-xl px-3 py-2.5 border border-white/[0.04]"
+            className="flex items-center justify-between bg-white/3 rounded-xl px-3 py-2.5 border border-white/4"
           >
             <div className="flex items-center gap-2.5">
               <div className="w-6 h-6 rounded-full bg-blue-900/60 flex items-center justify-center text-[9px] font-bold text-blue-300">
@@ -89,7 +89,7 @@ function FitStockPreview() {
   ];
 
   return (
-    <div className="w-full h-full bg-[#0D0D0D] rounded-2xl p-5 overflow-hidden border border-zinc-800">
+    <div className="w-full h-full bg-[#0D0D0D] rounded-xl p-5 overflow-hidden border border-zinc-800">
       <div className="flex items-center justify-between mb-4">
         <div>
           <p className="text-[10px] font-bold text-orange-400/70 uppercase tracking-widest mb-0.5">
@@ -119,7 +119,7 @@ function FitStockPreview() {
                 </span>
               )}
             </div>
-            <div className="w-full h-1.5 rounded-full bg-white/[0.05] overflow-hidden">
+            <div className="w-full h-1.5 rounded-full bg-white/5 overflow-hidden">
               <motion.div
                 initial={{ width: 0 }}
                 whileInView={{ width: `${item.pct}%` }}
@@ -257,7 +257,7 @@ export default function Ecosystem() {
                 {p.description}
               </p>
 
-              <div className="rounded-2xl overflow-hidden mb-6 h-[230px]">
+              <div className="rounded-xl overflow-hidden mb-6 h-57.5">
                 <p.Preview />
               </div>
 

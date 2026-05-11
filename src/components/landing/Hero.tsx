@@ -66,7 +66,7 @@ function SuiteVisual() {
         <motion.div
           animate={{ y: [0, -6, 0] }}
           transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-          className="bg-[#050505]/40 backdrop-blur-2xl border border-white/10 rounded-[1.25rem] p-5 lg:p-6 shadow-[0_8px_32_rgba(0,0,0,0.6)] transition-all duration-500 hover:border-white/20 hover:bg-[#080808]/60 hover:shadow-[0_16px_48px_-12px_rgba(0,0,0,0.8)]"
+          className="bg-[#050505]/40 backdrop-blur-2xl border border-white/10 rounded-lg p-5 lg:p-6 shadow-[0_8px_32_rgba(0,0,0,0.6)] transition-all duration-500 hover:border-white/20 hover:bg-[#080808]/60 hover:shadow-[0_16px_48px_-12px_rgba(0,0,0,0.8)]"
         >
           <div className="relative z-10 flex items-center justify-between mb-6">
             <div className="flex items-center gap-4">
@@ -124,7 +124,7 @@ function SuiteVisual() {
             repeat: Infinity,
             ease: "easeInOut",
           }}
-          className="bg-[#050505]/40 backdrop-blur-2xl border border-white/10 rounded-[1.25rem] p-5 lg:p-6 shadow-[0_8px_32_rgba(0,0,0,0.6)] transition-all duration-500 hover:border-white/20 hover:bg-[#080808]/60 hover:shadow-[0_16px_48px_-12px_rgba(0,0,0,0.8)]"
+          className="bg-[#050505]/40 backdrop-blur-2xl border border-white/10 rounded-lg p-5 lg:p-6 shadow-[0_8px_32_rgba(0,0,0,0.6)] transition-all duration-500 hover:border-white/20 hover:bg-[#080808]/60 hover:shadow-[0_16px_48px_-12px_rgba(0,0,0,0.8)]"
         >
           <div className="relative z-10 flex items-center justify-between mb-6">
             <div className="flex items-center gap-4">
@@ -174,7 +174,7 @@ function SuiteVisual() {
                     </span>
                   )}
                 </div>
-                <div className="w-full h-1.5 rounded-full bg-white/[0.03] overflow-hidden shadow-inner">
+                <div className="w-full h-1.5 rounded-full bg-white/3 overflow-hidden shadow-inner">
                   <motion.div
                     initial={{ width: 0 }}
                     animate={{ width: `${item.pct}%` }}
@@ -206,9 +206,9 @@ function SuiteVisual() {
             repeat: Infinity,
             ease: "easeInOut",
           }}
-          className="bg-black/20 backdrop-blur-md border border-white/10 border-dashed rounded-[1.25rem] p-4 lg:p-5 flex items-center gap-4 transition-all duration-300 hover:border-white/20 hover:bg-black/40"
+          className="bg-black/20 backdrop-blur-md border border-white/10 border-dashed rounded-lg p-4 lg:p-5 flex items-center gap-4 transition-all duration-300 hover:border-white/20 hover:bg-black/40"
         >
-          <div className="w-10 h-10 rounded-xl bg-white/[0.02] border border-white/[0.05] flex items-center justify-center shrink-0 shadow-inner">
+          <div className="w-10 h-10 rounded-xl bg-white/2 border border-white/5 flex items-center justify-center shrink-0 shadow-inner">
             <Zap className="w-4 h-4 text-white/30 group-hover:text-white/70 transition-colors duration-300" />
           </div>
           <div>
@@ -261,8 +261,8 @@ export const Hero = () => {
             className="max-w-2xl"
           >
             <motion.div variants={itemVariants} className="mb-8">
-              <div className="inline-flex items-center gap-3 px-3 py-1.5 rounded-full border border-white/10 bg-white/[0.02] backdrop-blur-xl shadow-[0_0_20px_rgba(255,255,255,0.02)] group overflow-hidden relative cursor-pointer hover:bg-white/[0.04] transition-colors duration-300">
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/[0.08] to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out" />
+              <div className="inline-flex items-center gap-3 px-3 py-1.5 rounded-full border border-white/10 bg-white/2 backdrop-blur-xl shadow-[0_0_20px_rgba(255,255,255,0.02)] group overflow-hidden relative cursor-pointer hover:bg-white/[0.04] transition-colors duration-300">
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/8 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out" />
                 <span className="relative flex h-2 w-2 ml-1">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-60"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
@@ -307,7 +307,7 @@ export const Hero = () => {
 
               <Link
                 href="/about"
-                className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-[14px] font-semibold text-zinc-300 hover:text-white hover:bg-white/[0.04] transition-all duration-300 border border-white/10 hover:border-white/20"
+                className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-[14px] font-semibold text-zinc-300 hover:text-white hover:bg-white/4 transition-all duration-300 border border-white/10 hover:border-white/20"
               >
                 See all products
               </Link>
@@ -315,7 +315,7 @@ export const Hero = () => {
 
             <motion.div
               variants={itemVariants}
-              className="grid grid-cols-3 gap-6 sm:gap-10 pt-8 border-t border-white/[0.08]"
+              className="grid grid-cols-3 gap-6 sm:gap-10 pt-8 border-t border-white/8"
             >
               {[
                 { value: "500+", label: "Fitness businesses" },
@@ -324,7 +324,7 @@ export const Hero = () => {
               ].map((m, i) => (
                 <div key={m.label} className="relative">
                   {i !== 0 && (
-                    <div className="absolute -left-3 sm:-left-5 top-1/2 -translate-y-1/2 w-px h-10 bg-white/[0.08]" />
+                    <div className="absolute -left-3 sm:-left-5 top-1/2 -translate-y-1/2 w-px h-10 bg-white/8" />
                   )}
                   <p className="text-[26px] sm:text-[30px] font-bold text-white tracking-tight mb-1">
                     {m.value}

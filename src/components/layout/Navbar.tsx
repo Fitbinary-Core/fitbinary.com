@@ -128,7 +128,7 @@ export default function Navbar() {
                         className={cn(
                           "w-3.5 h-3.5 transition-transform duration-200 opacity-60",
                           activeDropdown === item.title &&
-                            "rotate-180 opacity-100",
+                          "rotate-180 opacity-100",
                         )}
                       />
                     )}
@@ -146,12 +146,14 @@ export default function Navbar() {
                             duration: 0.18,
                             ease: [0.23, 1, 0.32, 1],
                           }}
-                          className="fixed left-0 right-0 top-14 w-full z-50 flex justify-center px-6 pt-1.5"
+                          className="fixed left-0 right-0 top-14 w-full z-50 flex justify-center pointer-events-none"
                         >
-                          <div className="w-full max-w-3xl">
-                            <div className="bg-white rounded-xl border border-zinc-200/80 overflow-hidden">
-                              <NavMenu items={item.dropdown} />
-                            </div>
+                          <div
+                            className="w-145 pt-2 pointer-events-auto"
+                            onMouseEnter={() => handleMouseEnter(item.title)}
+                            onMouseLeave={handleMouseLeave}
+                          >
+                            <NavMenu items={item.dropdown} />
                           </div>
                         </motion.div>
                       )}
