@@ -2,183 +2,259 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, Users, MessageSquare, BookOpen, Zap } from "lucide-react";
-import { fadeInUp, stagger } from "@/components/landing/animations";
+import {
+  ArrowRight,
+  Users,
+  MessageSquare,
+  BookOpen,
+  Zap,
+  TrendingUp,
+  Globe,
+} from "lucide-react";
 import Footer from "@/components/landing/Footer";
+
+const channels = [
+  {
+    icon: MessageSquare,
+    name: "Community Forum",
+    desc: "Ask questions, share workflows, and get answers from other fitness business operators and the Fitbinary team.",
+    status: "Active",
+    statusColor: "text-emerald-600 bg-emerald-50 border-emerald-100",
+  },
+  {
+    icon: BookOpen,
+    name: "Best Practices",
+    desc: "Operational guides, setup tips, and industry insights from operators who've scaled their businesses on Fitbinary.",
+    status: "Active",
+    statusColor: "text-emerald-600 bg-emerald-50 border-emerald-100",
+  },
+  {
+    icon: Users,
+    name: "Success Stories",
+    desc: "Real case studies from gyms, studios, and academies that have improved their operations with Fitbinary products.",
+    status: "Active",
+    statusColor: "text-emerald-600 bg-emerald-50 border-emerald-100",
+  },
+  {
+    icon: Zap,
+    name: "Product Updates",
+    desc: "Changelog, release notes, and early previews of upcoming features — posted as they ship.",
+    status: "Active",
+    statusColor: "text-emerald-600 bg-emerald-50 border-emerald-100",
+  },
+];
+
+const stats = [
+  { value: "500+", label: "Businesses" },
+  { value: "50+", label: "Cities" },
+  { value: "Active", label: "Community" },
+];
 
 export default function CommunityPage() {
   return (
-    <div className="flex flex-col min-h-screen bg-neutral-950 font-sans text-white selection:bg-red-100 selection:text-red-900">
-      {/* Hero Section */}
-      <section className="relative pt-40 pb-20 px-6 overflow-hidden bg-neutral-900">
-        <div className="absolute inset-0 bg-liner-to-b from-white/40 via-white/20 to-white/60 z-0 pointer-events-none" />
-        <div className="max-w-4xl mx-auto text-center relative z-10">
+    <div className="flex flex-col min-h-screen bg-white font-sans">
+      {/* Hero */}
+      <section className="bg-zinc-950 pt-28 pb-24 px-6">
+        <div className="max-w-5xl mx-auto">
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="max-w-2xl"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-neutral-900 border border-neutral-800 text-neutral-400 mb-6 font-bold shadow-sm">
-              <span className="flex w-2.5 h-2.5 rounded-full bg-red-500 animate-pulse" />
-              <span className="text-[13px] tracking-tight uppercase">
-                Fitbinary Community
+            <div className="inline-block px-3 py-1 rounded-full bg-zinc-900 border border-zinc-800 mb-6">
+              <span className="text-[11px] font-bold text-zinc-400 uppercase tracking-[0.15em]">
+                Community
               </span>
             </div>
-            <h1 className="text-5xl sm:text-7xl font-black tracking-tight mb-8 text-white leading-[1.1]">
-              Join the fitbinary <br />
-              <span className="text-red-600">tech community.</span>
+            <h1 className="text-[2.75rem] sm:text-[3.5rem] font-black tracking-tight leading-[1.05] text-white mb-5">
+              Built by fitness operators,
+              <br />
+              <span className="text-zinc-400">for fitness operators.</span>
             </h1>
-            <p className="text-xl text-neutral-400 leading-relaxed font-medium mb-10 max-w-2xl mx-auto">
-              Connect with gym owners, fitness professionals, and developers
-              building the future of fitness technology.
+            <p className="text-zinc-400 text-lg leading-relaxed font-medium mb-10 max-w-xl">
+              The Fitbinary community is where gym owners, studio managers,
+              personal trainers, and developers come to share knowledge, get
+              help, and grow together.
             </p>
+
+            <div className="flex flex-wrap gap-4">
+              <Link
+                href="/get-started"
+                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-white text-zinc-900 font-bold text-[15px] hover:bg-zinc-100 transition-colors active:scale-95"
+              >
+                Join the Community
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+
+            <div className="grid grid-cols-3 gap-8 mt-16 pt-10 border-t border-zinc-800 max-w-sm">
+              {stats.map((s) => (
+                <div key={s.label}>
+                  <div className="text-[1.75rem] font-black text-white tracking-tight leading-none mb-1">
+                    {s.value}
+                  </div>
+                  <div className="text-[11px] font-bold text-zinc-500 uppercase tracking-wider">
+                    {s.label}
+                  </div>
+                </div>
+              ))}
+            </div>
           </motion.div>
         </div>
-        <div className="absolute bottom-0 inset-x-0 h-32 bg-liner-to-b from-transparent to-white z-10 pointer-events-none" />
       </section>
 
-      {/* Community Features */}
-      <section className="py-24 px-6 bg-neutral-950 relative z-20 -top-8">
+      {/* Community channels */}
+      <section className="py-24 px-6 bg-white">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-4xl lg:text-5xl font-black text-white tracking-tight mb-6">
-              Learn, share, and grow together.
+          <div className="max-w-xl mb-16">
+            <div className="inline-block px-3 py-1 rounded-full bg-zinc-100 border border-zinc-200 mb-5">
+              <span className="text-[11px] font-bold text-zinc-500 uppercase tracking-[0.15em]">
+                What's inside
+              </span>
+            </div>
+            <h2 className="text-3xl lg:text-[2.5rem] font-black tracking-tight text-zinc-900 leading-[1.08] mb-4">
+              Learn, share,
+              <br />
+              and grow together.
             </h2>
-            <p className="text-xl text-neutral-400 font-medium">
-              Access resources, best practices, and connect with other fitness
-              business operators.
+            <p className="text-zinc-500 text-[16px] leading-relaxed">
+              Access resources, best practices, and real conversations with
+              other fitness business operators — all in one place.
             </p>
           </div>
 
-          <motion.div
-            variants={stagger}
-            initial="initial"
-            whileInView="whileInView"
-            viewport={{ once: true }}
-            className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8"
-          >
-            {[
-              {
-                icon: Users,
-                title: "Success Stories",
-                description:
-                  "Learn from gyms that have scaled using Fitbinary.",
-                color: "bg-red-50 text-red-600 shadow-red-500/10",
-              },
-              {
-                icon: BookOpen,
-                title: "Best Practices",
-                description: "Operational guides and industry insights.",
-                color: "bg-blue-50 text-blue-600 shadow-blue-500/10",
-              },
-              {
-                icon: MessageSquare,
-                title: "Community Forum",
-                description: "Ask questions and share experiences.",
-                color: "bg-neutral-900 text-white shadow-gray-500/10",
-              },
-              {
-                icon: Zap,
-                title: "Product Updates",
-                description:
-                  "Stay informed about new features and improvements.",
-                color: "bg-orange-50 text-orange-600 shadow-orange-500/10",
-              },
-            ].map((feature, i) => (
-              <motion.div
-                key={i}
-                variants={fadeInUp}
-                className="group p-8 rounded-3xl bg-neutral-950 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] transition-all border border-neutral-800 hover:border-neutral-800"
-              >
-                <div
-                  className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-6 transition-transform group-hover:scale-110 shadow-lg ${feature.color}`}
+          <div className="grid sm:grid-cols-2 gap-5">
+            {channels.map(
+              ({ icon: Icon, name, desc, status, statusColor }, i) => (
+                <motion.div
+                  key={name}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: i * 0.06 }}
+                  className="rounded-2xl border border-zinc-200 bg-zinc-50 p-7 hover:border-zinc-300 hover:bg-white transition-all duration-300"
                 >
-                  <feature.icon className="w-7 h-7" />
-                </div>
-                <h3 className="text-xl font-bold text-white mb-3">
-                  {feature.title}
-                </h3>
-                <p className="text-base text-neutral-400 leading-relaxed font-medium">
-                  {feature.description}
-                </p>
-              </motion.div>
-            ))}
-          </motion.div>
+                  <div className="flex items-center justify-between mb-5">
+                    <div className="w-10 h-10 rounded-xl bg-white border border-zinc-200 flex items-center justify-center">
+                      <Icon className="w-5 h-5 text-zinc-500" />
+                    </div>
+                    <span
+                      className={`text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full border ${statusColor}`}
+                    >
+                      {status}
+                    </span>
+                  </div>
+                  <h3 className="text-[16px] font-bold text-zinc-900 mb-2">
+                    {name}
+                  </h3>
+                  <p className="text-[13px] text-zinc-500 leading-relaxed">
+                    {desc}
+                  </p>
+                </motion.div>
+              ),
+            )}
+          </div>
         </div>
       </section>
 
-      {/* Join Section */}
-      <section className="py-24 px-6 bg-neutral-900">
+      {/* Who's here */}
+      <section className="py-24 px-6 bg-zinc-950">
         <div className="max-w-6xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-20 items-center">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div
-              variants={fadeInUp}
-              initial="initial"
-              whileInView="whileInView"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
             >
-              <h2 className="text-4xl lg:text-5xl text-white font-black tracking-tight mb-8">
-                Built by fitness operators, for fitness operators.
+              <div className="inline-block px-3 py-1 rounded-full bg-zinc-900 border border-zinc-800 mb-6">
+                <span className="text-[11px] font-bold text-zinc-400 uppercase tracking-[0.15em]">
+                  Who's here
+                </span>
+              </div>
+              <h2 className="text-3xl lg:text-[2.5rem] font-black tracking-tight text-white leading-[1.08] mb-5">
+                A community built
+                <br />
+                <span className="text-zinc-500">around real operations.</span>
               </h2>
-              <p className="text-xl text-neutral-400 leading-relaxed mb-10 font-medium">
-                Fitbinary is designed by people who understand the challenges of
-                running a fitness business. Join our community to share insights
-                and learn from others.
+              <p className="text-zinc-400 text-[16px] leading-relaxed mb-8">
+                From single-studio owners to multi-branch operators — the
+                Fitbinary community spans the entire fitness industry. Everyone
+                is here to learn and share what works.
               </p>
               <Link
                 href="/get-started"
-                className="inline-flex items-center gap-2 text-red-600 font-bold hover:gap-3 transition-all"
+                className="inline-flex items-center gap-2 text-[15px] font-bold text-white hover:text-zinc-300 group transition-colors"
               >
-                Get Started <ArrowRight className="w-5 h-5" />
+                Create your account
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
               </Link>
             </motion.div>
+
             <motion.div
-              variants={fadeInUp}
-              initial="initial"
-              whileInView="whileInView"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="bg-neutral-950 rounded-[40px] shadow-[0_20px_60px_-15px_rgba(220,38,38,0.1)] border border-red-900/50 relative overflow-hidden p-12 h-100 flex items-center justify-center group"
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="space-y-3"
             >
-              <div className="absolute top-0 right-0 p-8 opacity-5 blur-2xl pointer-events-none group-hover:opacity-10 transition-opacity">
-                <Users className="w-64 h-64 text-red-600" />
-              </div>
-              <div className="w-full relative z-10 bg-neutral-900 rounded-3xl shadow-lg border border-neutral-800 p-8 flex items-center justify-center">
-                <div className="text-center">
-                  <div className="w-20 h-20 bg-red-600 rounded-2xl mx-auto mb-6 flex items-center justify-center shadow-lg shadow-red-600/30 group-hover:scale-110 transition-transform">
-                    <Users className="w-10 h-10 text-white" />
+              {[
+                { icon: Users, label: "Gym & fitness center owners" },
+                { icon: Globe, label: "Multi-branch chain operators" },
+                { icon: TrendingUp, label: "Studio managers & staff" },
+                { icon: Zap, label: "Personal trainers & coaches" },
+                { icon: BookOpen, label: "Sports academy administrators" },
+                {
+                  icon: MessageSquare,
+                  label: "Developers building on Fitbinary APIs",
+                },
+              ].map(({ icon: Icon, label }) => (
+                <div
+                  key={label}
+                  className="flex items-center gap-4 px-5 py-4 rounded-2xl bg-zinc-900 border border-zinc-800"
+                >
+                  <div className="w-8 h-8 rounded-lg bg-zinc-800 flex items-center justify-center shrink-0">
+                    <Icon className="w-4 h-4 text-zinc-400" />
                   </div>
-                  <div className="space-y-4">
-                    <div className="w-48 h-4 bg-neutral-800 rounded-full mx-auto" />
-                    <div className="w-32 h-4 bg-neutral-800 rounded-full mx-auto" />
-                  </div>
+                  <p className="text-[14px] font-medium text-zinc-300">
+                    {label}
+                  </p>
                 </div>
-              </div>
+              ))}
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-24 px-6 bg-neutral-950">
-        <div className="max-w-6xl mx-auto text-center border-t border-neutral-800 pt-24">
-          <h2 className="text-4xl lg:text-5xl text-white font-black tracking-tight mb-8">
-            Ready to join the community?
+      {/* CTA */}
+      <section className="py-24 px-6 bg-white">
+        <div className="max-w-3xl mx-auto text-center">
+          <h2 className="text-3xl lg:text-[2.5rem] font-black tracking-tight text-zinc-900 leading-[1.08] mb-5">
+            Ready to join?
           </h2>
-          <p className="text-xl text-neutral-400 mb-12 font-medium max-w-2xl mx-auto">
-            Connect with other fitness professionals and start building better
-            gym operations.
+          <p className="text-zinc-500 text-[16px] leading-relaxed mb-8 max-w-md mx-auto">
+            Create a Fitbinary account to get full access to the community,
+            resources, and the products that run your business.
           </p>
-          <Link
-            href="/get-started"
-            className="inline-flex items-center gap-2 px-10 py-5 bg-red-600 text-white rounded-full font-bold text-lg hover:bg-red-700 transition-all shadow-xl shadow-red-600/20 active:scale-95 group"
-          >
-            Get Started
-            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-          </Link>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Link
+              href="/get-started"
+              className="px-7 py-3.5 rounded-full bg-zinc-900 text-white font-bold text-[14px] hover:bg-zinc-800 active:scale-95 transition-all flex items-center gap-2 group"
+            >
+              Get Started Free
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+            </Link>
+            <Link
+              href="/contact"
+              className="px-7 py-3.5 rounded-full border border-zinc-200 text-zinc-600 font-bold text-[14px] hover:border-zinc-400 hover:text-zinc-900 active:scale-95 transition-all"
+            >
+              Contact Us
+            </Link>
+          </div>
         </div>
       </section>
 
-      {/* Footer */}
       <Footer />
     </div>
   );

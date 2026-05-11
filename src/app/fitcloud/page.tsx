@@ -8,292 +8,346 @@ import {
   Users,
   CreditCard,
   Calendar,
-  BarChart,
+  BarChart3,
   Globe,
+  ShieldCheck,
+  Smartphone,
+  Clock,
 } from "lucide-react";
-import { fadeInUp, stagger } from "@/components/landing/animations";
 import Footer from "@/components/landing/Footer";
+
+const features = [
+  {
+    icon: Users,
+    title: "Member Management",
+    desc: "Complete member profiles, registration workflows, plan assignments, and renewal tracking in one place.",
+    size: "large",
+  },
+  {
+    icon: CreditCard,
+    title: "Automated Billing",
+    desc: "Recurring billing with payment status visibility, failed transaction handling, and invoicing.",
+    size: "small",
+  },
+  {
+    icon: Calendar,
+    title: "Flexible Plans",
+    desc: "Monthly, quarterly, and annual membership structures with custom durations and pricing.",
+    size: "small",
+  },
+  {
+    icon: Globe,
+    title: "Multi-Branch Operations",
+    desc: "Manage unlimited locations from a single dashboard. Consistent data, centralized control.",
+    size: "small",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Staff & Roles",
+    desc: "Role-based access for managers, trainers, and reception — each seeing only what they need.",
+    size: "small",
+  },
+  {
+    icon: BarChart3,
+    title: "Analytics & Reports",
+    desc: "Clear dashboards for attendance trends, revenue, membership growth, and retention rates.",
+    size: "large",
+  },
+  {
+    icon: Smartphone,
+    title: "Digital Member Portal",
+    desc: "Members can view their profile, attendance history, and payment records via self-service.",
+    size: "small",
+  },
+  {
+    icon: Clock,
+    title: "Attendance Tracking",
+    desc: "Log and monitor check-ins across all branches in real time.",
+    size: "small",
+  },
+];
+
+const faqs = [
+  {
+    q: "Is FitCloud suitable for small boutique studios?",
+    a: "Yes. FitCloud scales from single-location studios to large multi-branch operations. You get professional management tools without unnecessary complexity.",
+  },
+  {
+    q: "Can I manage multiple gym locations?",
+    a: "Absolutely. FitCloud's multi-branch architecture lets you manage multiple locations with centralized control and consistent data across all branches.",
+  },
+  {
+    q: "How does billing automation work?",
+    a: "FitCloud handles recurring billing based on membership plans. You get visibility into payment status, upcoming renewals, and failed transactions — automatically.",
+  },
+  {
+    q: "Do you support different staff roles?",
+    a: "Yes. FitCloud includes role-based access for managers, trainers, and reception staff with fine-grained permissions per branch.",
+  },
+  {
+    q: "Can members access their own data?",
+    a: "Yes. Members access their profiles, attendance history, and payment records through a digital self-service portal.",
+  },
+];
 
 export default function FitCloudPage() {
   return (
-    <div className="flex flex-col min-h-screen bg-neutral-950 font-sans text-white selection:bg-blue-100 selection:text-blue-900">
-      {/* Hero Section */}
-      <section className="relative pt-40 pb-20 px-6 overflow-hidden bg-neutral-900">
-        <div className="absolute inset-0 bg-liner-to-b from-white/40 via-white/20 to-white/60 z-0 pointer-events-none" />
-        <div className="max-w-4xl mx-auto text-center relative z-10">
+    <div className="flex flex-col min-h-screen bg-white font-sans">
+      {/* Hero */}
+      <section className="bg-zinc-950 pt-28 pb-24 px-6">
+        <div className="max-w-5xl mx-auto">
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            className="max-w-3xl"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-neutral-900 border border-neutral-800 text-neutral-400 mb-6 font-bold shadow-sm">
-              <span className="flex w-2.5 h-2.5 rounded-full bg-blue-500 animate-pulse" />
-              <span className="text-[13px] tracking-tight uppercase">
-                FitCloud Platform
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 mb-8">
+              <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse" />
+              <span className="text-[12px] font-bold text-blue-400 uppercase tracking-wider">
+                FitCloud — Gym Management
               </span>
             </div>
-            <h1 className="text-5xl sm:text-7xl font-black tracking-tight mb-8 text-white leading-[1.1]">
-              Gym management software <br />
-              <span className="text-blue-600">built for growth.</span>
+
+            <h1 className="text-[3.5rem] sm:text-[4.5rem] font-black tracking-tight leading-[1.05] text-white mb-6">
+              Run your fitness business
+              <br />
+              <span className="text-blue-400">with total clarity.</span>
             </h1>
-            <p className="text-xl text-neutral-400 leading-relaxed font-medium mb-10 max-w-2xl mx-auto">
-              A centralized platform to manage memberships, billing, and daily
-              operations across one or multiple locations. Built to stay
-              reliable as your business grows.
+
+            <p className="text-zinc-400 text-xl leading-relaxed mb-10 max-w-2xl font-medium">
+              FitCloud is Fitbinary's gym management product — a centralized
+              platform for memberships, billing, attendance, and operations
+              across one or many locations.
             </p>
-            <div className="flex flex-wrap justify-center gap-6">
+
+            <div className="flex flex-wrap gap-4">
               <Link
                 href="https://fitcloud.fitbinary.com"
-                className="group relative px-10 py-5 rounded-full overflow-hidden bg-blue-600 text-white hover:scale-105 transition-transform active:scale-95 shadow-xl shadow-blue-600/20"
+                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-blue-600 text-white font-bold text-[15px] hover:bg-blue-500 transition-colors active:scale-95"
               >
-                <div className="absolute inset-0 bg-blue-700 -translate-x-full transition-transform duration-300 group-hover:translate-x-0" />
-                <span className="relative z-10 font-bold text-lg flex items-center gap-2">
-                  Launch FitCloud
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </span>
+                Open FitCloud
+                <ArrowRight className="w-4 h-4" />
               </Link>
               <Link
-                href="/get-started"
-                className="px-10 py-5 bg-neutral-950 text-white border border-neutral-800 rounded-full font-bold text-lg hover:border-neutral-700 hover:bg-neutral-900 transition-all active:scale-95 shadow-sm"
+                href="/contact"
+                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full border border-zinc-700 text-zinc-300 font-bold text-[15px] hover:border-zinc-500 hover:text-white transition-colors"
               >
-                Contact Sales
+                Talk to Sales
               </Link>
+            </div>
+
+            <div className="grid grid-cols-3 gap-8 mt-16 pt-10 border-t border-zinc-800 max-w-lg">
+              {[
+                { value: "500+", label: "Gyms on FitCloud" },
+                { value: "99.9%", label: "Uptime" },
+                { value: "50+", label: "Cities" },
+              ].map((s) => (
+                <div key={s.label}>
+                  <div className="text-[2rem] font-black text-white tracking-tight leading-none mb-1">
+                    {s.value}
+                  </div>
+                  <div className="text-[11px] font-bold text-zinc-500 uppercase tracking-wider">
+                    {s.label}
+                  </div>
+                </div>
+              ))}
             </div>
           </motion.div>
         </div>
-        <div className="absolute bottom-0 inset-x-0 h-32 bg-liner-to-b from-transparent to-white z-10 pointer-events-none" />
       </section>
 
-      {/* Core Features */}
-      <section className="py-24 px-6 bg-neutral-950 relative z-20 -top-8">
+      {/* Features */}
+      <section className="py-24 px-6 bg-white">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-4xl lg:text-5xl text-white font-black tracking-tight mb-6">
-              Everything you need to run your gym.
+          <div className="max-w-2xl mb-16">
+            <div className="inline-block px-3 py-1 rounded-full bg-zinc-100 border border-zinc-200 mb-5">
+              <span className="text-[11px] font-bold text-zinc-500 uppercase tracking-[0.15em]">
+                Features
+              </span>
+            </div>
+            <h2 className="text-4xl lg:text-[3rem] font-black tracking-tight text-zinc-900 leading-[1.08] mb-4">
+              Everything your gym
+              <br />
+              needs to operate at scale.
             </h2>
-            <p className="text-xl text-neutral-400 font-medium">
-              From member check-ins to billing automation, FitCloud handles the
-              operational details so you can focus on your members.
+            <p className="text-zinc-500 text-lg leading-relaxed">
+              From member check-ins to billing automation — FitCloud handles the
+              operational layer so you can focus on your members.
             </p>
           </div>
 
-          <motion.div
-            variants={stagger}
-            initial="initial"
-            whileInView="whileInView"
-            viewport={{ once: true }}
-            className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8"
-          >
-            {[
-              {
-                icon: Users,
-                title: "Member Management",
-                description:
-                  "Complete member profiles with registration, renewals, and attendance tracking.",
-                color: "bg-blue-50 text-blue-600 shadow-blue-500/10",
-              },
-              {
-                icon: CreditCard,
-                title: "Billing & Payments",
-                description:
-                  "Automated recurring billing with clear visibility into payment status and renewals.",
-                color: "bg-indigo-50 text-indigo-600 shadow-indigo-500/10",
-              },
-              {
-                icon: Calendar,
-                title: "Membership Plans",
-                description:
-                  "Flexible plan structures for monthly, quarterly, and annual memberships.",
-                color: "bg-sky-50 text-sky-600 shadow-sky-500/10",
-              },
-              {
-                icon: Users,
-                title: "Trainer Management",
-                description:
-                  "Assign trainers, track sessions, and manage staff schedules efficiently.",
-                color: "bg-purple-50 text-purple-600 shadow-purple-500/10",
-              },
-              {
-                icon: BarChart,
-                title: "Reports & Analytics",
-                description:
-                  "Performance insights on memberships, attendance trends, and revenue growth.",
-                color: "bg-blue-50 text-blue-600 shadow-blue-500/10",
-              },
-              {
-                icon: Globe,
-                title: "Multi-Branch Operations",
-                description:
-                  "Manage multiple gym locations with consistent data and centralized control.",
-                color: "bg-neutral-900 text-white shadow-gray-500/10",
-              },
-            ].map((feature, i) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+            {features.map(({ icon: Icon, title, desc, size }, i) => (
               <motion.div
-                key={i}
-                variants={fadeInUp}
-                className="group p-8 rounded-3xl bg-neutral-950 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] transition-all border border-neutral-800 hover:border-neutral-800"
+                key={title}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: i * 0.04 }}
+                className={`group rounded-2xl border border-zinc-200 bg-zinc-50 p-6 hover:border-zinc-300 hover:bg-white transition-all duration-300 ${
+                  size === "large" ? "lg:col-span-2" : "lg:col-span-1"
+                }`}
               >
-                <div
-                  className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-6 transition-transform group-hover:scale-110 shadow-lg ${feature.color}`}
-                >
-                  <feature.icon className="w-7 h-7" />
+                <div className="w-10 h-10 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center mb-5">
+                  <Icon className="w-5 h-5 text-blue-600" />
                 </div>
-                <h3 className="text-xl font-bold text-white mb-3">
-                  {feature.title}
+                <h3 className="text-[15px] font-bold text-zinc-900 mb-2">
+                  {title}
                 </h3>
-                <p className="text-base text-neutral-400 leading-relaxed font-medium">
-                  {feature.description}
+                <p className="text-[13px] text-zinc-500 leading-relaxed">
+                  {desc}
                 </p>
               </motion.div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </section>
 
-      {/* Use Cases */}
-      <section className="py-24 px-6 bg-neutral-900">
+      {/* Who it's for */}
+      <section className="py-24 px-6 bg-zinc-950">
         <div className="max-w-6xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-20 items-center">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div
-              variants={fadeInUp}
-              initial="initial"
-              whileInView="whileInView"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
             >
-              <h2 className="text-4xl lg:text-5xl font-black tracking-tight mb-8">
-                Built for{" "}
-                <span className="text-blue-600">gyms of all sizes.</span>
+              <div className="inline-block px-3 py-1 rounded-full bg-zinc-900 border border-zinc-800 mb-6">
+                <span className="text-[11px] font-bold text-zinc-400 uppercase tracking-[0.15em]">
+                  Built for
+                </span>
+              </div>
+              <h2 className="text-4xl lg:text-[3rem] font-black tracking-tight text-white leading-[1.08] mb-6">
+                Every fitness
+                <br />
+                <span className="text-zinc-500">business type.</span>
               </h2>
-              <p className="text-xl text-neutral-400 leading-relaxed mb-10 font-medium">
-                Whether you're running a single boutique studio or managing a
-                multi-branch franchise, FitCloud scales with your business needs
-                effortlessly.
+              <p className="text-zinc-400 text-lg leading-relaxed mb-10">
+                Whether you run a single boutique studio or manage a
+                multi-branch franchise, FitCloud scales without requiring
+                migrations or plan changes.
               </p>
-              <div className="space-y-6">
-                {[
-                  "Growing gyms and fitness studios",
-                  "Multi-branch franchise chains",
-                  "Boutique fitness centers",
-                  "Corporate wellness programs",
-                ].map((item, i) => (
-                  <div key={i} className="flex gap-4 items-center">
-                    <CheckCircle2 className="w-6 h-6 text-blue-600 shrink-0" />
-                    <span className="text-white font-bold text-lg">{item}</span>
-                  </div>
-                ))}
-              </div>
+              <Link
+                href="/get-started"
+                className="inline-flex items-center gap-2 text-[15px] font-bold text-blue-400 hover:text-blue-300 group transition-colors"
+              >
+                Start for free
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+              </Link>
             </motion.div>
+
             <motion.div
-              variants={fadeInUp}
-              initial="initial"
-              whileInView="whileInView"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="bg-neutral-950 rounded-[40px] shadow-[0_20px_60px_-15px_rgba(37,99,235,0.1)] border border-blue-900/50 relative overflow-hidden p-12 lg:p-16 h-125 flex items-center justify-center"
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="space-y-3"
             >
-              <div className="absolute top-0 right-0 p-8 opacity-5 blur-2xl pointer-events-none">
-                <Globe className="w-64 h-64 text-blue-600" />
-              </div>
-              <div className="w-full relative z-10 bg-neutral-900 rounded-3xl shadow-lg border border-neutral-800 p-8">
-                <div className="space-y-6">
-                  <div className="w-full h-12 bg-neutral-950 rounded-xl shadow-sm border border-neutral-800" />
-                  <div className="flex gap-6">
-                    <div className="w-1/3 h-40 bg-neutral-950 rounded-xl shadow-sm border border-neutral-800" />
-                    <div className="flex-1 h-40 bg-blue-50 rounded-xl shadow-inner border border-blue-900/50/50" />
+              {[
+                {
+                  title: "Independent gyms & studios",
+                  desc: "Full operations management from day one, without enterprise-level complexity.",
+                },
+                {
+                  title: "Multi-branch gym chains",
+                  desc: "Centralized control across all locations with branch-level isolation.",
+                },
+                {
+                  title: "Yoga & pilates studios",
+                  desc: "Class-oriented memberships and attendance tracking designed to fit studio workflows.",
+                },
+                {
+                  title: "Corporate wellness programs",
+                  desc: "Manage members across employer-sponsored fitness programs with billing flexibility.",
+                },
+                {
+                  title: "Sports academies",
+                  desc: "Enrollment, coaching staff, and multi-program management at scale.",
+                },
+              ].map((item, i) => (
+                <div
+                  key={item.title}
+                  className="flex items-start gap-4 p-5 rounded-2xl bg-zinc-900 border border-zinc-800"
+                >
+                  <CheckCircle2 className="w-5 h-5 text-blue-500 shrink-0 mt-0.5" />
+                  <div>
+                    <p className="text-[14px] font-bold text-white mb-0.5">
+                      {item.title}
+                    </p>
+                    <p className="text-[13px] text-zinc-500 leading-relaxed">
+                      {item.desc}
+                    </p>
                   </div>
-                  <div className="w-full h-20 bg-neutral-950 rounded-xl shadow-sm border border-neutral-800" />
                 </div>
-              </div>
+              ))}
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <section className="py-24 px-6 bg-neutral-950">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl lg:text-5xl font-black text-white mb-16 text-center">
-            Frequently Asked Questions
-          </h2>
-          <div className="space-y-6">
-            {[
-              {
-                q: "Is FitCloud suitable for small boutique studios?",
-                a: "Yes. FitCloud is designed to scale from single-location studios to large franchise operations. You get professional management tools without unnecessary complexity.",
-              },
-              {
-                q: "Can I manage multiple gym locations?",
-                a: "Absolutely. FitCloud's multi-branch architecture allows you to manage multiple locations with centralized control and consistent data across all branches.",
-              },
-              {
-                q: "How does billing automation work?",
-                a: "FitCloud handles recurring billing automatically based on membership plans. You get clear visibility into payment status, renewals, and failed transactions.",
-              },
-              {
-                q: "Do you support different staff roles?",
-                a: "Yes. FitCloud includes role-based access control for managers, trainers, and reception staff with granular permissions.",
-              },
-              {
-                q: "Can members access their own data?",
-                a: "Yes. Members can access their profiles, attendance history, and payment records through a member-facing portal.",
-              },
-            ].map((faq, i) => (
-              <div
+      {/* FAQ */}
+      <section className="py-24 px-6 bg-white">
+        <div className="max-w-3xl mx-auto">
+          <div className="text-center mb-14">
+            <h2 className="text-3xl lg:text-[2.75rem] font-black tracking-tight text-zinc-900 leading-[1.08]">
+              Common questions
+            </h2>
+          </div>
+          <div className="divide-y divide-zinc-100">
+            {faqs.map((faq, i) => (
+              <motion.div
                 key={i}
-                className="bg-neutral-900 border border-transparent p-8 rounded-3xl hover:bg-neutral-900 hover:shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:border-neutral-800 transition-all"
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.35, delay: i * 0.05 }}
+                className="py-7"
               >
-                <h3 className="text-xl font-bold text-white mb-4">{faq.q}</h3>
-                <p className="text-neutral-400 leading-relaxed font-medium">
+                <h3 className="text-[16px] font-bold text-zinc-900 mb-3">
+                  {faq.q}
+                </h3>
+                <p className="text-[14px] text-zinc-500 leading-relaxed">
                   {faq.a}
                 </p>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-24 px-6 bg-neutral-900">
-        <div className="max-w-6xl mx-auto text-center">
-          <div className="bg-blue-600 rounded-[3rem] py-24 px-6 relative overflow-hidden group shadow-[0_20px_60px_-15px_rgba(37,99,235,0.4)]">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-neutral-950/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl group-hover:bg-neutral-900/20 transition-colors" />
-            <div className="absolute bottom-0 left-0 w-64 h-64 bg-black/10 rounded-full translate-y-1/2 -translate-x-1/2 blur-3xl" />
-            <h2 className="text-4xl lg:text-6xl font-black text-white mb-10 relative z-10 leading-tight">
-              Ready to modernize your <br /> gym operations?
-            </h2>
+      {/* CTA */}
+      <section className="py-24 px-6 bg-zinc-950">
+        <div className="max-w-3xl mx-auto text-center">
+          <h2 className="text-4xl lg:text-[3.25rem] font-black tracking-tight text-white leading-none mb-6">
+            Ready to modernize
+            <br />
+            your operations?
+          </h2>
+          <p className="text-zinc-400 text-lg leading-relaxed mb-10 max-w-xl mx-auto">
+            Join hundreds of fitness businesses already running their daily
+            operations on FitCloud.
+          </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               href="https://fitcloud.fitbinary.com"
-              className="inline-flex items-center gap-2 px-10 py-5 bg-neutral-950 text-blue-600 rounded-full font-bold text-lg hover:bg-neutral-900 transition-all shadow-2xl relative z-10 active:scale-95 group-hover:gap-3"
+              className="px-8 py-4 rounded-full bg-white text-zinc-900 font-bold text-[15px] hover:bg-zinc-100 active:scale-95 transition-all flex items-center gap-2 group"
             >
-              Launch FitCloud
-              <ArrowRight className="w-5 h-5" />
+              Open FitCloud
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+            </Link>
+            <Link
+              href="/contact"
+              className="px-8 py-4 rounded-full border border-zinc-700 text-zinc-300 font-bold text-[15px] hover:border-zinc-500 hover:text-white active:scale-95 transition-all"
+            >
+              Talk to Sales
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Footer */}
       <Footer />
-
-      {/* Schema.org JSON-LD */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "SoftwareApplication",
-            name: "FitCloud",
-            applicationCategory: "BusinessApplication",
-            description:
-              "Gym management software for memberships, billing, and multi-branch operations",
-            operatingSystem: "Web",
-            offers: {
-              "@type": "Offer",
-              price: "0",
-              priceCurrency: "USD",
-            },
-          }),
-        }}
-      />
     </div>
   );
 }

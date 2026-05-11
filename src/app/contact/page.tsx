@@ -1,166 +1,176 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mail, MapPin, MessageSquare, ArrowRight } from "lucide-react";
+import { Mail, MapPin, MessageSquare, ArrowRight, Clock } from "lucide-react";
 import Footer from "@/components/landing/Footer";
-
-const fadeInUp = {
-  initial: { opacity: 0, y: 20 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.6 },
-};
 
 export default function ContactPage() {
   return (
-    <div className="flex flex-col min-h-screen bg-neutral-950 font-sans text-white selection:bg-red-100 selection:text-red-900">
-      {/* Hero Section */}
-      <section className="relative pt-40 pb-20 px-6 overflow-hidden bg-neutral-900">
-        <div className="absolute inset-0 bg-liner-to-b from-white/40 via-white/20 to-white/60 z-0 pointer-events-none" />
-        <div className="max-w-7xl mx-auto relative z-10">
-          <div className="grid lg:grid-cols-2 gap-20 items-center">
-            <motion.div initial="initial" animate="animate" variants={fadeInUp}>
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-neutral-900 border border-neutral-800 text-neutral-400 mb-6 font-bold shadow-sm">
-                <span className="flex w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse" />
-                <span className="text-[13px] tracking-tight uppercase">
-                  Get in touch
-                </span>
-              </div>
-              <h1 className="text-5xl sm:text-7xl font-black tracking-tight mb-8 text-white leading-[1.1]">
-                Let's talk about <br />
-                <span className="text-blue-600">your business.</span>
-              </h1>
-              <p className="text-xl text-neutral-400 font-medium leading-relaxed mb-12 max-w-lg">
-                Have questions about Fitbinary software solutions? Need support?
-                Our team is here to help you modernize your operations.
-              </p>
+    <div className="flex flex-col min-h-screen bg-white font-sans">
+      {/* Hero */}
+      <section className="bg-zinc-950 pt-28 pb-20 px-6">
+        <div className="max-w-5xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="max-w-2xl"
+          >
+            <div className="inline-block px-3 py-1 rounded-full bg-zinc-900 border border-zinc-800 mb-6">
+              <span className="text-[11px] font-bold text-zinc-400 uppercase tracking-[0.15em]">
+                Contact
+              </span>
+            </div>
+            <h1 className="text-[2.75rem] sm:text-[3.5rem] font-black tracking-tight leading-[1.05] text-white mb-5">
+              Let's talk about
+              <br />
+              <span className="text-zinc-400">your business.</span>
+            </h1>
+            <p className="text-zinc-400 text-lg leading-relaxed font-medium">
+              Have questions about Fitbinary products? Need help choosing the
+              right plan? Our team is here to help.
+            </p>
+          </motion.div>
+        </div>
+      </section>
 
-              <div className="space-y-8 bg-neutral-950 p-8 rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-neutral-800">
-                <div className="flex items-start gap-5">
-                  <div className="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center shrink-0 text-blue-600 shadow-sm">
-                    <Mail className="w-6 h-6" />
+      {/* Contact content */}
+      <section className="py-20 px-6 bg-white">
+        <div className="max-w-5xl mx-auto">
+          <div className="grid lg:grid-cols-[1fr_1.4fr] gap-14 items-start">
+            {/* Left — info */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="space-y-4"
+            >
+              {[
+                {
+                  Icon: Mail,
+                  label: "Sales",
+                  value: "hello@fitbinary.com",
+                  sub: "For new business and product questions",
+                },
+                {
+                  Icon: MessageSquare,
+                  label: "Support",
+                  value: "support@fitbinary.com",
+                  sub: "For existing customer help and issues",
+                },
+                {
+                  Icon: MapPin,
+                  label: "Headquarters",
+                  value: "Kathmandu, Nepal",
+                  sub: "Fitbinary Inc.",
+                },
+                {
+                  Icon: Clock,
+                  label: "Response time",
+                  value: "Within 24 hours",
+                  sub: "Monday – Friday",
+                },
+              ].map(({ Icon, label, value, sub }) => (
+                <div
+                  key={label}
+                  className="flex items-start gap-4 p-5 rounded-2xl border border-zinc-100 bg-zinc-50 hover:border-zinc-200 transition-colors"
+                >
+                  <div className="w-10 h-10 rounded-xl bg-white border border-zinc-200 flex items-center justify-center shrink-0">
+                    <Icon className="w-4.5 h-4.5 text-zinc-500" />
                   </div>
-                  <div className="pt-1">
-                    <h3 className="text-xl font-bold text-white mb-1">
-                      Email Sales
-                    </h3>
-                    <p className="text-neutral-400 font-medium text-lg">
-                      hello@fitbinary.com
+                  <div>
+                    <p className="text-[11px] font-bold text-zinc-400 uppercase tracking-wider mb-0.5">
+                      {label}
                     </p>
+                    <p className="text-[15px] font-bold text-zinc-900">
+                      {value}
+                    </p>
+                    <p className="text-[13px] text-zinc-500 mt-0.5">{sub}</p>
                   </div>
                 </div>
-
-                <div className="flex items-start gap-5">
-                  <div className="w-14 h-14 bg-red-50 rounded-2xl flex items-center justify-center shrink-0 text-red-600 shadow-sm">
-                    <MessageSquare className="w-6 h-6" />
-                  </div>
-                  <div className="pt-1">
-                    <h3 className="text-xl font-bold text-white mb-1">
-                      Customer Support
-                    </h3>
-                    <p className="text-neutral-400 font-medium text-lg">
-                      support@fitbinary.com
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-5">
-                  <div className="w-14 h-14 bg-neutral-900 rounded-2xl flex items-center justify-center shrink-0 text-white shadow-sm">
-                    <MapPin className="w-6 h-6" />
-                  </div>
-                  <div className="pt-1">
-                    <h3 className="text-xl font-bold text-white mb-1">
-                      Headquarters
-                    </h3>
-                    <p className="text-neutral-400 font-medium text-lg">
-                      Kathmandu, Nepal
-                      <br />
-                      Kathmandu 10
-                    </p>
-                  </div>
-                </div>
-              </div>
+              ))}
             </motion.div>
 
+            {/* Right — form */}
             <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="bg-neutral-950 p-10 lg:p-14 rounded-[3rem] border border-neutral-800 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] relative overflow-hidden"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.15 }}
+              className="bg-white rounded-3xl border border-zinc-200 p-8"
             >
-              <div className="absolute top-0 right-0 p-8 opacity-5 blur-2xl pointer-events-none">
-                <MessageSquare className="w-64 h-64 text-blue-600" />
-              </div>
-              <h2 className="text-3xl font-black text-white mb-8 relative z-10">
+              <h2 className="text-[1.5rem] font-black text-zinc-900 mb-7">
                 Send us a message
               </h2>
-              <form className="space-y-6 relative z-10">
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <label className="text-sm font-bold text-neutral-300">
+              <form className="space-y-5">
+                <div className="grid sm:grid-cols-2 gap-5">
+                  <div className="space-y-1.5">
+                    <label className="text-[12px] font-bold text-zinc-500 uppercase tracking-wider">
                       First Name
                     </label>
                     <input
                       type="text"
-                      className="w-full px-5 py-4 bg-neutral-900 border border-neutral-800 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-600/20 focus:border-blue-600 transition-all text-white font-medium hover:bg-neutral-900"
-                      placeholder="John"
+                      placeholder="Aarav"
+                      className="w-full px-4 py-3 bg-zinc-50 border border-zinc-200 rounded-xl text-[14px] text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-zinc-900/10 focus:border-zinc-400 transition-all"
                     />
                   </div>
-                  <div className="space-y-2">
-                    <label className="text-sm font-bold text-neutral-300">
+                  <div className="space-y-1.5">
+                    <label className="text-[12px] font-bold text-zinc-500 uppercase tracking-wider">
                       Last Name
                     </label>
                     <input
                       type="text"
-                      className="w-full px-5 py-4 bg-neutral-900 border border-neutral-800 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-600/20 focus:border-blue-600 transition-all text-white font-medium hover:bg-neutral-900"
-                      placeholder="Doe"
+                      placeholder="Sharma"
+                      className="w-full px-4 py-3 bg-zinc-50 border border-zinc-200 rounded-xl text-[14px] text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-zinc-900/10 focus:border-zinc-400 transition-all"
                     />
                   </div>
                 </div>
-                <div className="space-y-2">
-                  <label className="text-sm font-bold text-neutral-300">
+
+                <div className="space-y-1.5">
+                  <label className="text-[12px] font-bold text-zinc-500 uppercase tracking-wider">
                     Work Email
                   </label>
                   <input
                     type="email"
-                    className="w-full px-5 py-4 bg-neutral-900 border border-neutral-800 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-600/20 focus:border-blue-600 transition-all text-white font-medium hover:bg-neutral-900"
-                    placeholder="john@gym.com"
+                    placeholder="you@yourbusiness.com"
+                    className="w-full px-4 py-3 bg-zinc-50 border border-zinc-200 rounded-xl text-[14px] text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-zinc-900/10 focus:border-zinc-400 transition-all"
                   />
                 </div>
-                <div className="space-y-2">
-                  <label className="text-sm font-bold text-neutral-300">
-                    Company Name
+
+                <div className="space-y-1.5">
+                  <label className="text-[12px] font-bold text-zinc-500 uppercase tracking-wider">
+                    Business Name
                   </label>
                   <input
                     type="text"
-                    className="w-full px-5 py-4 bg-neutral-900 border border-neutral-800 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-600/20 focus:border-blue-600 transition-all text-white font-medium hover:bg-neutral-900"
                     placeholder="Powerhouse Fitness"
+                    className="w-full px-4 py-3 bg-zinc-50 border border-zinc-200 rounded-xl text-[14px] text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-zinc-900/10 focus:border-zinc-400 transition-all"
                   />
                 </div>
-                <div className="space-y-2">
-                  <label className="text-sm font-bold text-neutral-300">
+
+                <div className="space-y-1.5">
+                  <label className="text-[12px] font-bold text-zinc-500 uppercase tracking-wider">
                     How can we help?
                   </label>
                   <textarea
                     rows={4}
-                    className="w-full px-5 py-4 bg-neutral-900 border border-neutral-800 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-600/20 focus:border-blue-600 transition-all text-white font-medium resize-none hover:bg-neutral-900"
-                    placeholder="Tell us about your operational needs..."
-                  ></textarea>
+                    placeholder="Tell us about your business and what you're looking for..."
+                    className="w-full px-4 py-3 bg-zinc-50 border border-zinc-200 rounded-xl text-[14px] text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-zinc-900/10 focus:border-zinc-400 transition-all resize-none"
+                  />
                 </div>
+
                 <button
                   type="button"
-                  className="w-full py-5 bg-blue-600 text-white rounded-2xl font-bold text-lg hover:bg-blue-700 transition-all shadow-xl shadow-blue-600/20 mt-4 active:scale-95 group flex items-center justify-center gap-2"
+                  className="w-full py-3.5 bg-zinc-900 text-white rounded-xl font-bold text-[14px] hover:bg-zinc-800 transition-all active:scale-[0.98] flex items-center justify-center gap-2 group"
                 >
                   Send Message
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
                 </button>
               </form>
             </motion.div>
           </div>
         </div>
-        <div className="absolute bottom-0 inset-x-0 h-32 bg-liner-to-b from-transparent to-white z-0 pointer-events-none" />
       </section>
 
-      {/* Footer */}
       <Footer />
     </div>
   );

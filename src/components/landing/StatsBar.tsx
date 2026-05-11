@@ -1,7 +1,7 @@
 const stats = [
   { value: "500+", label: "Fitness Businesses" },
   { value: "50+", label: "Cities" },
-  { value: "Multi-branch", label: "Architecture" },
+  { value: "3+", label: "Products" },
   { value: "99.9%", label: "Uptime" },
 ];
 

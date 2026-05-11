@@ -128,7 +128,7 @@ export default function Navbar() {
                         className={cn(
                           "w-3.5 h-3.5 transition-transform duration-200 opacity-60",
                           activeDropdown === item.title &&
-                          "rotate-180 opacity-100",
+                            "rotate-180 opacity-100",
                         )}
                       />
                     )}

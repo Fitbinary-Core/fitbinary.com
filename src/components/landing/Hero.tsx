@@ -57,8 +57,6 @@ const RevealText = ({ text, delay = 0 }: { text: string; delay?: number }) => {
 function SuiteVisual() {
   return (
     <div className="relative w-full lg:w-[105%] xl:w-[110%] space-y-5 mt-12 lg:mt-0 lg:ml-4">
-      <div className="absolute left-[32px] top-[40px] bottom-[40px] w-px bg-gradient-to-b from-blue-500/30 via-white/10 to-transparent -z-10" />
-
       <motion.div
         initial={{ opacity: 0, y: 40, scale: 0.95 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -70,11 +68,9 @@ function SuiteVisual() {
           transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
           className="bg-[#050505]/40 backdrop-blur-2xl border border-white/10 rounded-[1.25rem] p-5 lg:p-6 shadow-[0_8px_32_rgba(0,0,0,0.6)] transition-all duration-500 hover:border-white/20 hover:bg-[#080808]/60 hover:shadow-[0_16px_48px_-12px_rgba(0,0,0,0.8)]"
         >
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-[1.25rem]" />
-
           <div className="relative z-10 flex items-center justify-between mb-6">
             <div className="flex items-center gap-4">
-              <div className="w-11 h-11 rounded-2xl bg-gradient-to-br from-[#1E293B] to-[#0F172A] border border-white/5 shadow-inner flex items-center justify-center relative overflow-hidden">
+              <div className="w-11 h-11 rounded-2xl bg-[#1E293B] border border-white/5 shadow-inner flex items-center justify-center relative overflow-hidden">
                 <Cloud className="w-5 h-5 text-blue-400" />
               </div>
               <div>
@@ -82,7 +78,7 @@ function SuiteVisual() {
                   FitCloud
                 </p>
                 <p className="text-[11px] text-white/40 tracking-widest uppercase font-semibold mt-0.5">
-                  Gym OS
+                  Member OS
                 </p>
               </div>
             </div>
@@ -130,11 +126,9 @@ function SuiteVisual() {
           }}
           className="bg-[#050505]/40 backdrop-blur-2xl border border-white/10 rounded-[1.25rem] p-5 lg:p-6 shadow-[0_8px_32_rgba(0,0,0,0.6)] transition-all duration-500 hover:border-white/20 hover:bg-[#080808]/60 hover:shadow-[0_16px_48px_-12px_rgba(0,0,0,0.8)]"
         >
-          <div className="absolute inset-0 bg-gradient-to-br from-orange-500/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-[1.25rem]" />
-
           <div className="relative z-10 flex items-center justify-between mb-6">
             <div className="flex items-center gap-4">
-              <div className="w-11 h-11 rounded-2xl bg-gradient-to-br from-[#2D1B1E] to-[#1A0F11] border border-white/5 shadow-inner flex items-center justify-center relative overflow-hidden">
+              <div className="w-11 h-11 rounded-2xl bg-[#2D1B1E] border border-white/5 shadow-inner flex items-center justify-center relative overflow-hidden">
                 <Package className="w-5 h-5 text-orange-400" />
               </div>
               <div>
@@ -189,7 +183,7 @@ function SuiteVisual() {
                       delay: 0.8,
                       ease: premiumEase,
                     }}
-                    className={`h-full rounded-full bg-gradient-to-r ${item.color}`}
+                    className={`h-full rounded-full ${item.color}`}
                   />
                 </div>
               </div>
@@ -274,7 +268,7 @@ export const Hero = () => {
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
                 </span>
                 <span className="text-[12px] font-semibold text-zinc-300 tracking-wide">
-                  New: Retention Intelligence Architecture
+                  Introducing the Fitbinary Suite — built for fitness
                 </span>
                 <ChevronRight className="w-3.5 h-3.5 text-zinc-500 group-hover:text-zinc-300 transition-colors" />
               </div>
@@ -293,9 +287,9 @@ export const Hero = () => {
               variants={itemVariants}
               className="text-[17px] sm:text-[18px] text-zinc-400 leading-relaxed max-w-xl mb-12 font-medium"
             >
-              Fitbinary builds the underlying architecture for modern fitness
-              businesses. A cohesive suite of tools designed to manage
-              operations, inventory, and member retention flawlessly.
+              Fitbinary is the operating platform for the fitness industry. A
+              growing suite of products — each purpose-built for a specific part
+              of running a fitness business, and designed to work together.
             </motion.p>
 
             <motion.div
@@ -315,7 +309,7 @@ export const Hero = () => {
                 href="/about"
                 className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-[14px] font-semibold text-zinc-300 hover:text-white hover:bg-white/[0.04] transition-all duration-300 border border-white/10 hover:border-white/20"
               >
-                Explore platform
+                See all products
               </Link>
             </motion.div>
 
@@ -325,8 +319,8 @@ export const Hero = () => {
             >
               {[
                 { value: "500+", label: "Fitness businesses" },
-                { value: "50+", label: "Cities covered" },
-                { value: "99.9%", label: "Platform uptime" },
+                { value: "50+", label: "Cities" },
+                { value: "3+", label: "Products" },
               ].map((m, i) => (
                 <div key={m.label} className="relative">
                   {i !== 0 && (

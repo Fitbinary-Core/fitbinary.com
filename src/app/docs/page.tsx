@@ -4,185 +4,327 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import {
   ArrowRight,
-  Code,
-  Book,
+  Code2,
+  BookOpen,
   Terminal,
   Zap,
+  Webhook,
+  Lock,
   ChevronRight,
 } from "lucide-react";
-import { fadeInUp, stagger } from "@/components/landing/animations";
 import Footer from "@/components/landing/Footer";
+
+const apiSections = [
+  {
+    icon: Code2,
+    name: "FitCloud API",
+    desc: "Members, billing, check-ins, branches, staff, and membership plans.",
+    endpoints: ["GET /members", "POST /members/{id}/renew", "GET /attendance"],
+    color: "text-blue-600",
+    bg: "bg-blue-50 border-blue-100",
+  },
+  {
+    icon: Terminal,
+    name: "FitStock API",
+    desc: "Products, inventory levels, stock transfers, purchase orders, and alerts.",
+    endpoints: ["GET /products", "POST /transfers", "GET /inventory/{branch}"],
+    color: "text-orange-600",
+    bg: "bg-orange-50 border-orange-100",
+  },
+  {
+    icon: Webhook,
+    name: "Webhooks",
+    desc: "Real-time event delivery for member events, stock changes, and billing lifecycle.",
+    endpoints: ["member.created", "stock.low_alert", "billing.payment_failed"],
+    color: "text-purple-600",
+    bg: "bg-purple-50 border-purple-100",
+  },
+  {
+    icon: Lock,
+    name: "Auth & Tenants",
+    desc: "API keys, tenant scoping, and role-based access for API consumers.",
+    endpoints: ["POST /auth/token", "GET /tenant", "GET /tenant/branches"],
+    color: "text-zinc-600",
+    bg: "bg-zinc-50 border-zinc-200",
+  },
+];
+
+const steps = [
+  {
+    step: "01",
+    title: "Request API access",
+    desc: "Contact us to get your API key and tenant credentials. We'll set up your sandbox environment.",
+  },
+  {
+    step: "02",
+    title: "Authenticate",
+    desc: "Use your API key in the Authorization header. All requests are scoped to your tenant automatically.",
+  },
+  {
+    step: "03",
+    title: "Start building",
+    desc: "Explore the API reference, try endpoints in your sandbox, and ship your integration.",
+  },
+];
 
 export default function DocsPage() {
   return (
-    <div className="flex flex-col min-h-screen bg-neutral-950 font-sans text-white selection:bg-red-100 selection:text-red-900">
-      {/* Hero Section */}
-      <section className="relative pt-40 pb-20 px-6 overflow-hidden bg-neutral-900">
-        <div className="absolute inset-0 bg-liner-to-b from-white/40 via-white/20 to-white/60 z-0 pointer-events-none" />
-        <div className="max-w-4xl mx-auto text-center relative z-10">
+    <div className="flex flex-col min-h-screen bg-white font-sans">
+      {/* Hero */}
+      <section className="bg-zinc-950 pt-28 pb-24 px-6">
+        <div className="max-w-5xl mx-auto">
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            className="max-w-3xl"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-neutral-900 border border-neutral-800 text-neutral-400 mb-6 font-bold shadow-sm">
-              <span className="flex w-2.5 h-2.5 rounded-full bg-purple-500 animate-pulse" />
-              <span className="text-[13px] tracking-tight uppercase">
-                Developer Documentation
+            <div className="inline-block px-3 py-1 rounded-full bg-zinc-900 border border-zinc-800 mb-8">
+              <span className="text-[11px] font-bold text-zinc-400 uppercase tracking-[0.15em]">
+                Developer Docs
               </span>
             </div>
-            <h1 className="text-5xl sm:text-7xl font-black tracking-tight mb-8 text-white leading-[1.1]">
-              Build with <br />
-              <span className="text-blue-600">Fitbinary APIs.</span>
+
+            <h1 className="text-[2.75rem] sm:text-[4.5rem] font-black tracking-tight leading-[1.05] text-white mb-6">
+              Build with
+              <br />
+              <span className="text-zinc-400">Fitbinary APIs.</span>
             </h1>
-            <p className="text-xl text-neutral-400 leading-relaxed font-medium mb-10 max-w-2xl mx-auto">
-              Integrate Fitbinary into your custom mobile apps, member portals,
-              or corporate systems. RESTful APIs and real-time webhooks for
-              complete control.
+
+            <p className="text-zinc-400 text-xl leading-relaxed mb-10 max-w-2xl font-medium">
+              Integrate Fitbinary into your mobile apps, member portals, or
+              internal systems. RESTful APIs with consistent design across all
+              products, backed by real-time webhooks.
             </p>
+
+            <div className="flex flex-wrap gap-4">
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-white text-zinc-900 font-bold text-[15px] hover:bg-zinc-100 transition-colors active:scale-95"
+              >
+                Request API Access
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full border border-zinc-700 text-zinc-300 font-bold text-[15px] hover:border-zinc-500 hover:text-white transition-colors"
+              >
+                Contact Support
+              </Link>
+            </div>
           </motion.div>
         </div>
-        <div className="absolute bottom-0 inset-x-0 h-32 bg-liner-to-b from-transparent to-white z-10 pointer-events-none" />
       </section>
 
-      {/* API Features */}
-      <section className="py-24 px-6 bg-neutral-950 relative z-20 -top-8">
+      {/* API Overview */}
+      <section className="py-24 px-6 bg-white">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-4xl lg:text-5xl text-white font-black tracking-tight mb-6">
-              Developer-first infrastructure.
+          <div className="max-w-2xl mb-16">
+            <div className="inline-block px-3 py-1 rounded-full bg-zinc-100 border border-zinc-200 mb-5">
+              <span className="text-[11px] font-bold text-zinc-500 uppercase tracking-[0.15em]">
+                API Reference
+              </span>
+            </div>
+            <h2 className="text-4xl lg:text-[3rem] font-black tracking-tight text-zinc-900 leading-[1.08] mb-4">
+              Clean APIs across
+              <br />
+              every product.
             </h2>
-            <p className="text-xl text-neutral-400 font-medium">
-              Clean SDKs, comprehensive documentation, and fast API response
-              times for seamless integration.
+            <p className="text-zinc-500 text-lg leading-relaxed">
+              Every Fitbinary product exposes a consistent RESTful API. One
+              authentication model, one SDK, one set of conventions — regardless
+              of which product you integrate.
             </p>
           </div>
 
-          <motion.div
-            variants={stagger}
-            initial="initial"
-            whileInView="whileInView"
-            viewport={{ once: true }}
-            className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8"
-          >
-            {[
-              {
-                icon: Code,
-                title: "RESTful APIs",
-                description:
-                  "Clean, predictable endpoints for all Fitbinary products.",
-                color: "bg-blue-50 text-blue-600 shadow-blue-500/10",
-              },
-              {
-                icon: Terminal,
-                title: "SDKs Available",
-                description:
-                  "Official libraries for Node.js, Python, and more.",
-                color: "bg-red-50 text-red-600 shadow-red-500/10",
-              },
-              {
-                icon: Book,
-                title: "Full Documentation",
-                description:
-                  "Detailed guides, code examples, and API references.",
-                color: "bg-neutral-900 text-white shadow-gray-500/10",
-              },
-              {
-                icon: Zap,
-                title: "Fast Response",
-                description: "Sub-100ms API response times globally.",
-                color: "bg-purple-50 text-purple-600 shadow-purple-500/10",
-              },
-            ].map((feature, i) => (
+          <div className="grid sm:grid-cols-2 gap-5">
+            {apiSections.map((section, i) => (
               <motion.div
-                key={i}
-                variants={fadeInUp}
-                className="group p-8 rounded-3xl bg-neutral-950 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] transition-all border border-neutral-800 hover:border-neutral-800"
+                key={section.name}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: i * 0.06 }}
+                className="rounded-2xl border border-zinc-200 bg-zinc-50 p-7 hover:border-zinc-300 hover:bg-white transition-all duration-300"
               >
                 <div
-                  className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-6 transition-transform group-hover:scale-110 shadow-lg ${feature.color}`}
+                  className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-xl ${section.bg} border mb-5`}
                 >
-                  <feature.icon className="w-7 h-7" />
+                  <section.icon className={`w-4 h-4 ${section.color}`} />
+                  <span className={`text-[12px] font-bold ${section.color}`}>
+                    {section.name}
+                  </span>
                 </div>
-                <h3 className="text-xl font-bold text-white mb-3">
-                  {feature.title}
+
+                <p className="text-[14px] text-zinc-600 leading-relaxed mb-5">
+                  {section.desc}
+                </p>
+
+                <div className="space-y-2">
+                  {section.endpoints.map((ep) => (
+                    <div
+                      key={ep}
+                      className="flex items-center gap-2 font-mono text-[12px]"
+                    >
+                      <ChevronRight className="w-3 h-3 text-zinc-400 shrink-0" />
+                      <span className="text-zinc-500">{ep}</span>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Getting Started */}
+      <section className="py-24 px-6 bg-zinc-950">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center max-w-xl mx-auto mb-16">
+            <div className="inline-block px-3 py-1 rounded-full bg-zinc-900 border border-zinc-800 mb-5">
+              <span className="text-[11px] font-bold text-zinc-400 uppercase tracking-[0.15em]">
+                Getting Started
+              </span>
+            </div>
+            <h2 className="text-4xl lg:text-[3rem] font-black tracking-tight text-white leading-[1.08]">
+              Up and running
+              <br />
+              <span className="text-zinc-500">in three steps.</span>
+            </h2>
+          </div>
+
+          <div className="grid lg:grid-cols-3 gap-5">
+            {steps.map((step, i) => (
+              <motion.div
+                key={step.step}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: i * 0.08 }}
+                className="rounded-2xl border border-zinc-800 bg-zinc-900/50 p-7"
+              >
+                <span className="text-[13px] font-black text-zinc-600 tabular-nums block mb-4">
+                  {step.step}
+                </span>
+                <h3 className="text-[17px] font-bold text-white mb-3">
+                  {step.title}
                 </h3>
-                <p className="text-base text-neutral-400 leading-relaxed font-medium">
-                  {feature.description}
+                <p className="text-[14px] text-zinc-500 leading-relaxed">
+                  {step.desc}
                 </p>
               </motion.div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Code Example */}
-      <section className="py-24 px-6 bg-neutral-900">
+      <section className="py-24 px-6 bg-white">
         <div className="max-w-6xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-20 items-center">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div
-              variants={fadeInUp}
-              initial="initial"
-              whileInView="whileInView"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
             >
-              <h2 className="text-4xl lg:text-5xl font-black tracking-tight mb-8">
-                Simple, powerful integration.
-              </h2>
-              <p className="text-xl text-neutral-400 leading-relaxed mb-10 font-medium">
-                Get started in minutes with our clean API design and
-                comprehensive SDKs. Build custom integrations for your specific
-                business needs without the hassle.
-              </p>
-              <Link
-                href="/get-started"
-                className="inline-flex items-center gap-2 text-blue-600 font-bold hover:gap-3 transition-all"
-              >
-                Request API Access <ArrowRight className="w-5 h-5" />
-              </Link>
-            </motion.div>
-            <motion.div
-              variants={fadeInUp}
-              initial="initial"
-              whileInView="whileInView"
-              viewport={{ once: true }}
-              className="bg-gray-900 rounded-3xl border border-gray-800 shadow-2xl relative overflow-hidden group font-mono text-sm leading-relaxed"
-            >
-              <div className="flex items-center gap-2 px-6 py-4 bg-gray-800/50 border-b border-gray-800">
-                <div className="flex gap-1.5">
-                  <div className="w-3 h-3 rounded-full bg-red-500" />
-                  <div className="w-3 h-3 rounded-full bg-yellow-500" />
-                  <div className="w-3 h-3 rounded-full bg-green-500" />
-                </div>
-                <span className="text-gray-400 text-xs ml-4 font-bold tracking-wider">
-                  api_example.js
+              <div className="inline-block px-3 py-1 rounded-full bg-zinc-100 border border-zinc-200 mb-6">
+                <span className="text-[11px] font-bold text-zinc-500 uppercase tracking-[0.15em]">
+                  Example
                 </span>
               </div>
-              <div className="p-8 text-gray-300">
-                <div className="mb-4">
-                  <span className="text-purple-400">const</span> fitbinary ={" "}
-                  <span className="text-blue-400">require</span>(
-                  <span className="text-green-400">'fitbinary-node'</span>);
-                </div>
-                <div className="mb-4">
-                  <span className="text-purple-400">const</span> client ={" "}
-                  <span className="text-purple-400">new</span> fitbinary.
-                  <span className="text-yellow-400">Client</span>({`{`}
-                  <div className="pl-6 border-l border-gray-800 ml-2 mt-2">
-                    apiKey:{" "}
-                    <span className="text-green-400">'fb_live_...'</span>,{" "}
-                    <br />
-                    tenantId: <span className="text-green-400">'your-gym'</span>
+              <h2 className="text-4xl lg:text-[3rem] font-black tracking-tight text-zinc-900 leading-[1.08] mb-5">
+                Simple, consistent
+                <br />
+                integration.
+              </h2>
+              <p className="text-zinc-500 text-lg leading-relaxed mb-8">
+                One SDK handles authentication, request signing, and error
+                handling across all Fitbinary products. Clean design,
+                predictable responses.
+              </p>
+              <div className="space-y-3">
+                {[
+                  { icon: Zap, label: "Sub-100ms response times" },
+                  { icon: Lock, label: "Tenant-scoped by default" },
+                  { icon: BookOpen, label: "Versioned API endpoints" },
+                ].map(({ icon: Icon, label }) => (
+                  <div
+                    key={label}
+                    className="flex items-center gap-3 text-[14px] text-zinc-600"
+                  >
+                    <Icon className="w-4 h-4 text-zinc-400 shrink-0" />
+                    {label}
                   </div>
-                  {`}`});
+                ))}
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="rounded-2xl border border-zinc-200 bg-zinc-950 overflow-hidden"
+            >
+              <div className="flex items-center gap-2 px-5 py-3.5 bg-zinc-900 border-b border-zinc-800">
+                <div className="flex gap-1.5">
+                  <div className="w-2.5 h-2.5 rounded-full bg-red-500/80" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/80" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-green-500/80" />
                 </div>
-                <div className="mb-4">
-                  <span className="text-purple-400">const</span> members ={" "}
-                  <span className="text-purple-400">await</span> client.members.
-                  <span className="text-yellow-400">list</span>();
+                <span className="text-zinc-500 text-[11px] font-bold tracking-wider ml-3">
+                  example.js
+                </span>
+              </div>
+              <div className="p-6 font-mono text-[13px] leading-7">
+                <div className="text-zinc-500 mb-3">{`// Initialize client`}</div>
+                <div>
+                  <span className="text-purple-400">const</span>
+                  <span className="text-zinc-300"> client </span>
+                  <span className="text-zinc-500">= </span>
+                  <span className="text-purple-400">new</span>
+                  <span className="text-blue-400"> FitbinaryClient</span>
+                  <span className="text-zinc-300">{"({"}</span>
                 </div>
-                <div className="mt-8 flex items-center gap-2 text-green-400 bg-green-400/10 px-4 py-2 rounded-lg font-bold">
-                  <ChevronRight className="w-4 h-4" /> Connected successfully
+                <div className="pl-5">
+                  <span className="text-zinc-400">apiKey</span>
+                  <span className="text-zinc-500">: </span>
+                  <span className="text-green-400">'fb_live_...'</span>
+                  <span className="text-zinc-300">,</span>
+                </div>
+                <div className="text-zinc-300">{"});"}</div>
+                <div className="mt-4 text-zinc-500">{`// List members`}</div>
+                <div>
+                  <span className="text-purple-400">const</span>
+                  <span className="text-zinc-300"> members </span>
+                  <span className="text-zinc-500">= </span>
+                  <span className="text-purple-400">await</span>
+                  <span className="text-zinc-300"> client</span>
+                  <span className="text-zinc-500">.</span>
+                  <span className="text-yellow-400">members</span>
+                  <span className="text-zinc-500">.</span>
+                  <span className="text-blue-400">list</span>
+                  <span className="text-zinc-300">{"();"}</span>
+                </div>
+                <div className="mt-4 text-zinc-500">{`// Check stock`}</div>
+                <div>
+                  <span className="text-purple-400">const</span>
+                  <span className="text-zinc-300"> stock </span>
+                  <span className="text-zinc-500">= </span>
+                  <span className="text-purple-400">await</span>
+                  <span className="text-zinc-300"> client</span>
+                  <span className="text-zinc-500">.</span>
+                  <span className="text-yellow-400">inventory</span>
+                  <span className="text-zinc-500">.</span>
+                  <span className="text-blue-400">getByBranch</span>
+                  <span className="text-zinc-300">{"(branchId);"}</span>
+                </div>
+                <div className="mt-5 flex items-center gap-2 text-emerald-400 bg-emerald-400/10 px-3 py-2 rounded-lg">
+                  <ChevronRight className="w-3.5 h-3.5" />
+                  <span className="text-[12px] font-bold">
+                    200 OK — Connected
+                  </span>
                 </div>
               </div>
             </motion.div>
@@ -190,27 +332,26 @@ export default function DocsPage() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-24 px-6 bg-neutral-950">
-        <div className="max-w-4xl mx-auto text-center border-t border-neutral-800 pt-24">
-          <h2 className="text-4xl lg:text-5xl font-black text-white tracking-tight mb-8">
+      {/* CTA */}
+      <section className="py-24 px-6 bg-zinc-950">
+        <div className="max-w-3xl mx-auto text-center">
+          <h2 className="text-4xl lg:text-[3.25rem] font-black tracking-tight text-white leading-none mb-6">
             Ready to start building?
           </h2>
-          <p className="text-xl text-neutral-400 mb-12 font-medium">
+          <p className="text-zinc-400 text-lg leading-relaxed mb-10 max-w-xl mx-auto">
             Contact our team to get API access and start integrating Fitbinary
             into your applications.
           </p>
           <Link
-            href="/get-started"
-            className="inline-flex items-center gap-2 px-10 py-5 bg-gray-900 text-white rounded-full font-bold text-lg hover:bg-black transition-all shadow-xl shadow-gray-900/20 active:scale-95 group"
+            href="/contact"
+            className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white text-zinc-900 font-bold text-[15px] hover:bg-zinc-100 active:scale-95 transition-all group"
           >
             Request API Access
-            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
           </Link>
         </div>
       </section>
 
-      {/* Footer */}
       <Footer />
     </div>
   );

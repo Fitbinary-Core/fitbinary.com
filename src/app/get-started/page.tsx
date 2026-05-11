@@ -2,276 +2,248 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, CheckCircle2, Cloud, Package, Shield } from "lucide-react";
-import { fadeInUp, stagger } from "@/components/landing/animations";
+import {
+  ArrowRight,
+  CheckCircle2,
+  Cloud,
+  Package,
+  Shield,
+  Zap,
+} from "lucide-react";
 import Footer from "@/components/landing/Footer";
+
+const products = [
+  {
+    icon: Cloud,
+    name: "FitCloud",
+    category: "Gym Management",
+    desc: "Memberships, billing, attendance, and multi-branch operations — all in one platform.",
+    features: [
+      "Member management & digital cards",
+      "Automated billing & renewals",
+      "Multi-branch dashboard",
+      "Staff roles & scheduling",
+    ],
+    color: "blue",
+    tagBg: "bg-blue-50 border-blue-100",
+    tagText: "text-blue-600",
+    btnBg: "bg-blue-600 hover:bg-blue-500",
+    href: "https://accounts.fitbinary.com/signup?product=fitcloud",
+    label: "Start with FitCloud",
+  },
+  {
+    icon: Package,
+    name: "FitStock",
+    category: "Inventory Control",
+    desc: "Real-time stock tracking, purchase orders, and low-stock alerts across all locations.",
+    features: [
+      "Real-time stock per branch",
+      "Purchase orders & suppliers",
+      "Inter-branch transfers",
+      "Low-stock alerts & analytics",
+    ],
+    color: "orange",
+    tagBg: "bg-orange-50 border-orange-100",
+    tagText: "text-orange-600",
+    btnBg: "bg-orange-600 hover:bg-orange-500",
+    href: "https://accounts.fitbinary.com/signup?product=fitstock",
+    label: "Start with FitStock",
+  },
+];
+
+const reasons = [
+  {
+    icon: Zap,
+    title: "Quick setup",
+    desc: "Get your team and operations configured in hours, not weeks.",
+  },
+  {
+    icon: Shield,
+    title: "Secure by default",
+    desc: "Role-based access, encrypted data, and 99.9% uptime SLA.",
+  },
+  {
+    icon: Cloud,
+    title: "Multi-branch ready",
+    desc: "Manage one location or fifty from a single platform.",
+  },
+  {
+    icon: Package,
+    title: "Products work together",
+    desc: "FitCloud and FitStock share a unified data layer.",
+  },
+];
 
 export default function GetStartedPage() {
   return (
-    <div className="flex flex-col min-h-screen bg-neutral-950 font-sans text-white selection:bg-red-100 selection:text-red-900">
-      {/* Hero Section */}
-      <section className="relative pt-40 pb-20 px-6 overflow-hidden bg-neutral-900">
-        <div className="absolute inset-0 bg-liner-to-b from-white/40 via-white/20 to-white/60 z-0 pointer-events-none" />
-        <div className="max-w-4xl mx-auto text-center relative z-10">
+    <div className="flex flex-col min-h-screen bg-white font-sans">
+      {/* Hero */}
+      <section className="bg-zinc-950 pt-28 pb-20 px-6">
+        <div className="max-w-5xl mx-auto text-center">
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
           >
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-neutral-900 border border-neutral-800 text-neutral-400 mb-6 font-bold shadow-sm">
-              <span className="flex w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse" />
-              <span className="text-[13px] tracking-tight uppercase">
-                Onboarding
+            <div className="inline-block px-3 py-1 rounded-full bg-zinc-900 border border-zinc-800 mb-6">
+              <span className="text-[11px] font-bold text-zinc-400 uppercase tracking-[0.15em]">
+                Get Started
               </span>
             </div>
-            <h1 className="text-5xl sm:text-7xl font-black tracking-tight mb-8 text-white leading-[1.1]">
-              Get started with <br />
-              <span className="text-blue-600">Fitbinary today.</span>
+            <h1 className="text-[2.75rem] sm:text-[3.5rem] font-black tracking-tight leading-[1.05] text-white mb-5">
+              Start with the product
+              <br />
+              <span className="text-zinc-400">that fits your business.</span>
             </h1>
-            <p className="text-xl text-neutral-400 leading-relaxed font-medium mb-10 max-w-2xl mx-auto">
-              Create your account and start managing your gym operations or
-              inventory with our powerful platform. Choose the product that fits
-              your needs.
+            <p className="text-zinc-400 text-lg leading-relaxed font-medium max-w-xl mx-auto">
+              Choose FitCloud, FitStock, or both. You can always add more
+              products to your account later.
             </p>
           </motion.div>
         </div>
-        <div className="absolute bottom-0 inset-x-0 h-32 bg-liner-to-b from-transparent to-white z-10 pointer-events-none" />
       </section>
 
-      {/* Product Selection */}
-      <section className="py-24 px-6 bg-neutral-950 relative z-20 -top-8">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-4xl lg:text-5xl text-white font-black tracking-tight mb-6">
-              Choose your product.
-            </h2>
-            <p className="text-xl text-neutral-400 font-medium">
-              Select the Fitbinary product that best suits your business needs.
-              You can always add more products later.
-            </p>
+      {/* Product selection */}
+      <section className="py-20 px-6 bg-white">
+        <div className="max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-5 mb-10">
+            {products.map((p, i) => (
+              <motion.div
+                key={p.name}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: i * 0.08 }}
+                className="rounded-3xl border border-zinc-200 bg-white p-8 hover:border-zinc-300 hover:shadow-sm transition-all duration-300 flex flex-col"
+              >
+                <div
+                  className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full ${p.tagBg} border text-[11px] font-bold ${p.tagText} uppercase tracking-wider mb-5 self-start`}
+                >
+                  <p.icon className="w-3 h-3" />
+                  {p.category}
+                </div>
+
+                <h3 className="text-[2rem] font-black text-zinc-900 tracking-tight leading-none mb-2">
+                  {p.name}
+                </h3>
+                <p className="text-zinc-500 text-[15px] leading-relaxed mb-6">
+                  {p.desc}
+                </p>
+
+                <ul className="space-y-2.5 mb-8 flex-1">
+                  {p.features.map((f) => (
+                    <li
+                      key={f}
+                      className="flex items-center gap-2.5 text-[14px] text-zinc-600"
+                    >
+                      <CheckCircle2
+                        className={`w-4 h-4 shrink-0 ${p.tagText}`}
+                      />
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+
+                <Link
+                  href={p.href}
+                  className={`w-full text-center py-3.5 rounded-xl ${p.btnBg} text-white font-bold text-[14px] transition-colors active:scale-[0.98] flex items-center justify-center gap-2 group`}
+                >
+                  {p.label}
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+                </Link>
+              </motion.div>
+            ))}
           </div>
 
-          <motion.div
-            variants={stagger}
-            initial="initial"
-            whileInView="whileInView"
-            viewport={{ once: true }}
-            className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto"
-          >
-            {/* FitCloud Card */}
-            <motion.div
-              variants={fadeInUp}
-              className="group bg-neutral-950 rounded-[3rem] p-10 lg:p-12 shadow-[0_20px_60px_-15px_rgba(37,99,235,0.1)] border border-blue-900/50 relative overflow-hidden flex flex-col h-full"
-            >
-              <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-opacity blur-2xl pointer-events-none">
-                <Cloud className="w-64 h-64 text-blue-600" />
+          {/* Sign in prompt */}
+          <div className="rounded-2xl border border-zinc-200 bg-zinc-50 p-7 flex flex-col sm:flex-row items-center justify-between gap-5">
+            <div className="flex items-center gap-4">
+              <div className="w-10 h-10 rounded-xl bg-white border border-zinc-200 flex items-center justify-center shrink-0">
+                <Shield className="w-5 h-5 text-zinc-500" />
               </div>
-              <div className="relative z-10 flex-1">
-                <div className="w-16 h-16 bg-blue-600 text-white rounded-2xl flex items-center justify-center mb-8 shadow-xl shadow-blue-500/30 group-hover:scale-110 transition-transform">
-                  <Cloud className="w-8 h-8" />
-                </div>
-                <h3 className="text-3xl font-black text-white mb-4">
-                  FitCloud
-                </h3>
-                <p className="text-lg text-neutral-400 leading-relaxed mb-8 font-medium">
-                  Gym management software for memberships, billing, trainers,
-                  and multi-branch operations.
+              <div>
+                <p className="text-[15px] font-bold text-zinc-900">
+                  Already have an account?
                 </p>
-                <div className="space-y-4 mb-10">
-                  {[
-                    "Member management",
-                    "Automated billing",
-                    "Multi-branch support",
-                    "Staff & trainer tracking",
-                  ].map((feature, i) => (
-                    <div key={i} className="flex gap-3 items-center">
-                      <CheckCircle2 className="w-5 h-5 text-blue-600 shrink-0" />
-                      <span className="text-base text-neutral-300 font-medium">
-                        {feature}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              <Link
-                href="https://accounts.fitbinary.com/signup?product=fitcloud"
-                className="relative z-10 block w-full text-center px-8 py-5 bg-blue-600 text-white rounded-full font-bold text-lg hover:bg-blue-700 transition-all shadow-xl shadow-blue-600/20 active:scale-95"
-              >
-                Start with FitCloud
-              </Link>
-            </motion.div>
-
-            {/* FitStock Card */}
-            <motion.div
-              variants={fadeInUp}
-              className="group bg-neutral-950 rounded-[3rem] p-10 lg:p-12 shadow-[0_20px_60px_-15px_rgba(220,38,38,0.1)] border border-red-900/50 relative overflow-hidden flex flex-col h-full"
-            >
-              <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-opacity blur-2xl pointer-events-none">
-                <Package className="w-64 h-64 text-red-600" />
-              </div>
-              <div className="relative z-10 flex-1">
-                <div className="w-16 h-16 bg-red-600 text-white rounded-2xl flex items-center justify-center mb-8 shadow-xl shadow-red-500/30 group-hover:scale-110 transition-transform">
-                  <Package className="w-8 h-8" />
-                </div>
-                <h3 className="text-3xl font-black text-white mb-4">
-                  FitStock
-                </h3>
-                <p className="text-lg text-neutral-400 leading-relaxed mb-8 font-medium">
-                  Inventory management for products, stock transfers, and
-                  multi-location tracking.
+                <p className="text-[13px] text-zinc-500">
+                  Sign in to access FitCloud, FitStock, and your organization.
                 </p>
-                <div className="space-y-4 mb-10">
-                  {[
-                    "Product management",
-                    "Stock receiving & transfers",
-                    "Low-stock alerts",
-                    "Inventory analytics",
-                  ].map((feature, i) => (
-                    <div key={i} className="flex gap-3 items-center">
-                      <CheckCircle2 className="w-5 h-5 text-red-600 shrink-0" />
-                      <span className="text-base text-neutral-300 font-medium">
-                        {feature}
-                      </span>
-                    </div>
-                  ))}
-                </div>
               </div>
-              <Link
-                href="https://accounts.fitbinary.com/signup?product=fitstock"
-                className="relative z-10 block w-full text-center px-8 py-5 bg-red-600 text-white rounded-full font-bold text-lg hover:bg-red-700 transition-all shadow-xl shadow-red-600/20 active:scale-95"
-              >
-                Start with FitStock
-              </Link>
-            </motion.div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Already Have Account */}
-      <section className="py-24 px-6 bg-neutral-900">
-        <div className="max-w-6xl mx-auto">
-          <div className="bg-neutral-950 rounded-[3rem] py-16 px-6 text-center shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-neutral-800 relative overflow-hidden group">
-            <div className="relative z-10">
-              <div className="w-20 h-20 bg-gray-900 text-white rounded-2xl flex items-center justify-center mx-auto mb-8 shadow-xl shadow-gray-900/20 group-hover:scale-110 transition-transform">
-                <Shield className="w-10 h-10" />
-              </div>
-              <h2 className="text-4xl lg:text-5xl font-black text-white mb-6 tracking-tight">
-                Already have an account?
-              </h2>
-              <p className="text-xl text-neutral-400 mb-10 font-medium max-w-2xl mx-auto leading-relaxed">
-                Sign in to your Fitbinary account to access FitCloud, FitStock,
-                and manage your organization.
-              </p>
-              <Link
-                href="https://accounts.fitbinary.com/signin"
-                className="inline-flex items-center gap-2 px-10 py-5 bg-gray-900 text-white rounded-full font-bold text-lg hover:bg-black transition-all shadow-xl shadow-gray-900/20 active:scale-95 group-hover:gap-3"
-              >
-                Sign In
-                <ArrowRight className="w-5 h-5" />
-              </Link>
             </div>
+            <Link
+              href="https://accounts.fitbinary.com/signin"
+              className="shrink-0 px-6 py-2.5 rounded-xl bg-zinc-900 text-white font-bold text-[14px] hover:bg-zinc-800 transition-colors active:scale-95 flex items-center gap-2 group"
+            >
+              Sign In
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+            </Link>
           </div>
         </div>
       </section>
 
       {/* Why Fitbinary */}
-      <section className="py-24 px-6 bg-neutral-950">
-        <div className="max-w-6xl mx-auto border-t border-neutral-800 pt-24">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-4xl lg:text-5xl text-white font-black tracking-tight mb-6">
-              Why choose Fitbinary?
+      <section className="py-20 px-6 bg-zinc-950">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-14">
+            <h2 className="text-3xl lg:text-[2.5rem] font-black tracking-tight text-white leading-[1.08]">
+              Why teams choose
+              <br />
+              <span className="text-zinc-500">Fitbinary.</span>
             </h2>
-            <p className="text-xl text-neutral-400 font-medium">
-              Built specifically for fitness businesses with the features you
-              need to scale.
-            </p>
           </div>
 
-          <motion.div
-            variants={stagger}
-            initial="initial"
-            whileInView="whileInView"
-            viewport={{ once: true }}
-            className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8"
-          >
-            {[
-              {
-                title: "Easy to Use",
-                description:
-                  "Intuitive interface designed for gym owners and staff, not tech experts.",
-              },
-              {
-                title: "Reliable & Secure",
-                description:
-                  "Enterprise-grade security and 99.9% uptime for business-critical operations.",
-              },
-              {
-                title: "Multi-Branch Ready",
-                description:
-                  "Manage multiple locations with centralized control and consistent data.",
-              },
-              {
-                title: "Fast Support",
-                description:
-                  "Dedicated support team that understands fitness business operations.",
-              },
-              {
-                title: "Regular Updates",
-                description:
-                  "Continuous improvements and new features based on customer feedback.",
-              },
-              {
-                title: "Affordable Pricing",
-                description:
-                  "Transparent pricing that scales with your business growth.",
-              },
-            ].map((benefit, i) => (
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {reasons.map(({ icon: Icon, title, desc }, i) => (
               <motion.div
-                key={i}
-                variants={fadeInUp}
-                className="bg-neutral-900 p-8 rounded-3xl border border-transparent hover:border-neutral-800 hover:bg-neutral-900 hover:shadow-[0_8px_30px_rgb(0,0,0,0.04)] transition-all"
+                key={title}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: i * 0.05 }}
+                className="rounded-2xl border border-zinc-800 bg-zinc-900/50 p-6"
               >
-                <h3 className="text-xl font-bold text-white mb-3">
-                  {benefit.title}
+                <div className="w-9 h-9 rounded-xl bg-zinc-800 border border-zinc-700 flex items-center justify-center mb-4">
+                  <Icon className="w-4 h-4 text-zinc-400" />
+                </div>
+                <h3 className="text-[14px] font-bold text-white mb-2">
+                  {title}
                 </h3>
-                <p className="text-base text-neutral-400 leading-relaxed font-medium">
-                  {benefit.description}
+                <p className="text-[13px] text-zinc-500 leading-relaxed">
+                  {desc}
                 </p>
               </motion.div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </section>
 
-      {/* Contact Section */}
-      <section className="py-24 px-6 bg-neutral-900">
-        <div className="max-w-6xl mx-auto text-center">
-          <h2 className="text-4xl lg:text-5xl text-white font-black tracking-tight mb-6">
-            Need help getting started?
+      {/* Need help */}
+      <section className="py-20 px-6 bg-white">
+        <div className="max-w-3xl mx-auto text-center">
+          <h2 className="text-2xl lg:text-[2rem] font-black tracking-tight text-zinc-900 mb-4">
+            Not sure which product to start with?
           </h2>
-          <p className="text-xl text-neutral-400 mb-12 font-medium max-w-2xl mx-auto">
-            Our team is here to help you choose the right product and get your
-            account set up.
+          <p className="text-zinc-500 text-[15px] leading-relaxed mb-8 max-w-md mx-auto">
+            Our team can help you pick the right products for your business and
+            get your account set up.
           </p>
-          <div className="flex flex-wrap justify-center gap-6">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
-              href="https://accounts.fitbinary.com/signup"
-              className="inline-flex items-center gap-2 px-10 py-5 bg-blue-600 text-white rounded-full font-bold text-lg hover:bg-blue-700 transition-all shadow-xl shadow-blue-600/20 active:scale-95"
+              href="/contact"
+              className="px-7 py-3.5 rounded-full bg-zinc-900 text-white font-bold text-[14px] hover:bg-zinc-800 active:scale-95 transition-all flex items-center gap-2 group"
             >
-              Create Account
-              <ArrowRight className="w-5 h-5" />
+              Talk to Sales
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
             </Link>
             <a
               href="mailto:support@fitbinary.com"
-              className="px-10 py-5 bg-neutral-950 text-white border border-neutral-800 rounded-full font-bold text-lg hover:border-neutral-700 hover:bg-neutral-900 transition-all active:scale-95 shadow-sm"
+              className="px-7 py-3.5 rounded-full border border-zinc-200 text-zinc-600 font-bold text-[14px] hover:border-zinc-400 hover:text-zinc-900 active:scale-95 transition-all"
             >
-              Contact Sales
+              Email Support
             </a>
           </div>
         </div>
       </section>
 
-      {/* Footer */}
       <Footer />
     </div>
   );

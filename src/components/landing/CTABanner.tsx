@@ -53,19 +53,19 @@ export default function CTABanner() {
         >
           <div className="inline-block px-3 py-1 rounded-full bg-zinc-900 border border-zinc-800 mb-8">
             <span className="text-[11px] font-bold text-zinc-400 uppercase tracking-[0.15em]">
-              Get Started
+              Get started free
             </span>
           </div>
 
           <h2 className="text-4xl sm:text-5xl lg:text-[4rem] font-black tracking-[-0.04em] text-white leading-none mb-6">
-            Ready to transform
+            The fitness industry
             <br />
-            your gym business?
+            runs on Fitbinary.
           </h2>
 
           <p className="text-zinc-400 text-lg leading-relaxed mb-12 max-w-xl mx-auto">
-            Join hundreds of fitness businesses already running their operations
-            on Fitbinary.
+            Join hundreds of fitness businesses already operating on the
+            Fitbinary platform — from single studios to multi-location chains.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

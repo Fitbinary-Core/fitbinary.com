@@ -45,7 +45,7 @@ export default function Footer() {
               </span>
             </div>
             <p className="text-[13px] text-zinc-500 leading-relaxed mb-6">
-              The operations platform for gyms and fitness businesses.
+              The software platform for the fitness industry.
             </p>
             <div className="flex items-center gap-3">
               <Link

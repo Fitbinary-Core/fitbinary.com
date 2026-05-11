@@ -7,27 +7,27 @@ import { ArrowRight } from "lucide-react";
 const reasons = [
   {
     number: "01",
-    title: "Purpose-built for fitness",
+    title: "Purpose-built for the fitness industry",
     description:
-      "Designed around the actual workflows of gym owners — not adapted from generic business software.",
+      "Designed around how fitness businesses actually run — not adapted from generic retail or hospitality software. Every feature reflects real operational workflows.",
   },
   {
     number: "02",
-    title: "Multi-branch from day one",
+    title: "A platform that grows with you",
     description:
-      "Whether you have one gym or fifty, the architecture scales without requiring migrations or upgrades.",
+      "Whether you manage one studio or dozens of locations, Fitbinary scales without requiring migrations, upgrades, or rebuilds.",
   },
   {
     number: "03",
-    title: "One platform, two products",
+    title: "Products that work better together",
     description:
-      "FitCloud and FitStock share a unified data layer. Member activity, inventory, and billing are always in sync.",
+      "FitCloud, FitStock, and upcoming products share a unified data layer. Members, inventory, and billing always stay in sync across the entire suite.",
   },
   {
     number: "04",
-    title: "Built for your whole team",
+    title: "Built for your entire organization",
     description:
-      "From front-desk staff to gym owners — role-based access ensures everyone sees exactly what they need.",
+      "From front-desk staff to multi-location operators — role-based access and product-level permissions ensure everyone works within the right context.",
   },
 ];
 
@@ -36,7 +36,6 @@ export default function Developers() {
     <section className="py-32 bg-white px-6">
       <div className="max-w-6xl mx-auto">
         <div className="grid lg:grid-cols-[1fr_1.6fr] gap-20 items-start">
-          {/* Left — sticky heading */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -52,12 +51,12 @@ export default function Developers() {
             <h2 className="text-4xl lg:text-[3rem] font-black tracking-[-0.03em] text-zinc-900 leading-[1.05] mb-6">
               Software that actually
               <br />
-              <span className="text-zinc-400">fits the gym floor.</span>
+              <span className="text-zinc-400">fits the industry.</span>
             </h2>
             <p className="text-zinc-500 text-lg leading-relaxed mb-8">
               Most business software forces fitness operators into workflows
-              built for retail or hospitality. Fitbinary is different — every
-              feature is shaped around how gyms actually run.
+              built for unrelated industries. Fitbinary is different — every
+              product is shaped around the fitness business, from the ground up.
             </p>
             <Link
               href="/about"
@@ -68,7 +67,6 @@ export default function Developers() {
             </Link>
           </motion.div>
 
-          {/* Right — numbered list */}
           <div className="flex flex-col divide-y divide-zinc-100">
             {reasons.map((item, i) => (
               <motion.div

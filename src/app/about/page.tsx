@@ -1,286 +1,313 @@
 "use client";
 
 import { motion } from "framer-motion";
-import {
-  Cloud,
-  Package,
-  ArrowRight,
-  CheckCircle2,
-  Shield,
-  Zap,
-  Target,
-} from "lucide-react";
+import { Cloud, Package, ArrowRight, CheckCircle2 } from "lucide-react";
 import Link from "next/link";
 import Footer from "@/components/landing/Footer";
 
-const fadeInUp = {
-  initial: { opacity: 0, y: 20 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true },
-  transition: { duration: 0.5 },
-};
-
-const stagger = {
-  initial: {},
-  whileInView: { transition: { staggerChildren: 0.1 } },
-  viewport: { once: true },
-};
+const values = [
+  {
+    number: "01",
+    title: "Industry-first thinking",
+    description:
+      "Every product decision starts with a question: does this reflect how fitness businesses actually work? We don't adapt generic software — we build from the ground up.",
+  },
+  {
+    number: "02",
+    title: "Cohesion over fragmentation",
+    description:
+      "Products in the Fitbinary suite are designed to share data, not duplicate it. One member profile, one inventory record — consistent across every product you use.",
+  },
+  {
+    number: "03",
+    title: "Built to scale, not to lock in",
+    description:
+      "Whether you start with one location or fifty, the architecture stays the same. No migrations, no upgrade tiers, no surprise limitations when you grow.",
+  },
+  {
+    number: "04",
+    title: "Reliability as a foundation",
+    description:
+      "Fitness businesses operate on tight schedules. We treat uptime and performance as non-negotiables, not premium features.",
+  },
+];
 
 export default function AboutPage() {
   return (
-    <div className="flex flex-col min-h-screen bg-neutral-950 font-sans text-white selection:bg-red-100 selection:text-red-900">
-      {/* Hero Section */}
-      <section className="relative pt-40 pb-20 px-6 overflow-hidden bg-neutral-900">
-        <div className="absolute inset-0 bg-liner-to-b from-white/40 via-white/20 to-white/60 z-0 pointer-events-none" />
-        <div className="max-w-4xl mx-auto text-center relative z-10">
+    <div className="flex flex-col min-h-screen bg-white font-sans">
+      {/* Hero */}
+      <section className="bg-zinc-950 pt-28 pb-24 px-6">
+        <div className="max-w-5xl mx-auto">
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            className="max-w-3xl"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-neutral-900 border border-neutral-800 text-neutral-400 mb-6 font-bold shadow-sm">
-              <span className="flex w-2.5 h-2.5 rounded-full bg-blue-500 animate-pulse" />
-              <span className="text-[13px] tracking-tight uppercase">
-                Fitbinary Platform
+            <div className="inline-block px-3 py-1 rounded-full bg-zinc-900 border border-zinc-800 mb-8">
+              <span className="text-[11px] font-bold text-zinc-400 uppercase tracking-[0.15em]">
+                About Fitbinary
               </span>
             </div>
-            <h1 className="text-5xl sm:text-7xl font-black tracking-tight mb-8 text-white leading-[1.1]">
-              Empowering operations through{" "}
-              <span className="text-blue-600">unified software.</span>
+
+            <h1 className="text-[2.75rem] sm:text-[4.5rem] font-black tracking-tight leading-[1.05] text-white mb-6">
+              The software platform
+              <br />
+              <span className="text-zinc-400">for the fitness industry.</span>
             </h1>
-            <p className="text-xl text-neutral-400 leading-relaxed font-medium mb-10 max-w-2xl mx-auto">
-              Fitbinary is the core technology suite behind two powerful
-              platforms: <strong>FitCloud</strong> for gym management and{" "}
-              <strong>FitStock</strong> for inventory control. Built on modern
-              architecture to scale with your business.
+
+            <p className="text-zinc-400 text-xl leading-relaxed max-w-2xl font-medium">
+              Fitbinary builds focused, purpose-built products for fitness
+              businesses — from gyms and studios to personal trainers and sports
+              academies. Our suite is designed to work independently or
+              together, covering every operational need in the fitness industry.
             </p>
           </motion.div>
         </div>
-        <div className="absolute bottom-0 inset-x-0 h-32 bg-liner-to-b from-transparent to-white z-10 pointer-events-none" />
       </section>
 
       {/* Mission */}
-      <section className="py-24 px-6 bg-neutral-950 relative z-20 -top-8">
+      <section className="py-24 px-6 bg-white">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-4xl lg:text-5xl text-white font-black tracking-tight mb-6">
-              Our mission.
+          <div className="grid lg:grid-cols-2 gap-16 items-start">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
+              <div className="inline-block px-3 py-1 rounded-full bg-zinc-100 border border-zinc-200 mb-6">
+                <span className="text-[11px] font-bold text-zinc-500 uppercase tracking-[0.15em]">
+                  Our mission
+                </span>
+              </div>
+              <h2 className="text-4xl lg:text-[3rem] font-black tracking-tight text-zinc-900 leading-[1.08] mb-6">
+                Software that actually
+                <br />
+                fits the industry.
+              </h2>
+              <p className="text-zinc-500 text-lg leading-relaxed">
+                Most business software forces fitness operators into workflows
+                built for retail, hospitality, or generic SaaS use cases.
+                Fitbinary is different — we build products that reflect how
+                fitness businesses actually run, from the front desk to the back
+                office.
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="space-y-5 pt-2"
+            >
+              {[
+                "Purpose-built for fitness, not adapted from generic tools",
+                "Products that share a unified data layer by design",
+                "Multi-tenant and multi-branch from day one",
+                "Reliable infrastructure for business-critical operations",
+                "A growing suite that covers the entire industry",
+              ].map((item) => (
+                <div key={item} className="flex items-start gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-zinc-400 shrink-0 mt-0.5" />
+                  <p className="text-[15px] text-zinc-700 leading-relaxed">
+                    {item}
+                  </p>
+                </div>
+              ))}
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Products */}
+      <section className="py-24 px-6 bg-zinc-50 border-t border-b border-zinc-100">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center max-w-2xl mx-auto mb-16">
+            <div className="inline-block px-3 py-1 rounded-full bg-white border border-zinc-200 mb-5">
+              <span className="text-[11px] font-bold text-zinc-500 uppercase tracking-[0.15em]">
+                The Suite
+              </span>
+            </div>
+            <h2 className="text-4xl lg:text-[3rem] font-black tracking-tight text-zinc-900 leading-[1.08] mb-5">
+              Products built for
+              <br />
+              <span className="text-zinc-400">how fitness operates.</span>
             </h2>
-            <p className="text-xl text-neutral-400 font-medium">
-              To build reliable, scalable software that empowers fitness
-              businesses to focus on what matters most—building their
-              communities.
+            <p className="text-zinc-500 text-lg leading-relaxed">
+              Each product solves a specific operational problem. Together, they
+              form a coherent platform.
             </p>
           </div>
 
-          <motion.div
-            variants={stagger}
-            initial="initial"
-            whileInView="whileInView"
-            viewport={{ once: true }}
-            className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8"
-          >
+          <div className="grid lg:grid-cols-2 gap-5">
             {[
               {
-                icon: Target,
-                title: "Purpose-Built",
-                description:
-                  "Software designed specifically for gyms, fitness studios, and retail operations.",
-                color: "bg-blue-50 text-blue-600 shadow-blue-500/10",
+                icon: Cloud,
+                name: "FitCloud",
+                category: "Gym Management",
+                tagBg: "bg-blue-50 border-blue-100",
+                tagText: "text-blue-600",
+                ctaColor: "text-blue-600 hover:text-blue-700",
+                href: "/fitcloud",
+                desc: "Complete operations management for gyms, studios, and fitness centers. Memberships, billing, attendance, and multi-branch reporting in one platform.",
+                features: [
+                  "Member management & automated billing",
+                  "Multi-location dashboard",
+                  "Attendance & check-ins",
+                  "Staff roles & permissions",
+                ],
               },
               {
-                icon: Zap,
-                title: "Built to Scale",
-                description:
-                  "From single locations to multi-branch franchises, our platform grows with you.",
-                color: "bg-red-50 text-red-600 shadow-red-500/10",
+                icon: Package,
+                name: "FitStock",
+                category: "Inventory Control",
+                tagBg: "bg-orange-50 border-orange-100",
+                tagText: "text-orange-600",
+                ctaColor: "text-orange-600 hover:text-orange-700",
+                href: "/fitstock",
+                desc: "Real-time stock tracking, purchase orders, and low-stock alerts across all your locations. Built for fitness retail, not generic warehouses.",
+                features: [
+                  "Real-time stock per branch",
+                  "Purchase orders & suppliers",
+                  "Inter-branch transfers",
+                  "Low-stock alerts & analytics",
+                ],
               },
-              {
-                icon: Shield,
-                title: "Reliable Infrastructure",
-                description:
-                  "Enterprise-grade security and uptime for business-critical operations.",
-                color: "bg-neutral-900 text-white shadow-gray-500/10",
-              },
-            ].map((feature, i) => (
+            ].map((product, i) => (
               <motion.div
-                key={i}
-                variants={fadeInUp}
-                className="group p-8 rounded-3xl bg-neutral-950 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] transition-all border border-neutral-800 hover:border-neutral-800"
+                key={product.name}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.08 }}
+                className="bg-white rounded-3xl border border-zinc-200 p-8 hover:border-zinc-300 hover:shadow-sm transition-all duration-300"
               >
                 <div
-                  className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-6 transition-transform group-hover:scale-110 shadow-lg ${feature.color}`}
+                  className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full ${product.tagBg} border text-[11px] font-bold ${product.tagText} uppercase tracking-wider mb-5`}
                 >
-                  <feature.icon className="w-7 h-7" />
+                  <product.icon className="w-3 h-3" />
+                  {product.category}
                 </div>
-                <h3 className="text-xl font-bold text-white mb-3">
-                  {feature.title}
+                <h3 className="text-[2rem] font-black text-zinc-900 tracking-tight leading-none mb-3">
+                  {product.name}
                 </h3>
-                <p className="text-base text-neutral-400 leading-relaxed font-medium">
-                  {feature.description}
+                <p className="text-zinc-500 text-[15px] leading-relaxed mb-6">
+                  {product.desc}
                 </p>
+                <ul className="space-y-2.5 mb-7">
+                  {product.features.map((f) => (
+                    <li
+                      key={f}
+                      className="flex items-center gap-2.5 text-[13px] text-zinc-600"
+                    >
+                      <CheckCircle2
+                        className={`w-4 h-4 shrink-0 ${product.tagText}`}
+                      />
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+                <Link
+                  href={product.href}
+                  className={`inline-flex items-center gap-2 text-[14px] font-bold ${product.ctaColor} group transition-colors`}
+                >
+                  Explore {product.name}
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+                </Link>
               </motion.div>
             ))}
-          </motion.div>
-        </div>
-      </section>
-
-      {/* The Two Softwares */}
-      <section className="py-24 px-6 bg-neutral-900">
-        <div className="max-w-6xl mx-auto space-y-32">
-          {/* FitCloud */}
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <motion.div
-              variants={fadeInUp}
-              initial="initial"
-              whileInView="whileInView"
-              className="order-2 lg:order-1 bg-neutral-950 rounded-[3rem] p-10 lg:p-16 shadow-[0_20px_60px_-15px_rgba(37,99,235,0.1)] border border-blue-900/50 relative overflow-hidden group"
-            >
-              <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-opacity blur-2xl">
-                <Cloud className="w-64 h-64 text-blue-600" />
-              </div>
-              <div className="relative z-10">
-                <div className="w-16 h-16 bg-blue-600 text-white rounded-2xl flex items-center justify-center mb-8 shadow-xl shadow-blue-500/30">
-                  <Cloud className="w-8 h-8" />
-                </div>
-                <h3 className="text-3xl font-black mb-4">FitCloud</h3>
-                <p className="text-lg text-neutral-400 mb-8 font-medium">
-                  The complete operating system for modern gyms. Manage
-                  memberships, process billing, and oversee multiple branches
-                  from a single unified dashboard.
-                </p>
-                <ul className="space-y-4 mb-10">
-                  {[
-                    "Multi-branch member management",
-                    "Automated recurring billing",
-                    "Access control integration",
-                    "Real-time analytics and reporting",
-                  ].map((feature, i) => (
-                    <li
-                      key={i}
-                      className="flex items-center gap-3 text-neutral-300 font-medium"
-                    >
-                      <CheckCircle2 className="w-5 h-5 text-blue-600 shrink-0" />
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-                <Link
-                  href="/fitcloud"
-                  className="inline-flex items-center gap-2 text-blue-600 font-bold hover:gap-3 transition-all"
-                >
-                  Explore FitCloud <ArrowRight className="w-5 h-5" />
-                </Link>
-              </div>
-            </motion.div>
-
-            <motion.div
-              variants={fadeInUp}
-              initial="initial"
-              whileInView="whileInView"
-              className="order-1 lg:order-2 lg:pl-10"
-            >
-              <h2 className="text-4xl lg:text-5xl font-black tracking-tight mb-6">
-                Streamline your <br />
-                <span className="text-blue-600">gym experience.</span>
-              </h2>
-              <p className="text-xl text-neutral-400 leading-relaxed font-medium">
-                We built FitCloud to remove the friction from daily operations.
-                Whether you run a local boutique studio or a nationwide
-                franchise, our platform handles the heavy lifting so you can
-                focus on building your community.
-              </p>
-            </motion.div>
-          </div>
-
-          {/* FitStock */}
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <motion.div
-              variants={fadeInUp}
-              initial="initial"
-              whileInView="whileInView"
-              className="lg:pr-10"
-            >
-              <h2 className="text-4xl lg:text-5xl font-black tracking-tight mb-6">
-                Take control of <br />
-                <span className="text-red-600">your inventory.</span>
-              </h2>
-              <p className="text-xl text-neutral-400 leading-relaxed font-medium">
-                Inventory shouldn't be a guessing game. FitStock gives you
-                absolute clarity on what you have, what you need, and where it
-                needs to go. Perfect for multi-location businesses looking to
-                optimize stock levels.
-              </p>
-            </motion.div>
-
-            <motion.div
-              variants={fadeInUp}
-              initial="initial"
-              whileInView="whileInView"
-              className="bg-neutral-950 rounded-[3rem] p-10 lg:p-16 shadow-[0_20px_60px_-15px_rgba(220,38,38,0.1)] border border-red-900/50 relative overflow-hidden group"
-            >
-              <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-opacity blur-2xl">
-                <Package className="w-64 h-64 text-red-600" />
-              </div>
-              <div className="relative z-10">
-                <div className="w-16 h-16 bg-red-600 text-white rounded-2xl flex items-center justify-center mb-8 shadow-xl shadow-red-500/30">
-                  <Package className="w-8 h-8" />
-                </div>
-                <h3 className="text-3xl font-black mb-4">FitStock</h3>
-                <p className="text-lg text-neutral-400 mb-8 font-medium">
-                  Intelligent inventory management designed for accuracy and
-                  speed. Track products, transfer stock between locations, and
-                  never run out of critical supplies.
-                </p>
-                <ul className="space-y-4 mb-10">
-                  {[
-                    "Cross-location stock transfers",
-                    "Low inventory alerts",
-                    "Supplier and vendor management",
-                    "Usage-based restocking insights",
-                  ].map((feature, i) => (
-                    <li
-                      key={i}
-                      className="flex items-center gap-3 text-neutral-300 font-medium"
-                    >
-                      <CheckCircle2 className="w-5 h-5 text-red-600 shrink-0" />
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-                <Link
-                  href="/fitstock"
-                  className="inline-flex items-center gap-2 text-red-600 font-bold hover:gap-3 transition-all"
-                >
-                  Explore FitStock <ArrowRight className="w-5 h-5" />
-                </Link>
-              </div>
-            </motion.div>
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-24 px-6 bg-neutral-950">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl lg:text-5xl font-black text-white tracking-tight mb-8">
-            Ready to modernize your operations?
+      {/* Values */}
+      <section className="py-24 px-6 bg-zinc-950">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-[1fr_1.6fr] gap-20 items-start">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="lg:sticky lg:top-32"
+            >
+              <div className="inline-block px-3 py-1 rounded-full bg-zinc-900 border border-zinc-800 mb-6">
+                <span className="text-[11px] font-bold text-zinc-400 uppercase tracking-[0.15em]">
+                  How we build
+                </span>
+              </div>
+              <h2 className="text-4xl lg:text-[3rem] font-black tracking-tight text-white leading-[1.05] mb-6">
+                Principles that
+                <br />
+                <span className="text-zinc-500">guide every decision.</span>
+              </h2>
+              <p className="text-zinc-400 text-lg leading-relaxed">
+                These aren't marketing values — they're constraints we apply
+                when deciding what to build, how to build it, and what to leave
+                out.
+              </p>
+            </motion.div>
+
+            <div className="flex flex-col divide-y divide-zinc-800">
+              {values.map((item, i) => (
+                <motion.div
+                  key={item.number}
+                  initial={{ opacity: 0, x: 16 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: i * 0.08 }}
+                  className="py-8 first:pt-0 last:pb-0"
+                >
+                  <div className="flex items-start gap-6">
+                    <span className="text-[13px] font-black text-zinc-600 tabular-nums shrink-0 mt-1">
+                      {item.number}
+                    </span>
+                    <div>
+                      <h3 className="text-[18px] font-bold text-white mb-2 tracking-tight">
+                        {item.title}
+                      </h3>
+                      <p className="text-zinc-500 text-[15px] leading-relaxed">
+                        {item.description}
+                      </p>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-24 px-6 bg-white">
+        <div className="max-w-3xl mx-auto text-center">
+          <h2 className="text-4xl lg:text-[3.25rem] font-black tracking-tight text-zinc-900 leading-none mb-6">
+            Ready to get started?
           </h2>
-          <p className="text-xl text-neutral-400 mb-12 font-medium">
-            Join hundreds of gyms and fitness businesses using Fitbinary to
-            scale their operations seamlessly.
+          <p className="text-zinc-500 text-lg leading-relaxed mb-10">
+            Explore the Fitbinary suite or talk to our team to find the right
+            products for your business.
           </p>
-          <Link
-            href="/get-started"
-            className="inline-flex items-center gap-2 px-10 py-5 bg-gray-900 text-white rounded-full font-bold text-lg hover:bg-black transition-all shadow-xl shadow-gray-900/20 active:scale-95 group"
-          >
-            Get Started
-            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-          </Link>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Link
+              href="/get-started"
+              className="px-8 py-4 rounded-full bg-zinc-900 text-white font-bold text-[15px] hover:bg-zinc-800 active:scale-95 transition-all flex items-center gap-2 group"
+            >
+              Get Started Free
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+            </Link>
+            <Link
+              href="/contact"
+              className="px-8 py-4 rounded-full border border-zinc-200 text-zinc-600 font-bold text-[15px] hover:border-zinc-400 hover:text-zinc-900 active:scale-95 transition-all"
+            >
+              Talk to Sales
+            </Link>
+          </div>
         </div>
       </section>
 
-      {/* Footer */}
       <Footer />
     </div>
   );
