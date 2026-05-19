@@ -4,11 +4,6 @@ export const WebSiteSchema = () => {
     "@type": "WebSite",
     name: "Fitbinary",
     url: "https://fitbinary.com",
-    potentialAction: {
-      "@type": "SearchAction",
-      target: "https://fitbinary.com/search?q={search_term_string}",
-      "query-input": "required name=search_term_string",
-    },
     hasPart: [
       {
         "@type": "WebPage",

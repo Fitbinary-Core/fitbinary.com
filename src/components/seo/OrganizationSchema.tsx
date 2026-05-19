@@ -1,39 +1,45 @@
 export const OrganizationSchema = () => {
   const schema = {
     "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
+    "@type": "Organization",
     name: "Fitbinary",
-    operatingSystem: "Web",
-    applicationCategory: "BusinessApplication",
+    url: "https://fitbinary.com",
+    logo: "https://fitbinary.com/logo.png",
     description:
-      "Enterprise-grade fitness centers and retail business management platform with multi-tenant architecture.",
-    offers: {
-      "@type": "Offer",
-      price: "0",
-      priceCurrency: "USD",
-    },
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.9",
-      reviewCount: "120",
-    },
-    publisher: {
-      "@type": "Organization",
-      name: "Fitbinary Inc.",
-      url: "https://fitbinary.com",
-      logo: "https://fitbinary.com/logo.png",
-      sameAs: [
-        "https://fitstock.fitbinary.com",
-        "https://fitcloud.fitbinary.com",
-        "https://accounts.fitbinary.com",
-        "https://twitter.com/fitbinary",
-        "https://linkedin.com/company/fitbinary",
-      ],
-    },
-    relatedLink: [
-      "https://fitstock.fitbinary.com",
-      "https://fitcloud.fitbinary.com",
-      "https://accounts.fitbinary.com",
+      "Business operations suite for gyms and retail. FitCloud manages gym memberships, billing, and multi-branch operations. FitStock manages inventory, stock transfers, and analytics.",
+    sameAs: [
+      "https://twitter.com/fitbinary",
+      "https://linkedin.com/company/fitbinary",
+    ],
+    hasPart: [
+      {
+        "@type": "SoftwareApplication",
+        name: "FitCloud",
+        url: "https://fitcloud.fitbinary.com",
+        applicationCategory: "BusinessApplication",
+        operatingSystem: "Web",
+        description:
+          "All-in-one gym management platform for memberships, billing, attendance, and multi-branch operations.",
+        offers: {
+          "@type": "Offer",
+          price: "0",
+          priceCurrency: "USD",
+        },
+      },
+      {
+        "@type": "SoftwareApplication",
+        name: "FitStock",
+        url: "https://fitstock.fitbinary.com",
+        applicationCategory: "BusinessApplication",
+        operatingSystem: "Web",
+        description:
+          "Smart inventory management for products, purchase orders, inter-branch transfers, and real-time analytics.",
+        offers: {
+          "@type": "Offer",
+          price: "0",
+          priceCurrency: "USD",
+        },
+      },
     ],
   };
 
